@@ -17,7 +17,6 @@ a {
 
 * {
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
