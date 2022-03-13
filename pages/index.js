@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <div className="w-full h-screen flex justify-center items-center">
-        <button onClick={() => router.replace("/section2", "/", { shallow: true, scroll: false })}>Start</button>
+        <button className="bg-gray-300 py-3 px-10 rounded font-bold" onClick={() => router.replace("/section2", "/", { shallow: true, scroll: false })}>Start</button>
       </div>
     </>
   );

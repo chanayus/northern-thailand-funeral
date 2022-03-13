@@ -26,7 +26,7 @@ const Section2 = () => {
             หลังจากนั้นก็ใช้น้ำส้มป่อยมาราดที่มือศพ
           </p>
         </div>
-        <button className="absolute bg-white p-4 right-5 top-1/2" onClick={() => router.replace("/section3", "/",{shallow: true, scroll: false})}>
+        <button className="absolute bg-gray-300 py-3 px-10 rounded font-bold right-5 top-1/2" onClick={() => router.replace("/section3", "/",{shallow: true, scroll: false})}>
           Next
         </button>
         <img src="/images/section2/content.png" alt="" />
