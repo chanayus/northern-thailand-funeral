@@ -28,7 +28,7 @@ const Header = () => {
         <Img
           src={`/images/section2/header/เสีย_${value}.png`}
           ref={addToRefs}
-          className="w-full h-full 2xl:object-fill object-cover"
+          className="w-full h-full"
           key={index}
           zIndex={imageIndex.length - value}
           draggable={false}
@@ -44,7 +44,11 @@ const Header = () => {
 const Img = styled.img`
   user-select: none;
   position: absolute;
+  object-fit: fill;
   z-index: ${(props) => props.zIndex};
+  @media (max-width: 1536px) {
+    object-fit: cover;
+  }
 `;
 
 export default Header;
