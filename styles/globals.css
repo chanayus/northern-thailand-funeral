@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: SOV_watta;
+  src: url("../public/font/SOV_watta.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: TH Chakra Petch;
+  src: url("../public/font/TH_Chakra_Petch.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: TH Chakra Petch;
+  font-weight: 600;
+  src: url("../public/font/TH_Chakra_Petch_Bold.woff2") format("woff2");
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -17,8 +33,14 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: "TH Chakra Petch", Helvetica, sans-serif;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.header-font {
+  font-family: "SOV_watta" !important;
+  font-weight: lighter;
 }
