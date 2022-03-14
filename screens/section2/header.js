@@ -28,7 +28,7 @@ const Header = () => {
         <Img
           src={`/images/section2/header/เสีย_${value}.png`}
           ref={addToRefs}
-          className="w-full h-full object-cover 2xl:object-fill"
+          className="w-full h-full object-fill"
           key={index}
           zIndex={imageIndex.length - value}
           draggable={false}
