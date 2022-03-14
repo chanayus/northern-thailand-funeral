@@ -1,3 +1,4 @@
+import Header from "../screens/section2/header";
 import styled from "styled-components";
 import { useRef } from "react";
 import { useRouter } from "next/router";
@@ -15,8 +16,9 @@ const Section2 = () => {
   return (
     <>
       <div className="w-full h-screen">
-        <img src="/images/section2/header.png" alt="" className="w-full h-full object-cover 2xl:object-fill" />
+        <Header/>
       </div>
+    
 
       <Content className="w-full relative">
         <div className="absolute text-white top-32">

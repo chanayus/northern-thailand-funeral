@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 
+import Image360 from "../components/Image360";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap/dist/gsap";
 import { motion } from "framer-motion";
@@ -20,12 +21,13 @@ const Section3 = () => {
         trigger: ".scroll-container",
         pin: true,
         scrub: 0.5,
+        anticipatePin: 1,
         snap: {
           snapTo: 1 / (5 - 1),
-          inertia: false,
-          duration: { min: 0.1, max: 0.1 },
+          duration: { min: 0.01, max: 0.01 },
+          delay: 0,
         },
-        end: "+=1000%",
+        end: "+=1500%",
       },
     });
 
@@ -61,8 +63,8 @@ const Section3 = () => {
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center">
           <h1 className="text-9xl">2</h1>
         </div>
-        <div className="panel w-screen h-screen flex-shrink-0 bg-red-700 border border-black flex justify-center items-center">
-          <h1 className="text-9xl">3</h1>
+        <div className="panel w-screen h-screen flex-shrink-0 border border-black flex justify-center items-center">
+          <Image360 />
         </div>
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-800 border border-black flex justify-center items-center">
           <h1 className="text-9xl">4</h1>
