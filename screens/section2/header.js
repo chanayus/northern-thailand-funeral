@@ -7,12 +7,16 @@ const Header = () => {
 
   const imageIndex = new Array(14).fill("").map((_, i) => i + 1);
 
+  const parallaxExclude = [1, 13]
   const parallax = (e) => {
     const { pageX, pageY } = e;
-    const x = (window.innerWidth - pageX) / 100;
-    const y = (window.innerHeight - pageY) / 100;
+    const x = (window.innerWidth - pageX) / 60;
+    const y = (window.innerHeight - pageY) / 60;
     itemsRef.current.map((ele, index) => {
-      ele.style.transform = `translateX(${x / (index/1.75 + 2)}px) translateY(${y / (index/1.75 + 2)}px)`;
+        if(!parallaxExclude.includes(index+1)){
+            ele.style.transform = `translateX(${x / (index + 1)}px) translateY(${y / (index + 1)}px)`;
+        }
+      
     });
   };
 
