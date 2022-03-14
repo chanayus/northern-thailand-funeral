@@ -27,7 +27,7 @@ const Image360 = ({ amount = 72, path = "" }) => {
       if (clientX < swipeValue) {
         setImageValue(imageValue + 1 > amount ? 1 : imageValue + 1);
       } else {
-        setImageValue(imageValue - 1 < 0 ? amount : imageValue - 1);
+        setImageValue(imageValue - 1 < 1 ? amount : imageValue - 1);
       }
     }
     setSwipeValue(clientX);
