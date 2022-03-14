@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full h-full relative" onMouseMove={(e) => parallax(e)}>
+    <div className="w-full h-full relative border-4 border-red-600" onMouseMove={(e) => parallax(e)}>
       {imageIndex.map((value, index) => (
         <Img
           src={`/images/section2/header/เสีย_${value}.png`}
@@ -32,6 +32,8 @@ const Header = () => {
           key={index}
           zIndex={imageIndex.length - value}
           draggable={false}
+          width={"100%"}
+          height={"100%"}
           alt=""
         />
       ))}
