@@ -1,18 +1,18 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react"
 
-import Image360 from "../components/Image360";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import gsap from "gsap/dist/gsap";
-import { motion } from "framer-motion";
+import Image360 from "../components/Image360"
+import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import gsap from "gsap/dist/gsap"
+import { motion } from "framer-motion"
 
 const Section3 = () => {
-  gsap.registerPlugin(ScrollTrigger);
-  const textRef = useRef();
-  const boxRef = useRef(null);
+  gsap.registerPlugin(ScrollTrigger)
+  const textRef = useRef()
+  const boxRef = useRef(null)
 
   useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-    const sections = gsap.utils.toArray(".panel");
+    window.scrollTo(0, 0)
+    const sections = gsap.utils.toArray(".panel")
     gsap.to(sections, {
       xPercent: -400,
       ease: "none",
@@ -29,22 +29,22 @@ const Section3 = () => {
         },
         end: "+=1500%",
       },
-    });
+    })
 
     return () => {
-      const anim = ScrollTrigger.getById("horizontal-section2");
+      const anim = ScrollTrigger.getById("horizontal-section2")
       if (anim) {
-        anim.kill();
+        anim.kill()
       }
-    };
-  }, []);
+    }
+  }, [])
 
   const parallax = (e) => {
-    const { pageX, pageY } = e;
-    const x = (window.innerWidth - pageX) / 200;
-    const y = (window.innerHeight - pageY) / 200;
-    textRef.current.style.transform = `translateX(${x}px) translateY(${y}px)`;
-  };
+    const { pageX, pageY } = e
+    const x = (window.innerWidth - pageX) / 200
+    const y = (window.innerHeight - pageY) / 200
+    textRef.current.style.transform = `translateX(${x}px) translateY(${y}px)`
+  }
 
   return (
     <>
@@ -74,10 +74,10 @@ const Section3 = () => {
         </div>
       </div>
       <div className="w-full h-screen flex justify-center items-center">
-        <h1 className="text-6xl">Content 2</h1>
+        <h1 className="text-6xl text-white">Content 2</h1>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Section3;
+export default Section3

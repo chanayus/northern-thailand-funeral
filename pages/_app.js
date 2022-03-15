@@ -1,9 +1,9 @@
-import "../styles/globals.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "../styles/globals.css"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
-import Head from "next/head";
-import Layout from "../components/layout";
+import Head from "next/head"
+import Layout from "../components/layout"
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

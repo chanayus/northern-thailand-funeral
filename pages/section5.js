@@ -1,6 +1,6 @@
-import Slider from "react-slick/lib/slider";
-import styled from "styled-components";
-import { useState } from "react";
+import Slider from "react-slick/lib/slider"
+import styled from "styled-components"
+import { useState } from "react"
 
 const Section5 = () => {
   const zodiac = [
@@ -52,25 +52,25 @@ const Section5 = () => {
       title: "ราศีธนู",
       img: "https://pbs.twimg.com/media/FNwpGSfXoAgeFHh?format=jpg&name=900x900",
     },
-  ];
+  ]
 
-  const [imageIndex, setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0)
 
   const PrevArrow = ({ onClick }) => {
     return (
       <div onClick={onClick} className="absolute top-[45%] left-[39%] z-10 translate-y-[-50%] cursor-pointer lg:block hidden">
         <img src="/icon/arrow.svg" className="rotate-180" alt="" />
       </div>
-    );
-  };
+    )
+  }
 
   const NextArrow = ({ onClick }) => {
     return (
       <div onClick={onClick} className="absolute top-[45%] right-[39%] z-10 translate-y-[-50%] cursor-pointer lg:block hidden">
         <img src="/icon/arrow.svg" alt="" />
       </div>
-    );
-  };
+    )
+  }
 
   const settings = {
     infinite: true,
@@ -87,18 +87,18 @@ const Section5 = () => {
     prevArrow: <PrevArrow />,
     className: "relative",
     responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 0
-          }
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 0,
         },
+      },
     ],
     beforeChange: (current, next) => setImageIndex(next),
-  };
+  }
   return (
-    <div className="w-full h-full min-h-screen bg-gray-800 relative flex items-center">
+    <div className="w-full h-full min-h-screen relative flex items-center">
       <div className="w-full">
         <h1 className="header-font text-7xl text-white text-center mb-10">ของที่ระลึกงานศพ</h1>
         <Slider {...settings}>
@@ -118,21 +118,19 @@ const Section5 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Slide = styled.div`
   transition: 0.35s;
   &.activeSlide {
     transform: scale(1);
     opacity: 1;
-
   }
   &.slide {
     transform: scale(0.75);
     opacity: 0.5;
-
   }
-`;
+`
 
-export default Section5;
+export default Section5
