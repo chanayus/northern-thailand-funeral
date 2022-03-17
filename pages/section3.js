@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 import Image360 from "../components/Image360"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
@@ -10,7 +10,7 @@ const Section3 = () => {
   const textRef = useRef()
   const boxRef = useRef(null)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0)
     const sections = gsap.utils.toArray(".panel")
     gsap.to(sections, {
@@ -22,20 +22,26 @@ const Section3 = () => {
         pin: true,
         scrub: 0.5,
         anticipatePin: 1,
-        snap: {
-          snapTo: 1 / (5 - 1),
-          duration: { min: 0.01, max: 0.01 },
-          delay: 0,
-        },
+        snap:  1 / (5 - 1),
         end: "+=1500%",
       },
     })
 
+    gsap.from("#three", {
+      scrollTrigger: {
+        trigger: "body",
+        start: "40% center",
+        end: "+=100%",
+        toggleActions: "play complete complete complete",
+        scrub: true,
+      },
+      scale: 0.5,
+      duration: 0.25,
+      ease: "none",
+    })
+
     return () => {
-      const anim = ScrollTrigger.getById("horizontal-section2")
-      if (anim) {
-        anim.kill()
-      }
+      ScrollTrigger.getAll().forEach((t) => t.kill())
     }
   }, [])
 
@@ -63,8 +69,10 @@ const Section3 = () => {
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center">
           <h1 className="text-9xl">2</h1>
         </div>
-        <div className="panel w-screen h-screen flex-shrink-0 border border-black flex justify-center items-center">
-          <Image360 />
+        <div className="panel w-screen h-screen flex-shrink-0 border border-black flex justify-center items-center threepage">
+          <div id="three">
+            <Image360 />
+          </div>
         </div>
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-800 border border-black flex justify-center items-center">
           <h1 className="text-9xl">4</h1>

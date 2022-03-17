@@ -26,7 +26,7 @@ const Header = () => {
   }
 
   return (
-    <div className="w-full h-full relative border-4 border-red-600" onMouseMove={(e) => parallax(e)}>
+    <div className="w-full h-full border-4 border-red-900" onMouseMove={(e) => parallax(e)}>
       {imageIndex.map((value, index) => (
         <Img
           src={`/images/section2/header/เสีย_${value}.png`}
@@ -47,10 +47,11 @@ const Header = () => {
 const Img = styled.img`
   user-select: none;
   position: absolute;
+  top: 0;
   object-fit: fill;
   z-index: ${(props) => props.zIndex};
   @media (max-width: 1536px) {
-    object-fit: cover;
+    object-fit: fill;
   }
 `
 
