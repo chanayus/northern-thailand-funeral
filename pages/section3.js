@@ -11,7 +11,7 @@ const Section3 = () => {
   const boxRef = useRef(null)
 
   useEffect(() => {
-    // window.scrollTo(0, 0)
+    window.scrollTo(0, 0)
     const sections = gsap.utils.toArray(".panel")
     gsap.to(sections, {
       xPercent: -400,
@@ -68,13 +68,13 @@ const Section3 = () => {
       </div>
       <div className="scroll-container max-w-screen h-screen flex bg-blue-500 hide-scrollbar overscroll-none">
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-500 border border-black flex justify-center items-center">
-          <h1 className="text-9xl">1</h1>
+          <button onClick={() => console.log("asd")}>Button</button>
         </div>
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center">
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/hEdzv7D4CbQ"
+            src="https://www.youtube.com/embed/hEdzv7D4CbQ?rel=0"
             title="YouTube video player"
             frameBorder={0}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
