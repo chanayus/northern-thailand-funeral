@@ -11,7 +11,7 @@ const Section3 = () => {
   const boxRef = useRef(null)
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
     const sections = gsap.utils.toArray(".panel")
     gsap.to(sections, {
       xPercent: -400,
@@ -22,7 +22,11 @@ const Section3 = () => {
         pin: true,
         scrub: 0.5,
         anticipatePin: 1,
-        snap:  1 / (5 - 1),
+        snap: {
+          snapTo: 1 / (5 - 1),
+          inertia: false,
+          duration: { min: 0.15, max: 0.15 },
+        },
         end: "+=1500%",
       },
     })
@@ -67,7 +71,15 @@ const Section3 = () => {
           <h1 className="text-9xl">1</h1>
         </div>
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center">
-          <h1 className="text-9xl">2</h1>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/hEdzv7D4CbQ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
         <div className="panel w-screen h-screen flex-shrink-0 border border-black flex justify-center items-center threepage">
           <div id="three">
