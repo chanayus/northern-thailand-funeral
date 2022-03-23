@@ -76,10 +76,10 @@ const Section3 = () => {
             height="100%"
             src="https://www.youtube.com/embed/hEdzv7D4CbQ"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder={0}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+            allowFullScreen
+          />
         </div>
         <div className="panel w-screen h-screen flex-shrink-0 border border-black flex justify-center items-center threepage">
           <div id="three">
