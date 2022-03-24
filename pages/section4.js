@@ -1,17 +1,21 @@
 import { useEffect, useRef } from "react"
 
-import Panel1 from "../screens/section3/Panel1"
-import Panel2 from "../screens/section3/Panel2"
-import Panel3 from "../screens/section3/Panel3"
+import Panel1 from "../screens/section4/horizontal/Panel1"
+import Panel2 from "../screens/section4/horizontal/Panel2"
+import Panel3 from "../screens/section4/horizontal/Panel3"
+import Panel4 from "../screens/section4/horizontal/Panel4"
+import Panel5 from "../screens/section4/horizontal/Panel5"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import gsap from "gsap/dist/gsap"
 import { motion } from "framer-motion"
 import { useContext } from "react"
+import { useRouter } from "next/router"
 
-const Section3 = () => {
+const Section4 = () => {
   gsap.registerPlugin(ScrollTrigger)
   const boxRef = useRef(null)
+  const router = useRouter()
 
   const { setTimelinePoint } = useContext(TimelineContext)
 
@@ -19,15 +23,29 @@ const Section3 = () => {
     window.scrollTo(0, 0)
     const sections = gsap.utils.toArray(".panel")
     gsap.to(sections, {
-      xPercent: -200,
+      xPercent: -400,
       ease: "none",
       scrollTrigger: {
         id: "horizontal-section2",
         trigger: ".scroll-container",
         pin: true,
         scrub: 0.5,
-        end: "+=1000%",
+        anticipatePin: 1,
+        end: "+=1500%",
       },
+    })
+
+    gsap.from("#three", {
+      scrollTrigger: {
+        trigger: "body",
+        start: "40% center",
+        end: "+=100%",
+        toggleActions: "play complete complete complete",
+        scrub: true,
+      },
+      scale: 0.5,
+      duration: 0.25,
+      ease: "none",
     })
 
     return () => {
@@ -38,7 +56,7 @@ const Section3 = () => {
   return (
     <>
       <div className="w-full h-screen flex justify-center items-center relative">
-        <h1 className="text-6xl">Section 3</h1>
+        <h1 className="text-6xl">Section 4</h1>
         <motion.div ref={boxRef} className="w-full h-full absolute">
           <motion.div drag onDrag={(e) => console.log(e.x, e.y)} dragConstraints={boxRef} className="w-20 h-20 bg-red-500"></motion.div>
         </motion.div>
@@ -50,12 +68,26 @@ const Section3 = () => {
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center">
           <Panel2 setTimelinePoint={setTimelinePoint} />
         </div>
-        <div className="panel w-screen h-screen flex-shrink-0 bg-red-500 border border-black flex justify-center items-center">
+        <div className="panel w-screen h-screen flex-shrink-0 border border-black flex justify-center items-center">
           <Panel3 setTimelinePoint={setTimelinePoint} />
         </div>
+        <div className="panel w-screen h-Fscreen flex-shrink-0 bg-red-800 border border-black flex justify-center items-center">
+          <Panel4 setTimelinePoint={setTimelinePoint} />
+        </div>
+        <div className="panel w-screen h-screen flex-shrink-0 bg-red-900 border border-black flex justify-center items-center">
+          <Panel5 setTimelinePoint={setTimelinePoint} />
+        </div>
+      </div>
+      <div className="w-full h-screen flex justify-center items-center">
+        <button
+          className="border border-white rounded-xl py-3 text-2xl font-bold w-36"
+          onClick={() => router.replace("/section5", "/", { shallow: true, scroll: false })}
+        >
+          Next
+        </button>
       </div>
     </>
   )
 }
 
-export default Section3
+export default Section4

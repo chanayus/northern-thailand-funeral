@@ -4,11 +4,14 @@ import { useEffect, useState } from "react"
 
 import Header from "../screens/section2/header"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import { TimelineContext } from "./_app"
 import gsap from "gsap/dist/gsap"
+import { useContext } from "react"
 import { useRouter } from "next/router"
 
 const Section2 = () => {
   gsap.registerPlugin(ScrollTrigger)
+  const { setTimelinePoint } = useContext(TimelineContext)
   const [isNext, setIsNext] = useState(false)
   const [candleActivate, setCandleActivate] = useState(false)
   const router = useRouter()
@@ -22,6 +25,8 @@ const Section2 = () => {
         start: "-50 center",
         end: `+=600 center`,
         scrub: true,
+        onEnter: () => setTimelinePoint(1),
+        onLeaveBack: () => setTimelinePoint(0)
       },
     })
 
@@ -33,6 +38,8 @@ const Section2 = () => {
         end: `+=40%`,
         scrub: true,
         pin: true,
+        onEnter: () => setTimelinePoint(2),
+        onLeaveBack: () => setTimelinePoint(1)
       },
     })
 
@@ -145,7 +152,7 @@ const Smoke = styled(motion.div)`
     background: red;
     border-radius: 50%;
     animation: ${smokeAnim} 5s linear infinite;
-    filter:  blur(10px);
+    filter: blur(10px);
   }
 `
 
