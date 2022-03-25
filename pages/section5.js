@@ -74,7 +74,7 @@ const Section5 = () => {
 
   const settings = {
     infinite: true,
-    lazyLoad: true,
+    lazyLoad: false,
     speed: 300,
     slidesToShow: 5,
     centerMode: true,
