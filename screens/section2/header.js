@@ -10,10 +10,11 @@ const Header = () => {
   const parallaxExclude = [1, 13]
   const parallax = (e) => {
     const { pageX, pageY } = e
-    const x = (window.innerWidth - pageX) / 50
-    const y = (window.innerHeight - pageY) / 50
+    const x = (window.innerWidth - pageX) / 35
+    const y = (window.innerHeight - pageY) / 35
     itemsRef.current.map((ele, index) => {
       if (!parallaxExclude.includes(index + 1)) {
+        ele.style.transition = "0.175s"
         ele.style.transform = `translateX(${x / (index + 1)}px) translateY(${y / (index + 1)}px)`
       }
     })

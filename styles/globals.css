@@ -40,7 +40,9 @@ a {
   color: #fff;
   font-family: "TH Chakra Petch", Helvetica, sans-serif;
 }
-
+svg, path {
+  color: unset;
+}
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
