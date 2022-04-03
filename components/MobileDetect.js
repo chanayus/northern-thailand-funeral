@@ -31,7 +31,7 @@ const MobileDetect = () => {
           <h2 className="text-center text-3xl absolute top-[20%]">Rotate Screen to Landscape</h2>
           <div className="">
             <motion.img
-              src="/images/iPhoneX.svg"
+              src="/images/iPhone.svg"
               alt=""
               width={180}
               className="w-[40%] mx-auto"
