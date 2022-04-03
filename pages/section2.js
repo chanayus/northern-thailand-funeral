@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import styled, { keyframes } from "styled-components"
 import { useEffect, useState } from "react"
 
-import Header from "../screens/section2/header"
+import HeaderParallax from "../components/HeaderParallax"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import gsap from "gsap/dist/gsap"
@@ -26,7 +26,7 @@ const Section2 = () => {
         end: `+=600 center`,
         scrub: true,
         onEnter: () => setTimelinePoint(1),
-        onLeaveBack: () => setTimelinePoint(0)
+        onLeaveBack: () => setTimelinePoint(0),
       },
     })
 
@@ -39,7 +39,7 @@ const Section2 = () => {
         scrub: true,
         pin: true,
         onEnter: () => setTimelinePoint(2),
-        onLeaveBack: () => setTimelinePoint(1)
+        onLeaveBack: () => setTimelinePoint(1),
       },
     })
 
@@ -68,8 +68,8 @@ const Section2 = () => {
 
   return (
     <div className="min-h-screen h-full">
-      <div className="w-full bg-red-300 overflow-hidden mx-0 pt-[50.75%] relative">
-        <Header />
+      <div className="w-full overflow-hidden mx-0 pt-[50.75%] relative">
+        <HeaderParallax path={"/images/section2/header/เสีย_"} totalImage={14} parallaxExclude={[1, 13, 14]} />
       </div>
       <div className="w-full min-h-screen relative content-container">
         <div className="flex xl:items-center xl:flex-row flex-col">

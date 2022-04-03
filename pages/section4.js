@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 
+import HeaderParallax from "../components/HeaderParallax"
 import Panel1 from "../screens/section4/horizontal/Panel1"
 import Panel2 from "../screens/section4/horizontal/Panel2"
 import Panel3 from "../screens/section4/horizontal/Panel3"
@@ -55,11 +56,8 @@ const Section4 = () => {
 
   return (
     <>
-      <div className="w-full h-screen flex justify-center items-center relative">
-        <h1 className="text-6xl">Section 4</h1>
-        <motion.div ref={boxRef} className="w-full h-full absolute">
-          <motion.div drag onDrag={(e) => console.log(e.x, e.y)} dragConstraints={boxRef} className="w-20 h-20 bg-red-500"></motion.div>
-        </motion.div>
+      <div className="w-full overflow-hidden mx-0 pt-[50.75%] relative">
+      <HeaderParallax path={"/images/section4/header/สลาย_"} totalImage={11} parallaxExclude={[11]} />
       </div>
       <div className="scroll-container max-w-screen h-screen flex bg-blue-500 hide-scrollbar overscroll-none">
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-500 border border-black flex justify-center items-center">
