@@ -16,7 +16,6 @@ const Section3 = () => {
   const { setTimelinePoint } = useContext(TimelineContext)
 
   useEffect(() => {
-    // window.scrollTo(0, 0)
     const sections = gsap.utils.toArray(".panel")
     gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
