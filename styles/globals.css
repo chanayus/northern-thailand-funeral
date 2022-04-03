@@ -25,7 +25,9 @@ body {
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
 html {
   background: #151515;
   background-image: url("/images/body_bg.png");
@@ -41,7 +43,8 @@ a {
   color: #fff;
   font-family: "TH Chakra Petch", Helvetica, sans-serif;
 }
-svg, path {
+svg,
+path {
   color: unset;
 }
 .hide-scrollbar::-webkit-scrollbar {
