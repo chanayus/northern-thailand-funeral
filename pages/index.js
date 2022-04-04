@@ -9,14 +9,14 @@ const Home = () => {
   }, [])
   return (
     <div className="relative">
-      <video width="100%" height="100%" autoPlay muted loop>
+      <video width="100%" height="100%" autoPlay muted loop className="object-center">
         <source src="/video/bg.mp4" type="video/mp4"></source>
       </video>
 
       <img src="/images/logo.png" alt="" width="320" draggable={false} className="w-[35vw] absolute top-[2%] left-1/2 translate-x-[-50%]" />
 
       <button
-        className="bg-white text-black text-2xl py-3 px-10 rounded font-bold absolute left-1/2 translate-x-[-30%] bottom-[1%]"
+        className="bg-white text-black text-2xl py-3 px-10 rounded font-bold absolute left-1/2 translate-x-[-50%] bottom-[1%]"
         onClick={() => router.replace("/section2", "/", { shallow: true, scroll: false })}
       >
         Start

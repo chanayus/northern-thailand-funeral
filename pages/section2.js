@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from "framer-motion"
-import styled, { keyframes } from "styled-components"
 import { useEffect, useState } from "react"
 
 import HeaderParallax from "../components/HeaderParallax"
@@ -17,14 +16,14 @@ const Section2 = () => {
   const router = useRouter()
 
   useEffect(() => {
-    gsap.to("#coffin", { opacity: 0, x: "27.5%", y: "-25%", duration: 0, delay: 0 })
+    gsap.to("#coffin", { opacity: 0, scale: 1.75, x: "26%", y: "-44.0%", duration: 0, delay: 0 })
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".content-container",
         start: "-50 center",
         end: `+=600 center`,
-        scrub: true,
+        scrub: 1.5,
         onEnter: () => setTimelinePoint(1),
         onLeaveBack: () => setTimelinePoint(0),
       },
@@ -51,11 +50,15 @@ const Section2 = () => {
     }
   }, [])
 
+  const durationValue = 1.75
+
   const candleHandle = () => {
     setCandleActivate(true)
-    gsap.to("#coffin", { opacity: 1, delay: 1 })
-    gsap.to("#coffin", { x: 0, y: 0, delay: 2.5 })
-    gsap.to("#candle", { left: "22.5%", top: "75%", delay: 2.5 })
+    gsap.to("#coffin", { opacity: 1, delay: 1, duration: durationValue })
+    gsap.to("#candle-stick", { opacity: 0, delay: 1, duration: durationValue })
+    gsap.to("#smoke", { opacity: 0, delay: 1, duration: durationValue })
+    gsap.to("#coffin", { x: 0, y: 0, scale: 1, delay: 2.5, duration: durationValue })
+
     setIsNext(true)
   }
 
@@ -67,7 +70,10 @@ const Section2 = () => {
   }, [candleActivate])
 
   return (
-    <div className="min-h-screen h-full">
+    <div className="min-h-screen h-full relative">
+      <video width="100%" height="100%" autoPlay muted loop className="fixed w-full h-full object-cover">
+        <source src="/video/section2-bg.mp4" type="video/mp4"></source>
+      </video>
       <div className="w-full overflow-hidden mx-0 pt-[50.75%] relative">
         <HeaderParallax path={"/images/section2/header/เสีย_"} totalImage={14} parallaxExclude={[1, 13, 14]} />
       </div>
@@ -101,59 +107,25 @@ const Section2 = () => {
             </motion.button>
           )}
         </AnimatePresence>
-        <div className="translate-x-[-50%] translate-y-[-50%] top-[45%] left-1/2 absolute z-10 flex flex-col items-center bg-red-500" id="candle">
-          {candleActivate && (
-            <Smoke initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
-              <span></span>
-              <span></span>
-            </Smoke>
-          )}
-          <div className="w-3 h-[160px] bg-white "></div>
+        <div className="translate-x-[-50%] translate-y-[-50%] top-[45%] left-1/2 absolute z-10 flex flex-col items-center" id="candle">
+          <div className="absolute w-full top-[-100%]" id="smoke">
+            {candleActivate && <img src="/images/section2/smoke.gif" alt="smoke" />}
+          </div>
+          <img src="/images/section2/candle.png" alt="candle" id="candle-stick" className="w-[90%] max-h-[50vh]" />
           {!candleActivate && (
-            <button className="border border-white rounded-xl py-3 text-2xl font-bold absolute w-36 bottom-[-60%]" onClick={() => candleHandle()}>
+            <button className="border border-white rounded-xl py-2 text-2xl font-bold absolute w-32 bottom-[-40%]" onClick={() => candleHandle()}>
               จุดธุป
             </button>
           )}
         </div>
-        <img src="/images/section2/coffin.png" className="w-full h-full object-cover object-left" id="coffin" alt="" />
+
+        <div className="relative" id="coffin">
+          <img src="/images/section2/smoke2.gif" alt="smoke" className="absolute w-full h-screen object-contain" />
+          <img src="/images/section2/coffin.png" className=" w-full h-screen object-contain" alt="" />
+        </div>
       </div>
     </div>
   )
 }
-
-const smokeAnim = keyframes`
-  0%{
-    transform: translateY(0);
-    opacity: 0;
-  }
-  15%{
-    transform: translateY(-10);
-    opacity: 1;
-  }
-  50%{
-    transform: translateY(-20px);
-    opacity: 0.5;
-  }
-  100%{
-    transform: translateY(-30px);
-    opacity: 0.0;
-  }
-`
-
-const Smoke = styled(motion.div)`
-  position: absolute;
-  top: -60%;
-  display: flex;
-  z-index: 1;
-  span {
-    margin: 0 2px 0px;
-    min-width: 8px;
-    height: 100px;
-    background: red;
-    border-radius: 50%;
-    animation: ${smokeAnim} 5s linear infinite;
-    filter: blur(10px);
-  }
-`
 
 export default Section2

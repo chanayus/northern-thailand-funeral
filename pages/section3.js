@@ -39,12 +39,12 @@ const Section3 = () => {
       <div className="w-full overflow-hidden mx-0 pt-[50.75%] relative">
         <HeaderParallax path={"/images/section3/header/ก่อนสลาย_"} totalImage={7} parallaxExclude={[1, 7]} />
       </div>
-      <div className="scroll-container max-w-screen h-screen flex bg-blue-500 hide-scrollbar overscroll-none">
-        <div className="panel w-screen h-screen flex-shrink-0 bg-red-500 border border-black flex justify-center items-center">
+      <div className="scroll-container max-w-screen h-screen flex hide-scrollbar overscroll-none">
+        <div className="panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-1.jpg')] flex justify-center items-center">
           <Panel1 setTimelinePoint={setTimelinePoint} />
         </div>
         {step >= 2 && (
-          <div className="panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center">
+          <div className="panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-2.jpg')] flex justify-center items-center">
             <Panel2 setTimelinePoint={setTimelinePoint} />
           </div>
         )}
