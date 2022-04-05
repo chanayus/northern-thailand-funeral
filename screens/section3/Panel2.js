@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
 
-const Panel2 = ({ setTimelinePoint }) => {
+const Panel2 = ({ setTimelinePoint, setStep }) => {
   gsap.registerPlugin(ScrollTrigger)
   const itemRef = useRef(null)
 
@@ -14,7 +14,6 @@ const Panel2 = ({ setTimelinePoint }) => {
         start: "175% center",
         end: "+=100%",
         scrub: true,
-        markers: true,
         onEnter: () => setTimelinePoint(4),
         onLeaveBack: () => setTimelinePoint(3),
       },
@@ -26,18 +25,12 @@ const Panel2 = ({ setTimelinePoint }) => {
   }, [])
 
   return (
-    <>
-      <iframe
-        width="100%"
-        height="100%"
-        src="https://www.youtube.com/embed/hEdzv7D4CbQ?rel=0"
-        title="YouTube video player"
-        frameBorder={0}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        ref={itemRef}
-      />
-    </>
+    <div className="w-full h-full">
+      <img src="/images/section3/horizon-1/2.png" alt="" className="object-contain h-full w-full" ref={itemRef} />
+      {/* <button className="border border-white rounded-xl py-1 px-4 text-2xl font-bold absolute top-[20px] right-[30px]" onClick={() => setStep(3)}>
+        Next
+      </button> */}
+    </div>
   )
 }
 

@@ -2,14 +2,11 @@ import { AnimatePresence, motion } from "framer-motion"
 
 import MobileDetect from "./MobileDetect"
 import PageTimeline from "./PageTimeline"
-import { useEffect } from "react"
 import { useRouter } from "next/router"
 
 export default function Layout({ children }) {
   const router = useRouter()
-  useEffect(() => {
-    router.events.on("routeChangeComplete", () => setTimeout(() => window.scroll(0, 0), 350))
-  }, [router])
+
   return (
     <>
       <PageTimeline />

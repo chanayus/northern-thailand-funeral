@@ -16,6 +16,7 @@ const Section2 = () => {
   const router = useRouter()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     gsap.to("#coffin", { opacity: 0, scale: 1.75, x: "26%", y: "-44.0%", duration: 0, delay: 0 })
 
     const tl = gsap.timeline({
@@ -33,10 +34,10 @@ const Section2 = () => {
       scrollTrigger: {
         id: "coffin-timeline",
         trigger: ".coffin-container",
-        start: "center center",
-        end: `+=40%`,
+        start: "30% center",
+        end: `+=20%`,
         scrub: true,
-        pin: true,
+        pin: false,
         onEnter: () => setTimelinePoint(2),
         onLeaveBack: () => setTimelinePoint(1),
       },

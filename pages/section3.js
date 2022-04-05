@@ -16,21 +16,24 @@ const Section3 = () => {
   const { setTimelinePoint } = useContext(TimelineContext)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     const sections = gsap.utils.toArray(".panel")
-    gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
+    const x = -100 * (step - 1)
+
+    const anim = gsap.to(sections, {
+      xPercent: x,
       ease: "none",
       scrollTrigger: {
         id: "horizontal-section2",
         trigger: ".scroll-container",
-        pin: step === 1 ? false : true,
+        pin: true,
         scrub: 0.5,
+        invalidateOnRefresh: true,
         end: "+=1000%",
       },
     })
-
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill())
+      anim.scrollTrigger.kill()
     }
   }, [step])
 
@@ -40,16 +43,21 @@ const Section3 = () => {
         <HeaderParallax path={"/images/section3/header/ก่อนสลาย_"} totalImage={7} parallaxExclude={[1, 7]} />
       </div>
       <div className="scroll-container max-w-screen h-screen flex hide-scrollbar overscroll-none">
-        <div className="panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-1.jpg')] flex justify-center items-center">
-          <Panel1 setTimelinePoint={setTimelinePoint} />
+        <div className="panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-1.jpg')] bg-no-repeat bg-cover relative">
+          <Panel1 setTimelinePoint={setTimelinePoint} setStep={setStep} />
         </div>
+
         {step >= 2 && (
-          <div className="panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-2.jpg')] flex justify-center items-center">
-            <Panel2 setTimelinePoint={setTimelinePoint} />
+          <div
+            className={`panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-2.jpg')] bg-no-repeat bg-cover relative`}
+            id="panel2"
+          >
+            <Panel2 setTimelinePoint={setTimelinePoint} setStep={setStep} />
           </div>
         )}
+
         {step >= 3 && (
-          <div className="panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center">
+          <div className={`panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center`} id="panel3">
             <Panel3 setTimelinePoint={setTimelinePoint} />
           </div>
         )}
