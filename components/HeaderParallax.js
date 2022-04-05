@@ -32,7 +32,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path }) => {
         <Img
           src={`${path}${value}.png`}
           ref={addToRefs}
-          className="w-full h-full"
+          className="w-full h-full object-cover"
           key={index}
           zIndex={imageIndex.length - value}
           draggable={false}

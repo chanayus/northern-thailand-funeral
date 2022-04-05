@@ -12,7 +12,7 @@ export default function Layout({ children }) {
       <PageTimeline />
       <MobileDetect />
       <AnimatePresence exitBeforeEnter>
-        <motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75 }} key={router.pathname}>
+        <motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75 }} key={router.pathname} className="overflow-x-hidden">
           {children}
         </motion.div>
       </AnimatePresence>

@@ -75,7 +75,7 @@ const Section2 = () => {
       <video width="100%" height="100%" autoPlay muted loop className="fixed w-full h-full object-cover">
         <source src="/video/section2-bg.mp4" type="video/mp4"></source>
       </video>
-      <div className="w-full overflow-hidden mx-0 pt-[50.75%] relative">
+      <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
         <HeaderParallax path={"/images/section2/header/เสีย_"} totalImage={14} parallaxExclude={[1, 13, 14]} />
       </div>
       <div className="w-full min-h-screen relative content-container">

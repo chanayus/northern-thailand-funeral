@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 import { TimelineContext } from "../pages/_app"
 import TimelinePoint from "./TimelinePoint"
@@ -7,17 +8,29 @@ import { useRouter } from "next/router"
 
 const PageTimeline = () => {
   const exclude = ["/", "/section5"]
+  const [visible, setVisible] = useState(false)
   const router = useRouter()
   const { timelinePoint } = useContext(TimelineContext)
 
+  useEffect(() => {
+    setVisible(false)
+    window.addEventListener("wheel", (e) => {
+      if (window.scrollY >= window.innerHeight - 150) {
+        !visible && setVisible(true)
+      } else {
+        setVisible(false)
+      }
+    })
+  }, [router])
+
   return (
     <AnimatePresence exitBeforeEnter>
-      {!exclude.includes(router.pathname) && (
+      {!exclude.includes(router.pathname) && visible && (
         <motion.div
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.35, delay: 0.25 }}
+          transition={{ duration: 0.35 }}
           className={`fixed left-6 top-1/2 translate-y-[-50%] z-50`}
         >
           <img src="/images/timeline.svg" alt="" width="100" className="w-[93px] mx-auto" />
@@ -48,7 +61,7 @@ const PageTimeline = () => {
                 <div className="text-center text-xl absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">๒</div>
               </div>
             </div>
-            
+
             <div>
               <div className="h-full overflow-hidden">
                 <div className="w-[0.25px] top-[-1px] h-3 bg-white mx-auto"></div>
