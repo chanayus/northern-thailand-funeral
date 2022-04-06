@@ -24,7 +24,7 @@ const Section2 = () => {
         trigger: ".content-container",
         start: "-50 center",
         end: `+=600 center`,
-        scrub: 1.5,
+        scrub: 3,
         onEnter: () => setTimelinePoint(1),
         onLeaveBack: () => setTimelinePoint(0),
       },
@@ -44,7 +44,7 @@ const Section2 = () => {
     })
 
     coffinTl.fromTo("#candle", { opacity: 0 }, { opacity: 1 })
-    tl.fromTo("#text", { opacity: 0 }, { opacity: 1 })
+    tl.fromTo("#text", { opacity: 0 }, { opacity: 1, delay: 1 })
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill())

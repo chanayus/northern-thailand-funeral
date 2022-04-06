@@ -29,7 +29,7 @@ const Home = () => {
       <img src={gif} alt="" width="320" className="w-[32vw] min-w-[200px] absolute top-[2%] left-1/2 translate-x-[-50%]" />
 
       <Start
-        className="bg-white border-2 border-[#707070] text-black text-2xl w-[140px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] z-50 xl:bottom-[3%] bottom-[5%]"
+        className="bg-white border-2 border-[#707070] text-black text-2xl w-[140px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] xl:bottom-[3%] bottom-[5%]"
         onClick={() => router.replace("/section2", "/", { shallow: true, scroll: false })}
       ></Start>
     </div>

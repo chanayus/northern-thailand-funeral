@@ -31,6 +31,7 @@ const PageTimeline = () => {
     }
   }, [router])
 
+  const tlHeaderStyle = "text-center text-xl absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-10"
   return (
     <AnimatePresence exitBeforeEnter>
       {!exclude.includes(router.pathname) && visible && (
@@ -51,8 +52,8 @@ const PageTimeline = () => {
                 <div className="w-[0.25px] top-[-1px] h-full bg-white mx-auto"></div>
               </div>
               <div className="relative">
-                <TimelinePoint header={true} />
-                <div className="text-center text-xl absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">๑</div>
+                <TimelinePoint header={true} active={true} />
+                <div className={`${tlHeaderStyle} text-black`}>๑</div>
               </div>
             </div>
 
@@ -65,8 +66,8 @@ const PageTimeline = () => {
                 <div className="w-[0.25px] top-[-1px] h-full bg-white mx-auto"></div>
               </div>
               <div className="relative">
-                <TimelinePoint header={true} />
-                <div className="text-center text-xl absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">๒</div>
+                <TimelinePoint header={true} active={timelinePoint >= 3 || router.pathname === "/section3"} />
+                <div className={`${tlHeaderStyle} ${(timelinePoint >= 3 || router.pathname === "/section3" ) && "text-black"}`}>๒</div>
               </div>
             </div>
 
@@ -84,8 +85,8 @@ const PageTimeline = () => {
                 <div className="w-[0.25px] top-[-1px] h-full bg-white mx-auto"></div>
               </div>
               <div className="relative">
-                <TimelinePoint header={true} />
-                <div className="text-center text-xl absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">๓</div>
+                <TimelinePoint header={true} active={timelinePoint >= 6 || router.pathname === "/section4"} />
+                <div className={`${tlHeaderStyle} ${(timelinePoint >= 6 || router.pathname === "/section4") && "text-black"}`}>๓</div>
               </div>
             </div>
           </div>
