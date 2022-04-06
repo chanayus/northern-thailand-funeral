@@ -2,11 +2,14 @@ import { useEffect, useState } from "react"
 
 import { motion } from "framer-motion"
 import styled from "styled-components"
+import { useAudio } from "../hooks/useAudio"
 import { useRouter } from "next/router"
 
 const Home = () => {
   const router = useRouter()
   const [gif, setGif] = useState("")
+
+  const [playing, toggle] = useAudio("/sound/1.mp3")
 
   useEffect(() => {
     window.history.scrollRestoration = "manual"
@@ -14,9 +17,16 @@ const Home = () => {
   }, [])
   return (
     <div className="relative h-[200vh]">
-      <video width="100%" height="100%" autoPlay muted loop disablePictureInPicture className="object-bottom w-full h-full object-cover">
-        <source src="/video/bg.mp4" type="video/mp4"></source>
-      </video>
+      <video
+        src="/video/bg.mp4"
+        width="100%"
+        height="100%"
+        autoPlay
+        muted
+        loop
+        disablePictureInPicture
+        className="object-bottom w-full h-full object-cover"
+      ></video>
 
       <div className="w-full absolute top-[40%] text-center flex justify-center flex-col items-center">
         <h2 className="text-2xl text-black font-bold mb-1 cinzel-font">Scroll</h2>
@@ -39,7 +49,10 @@ const Home = () => {
 
       <Start
         className="bg-white border-2 border-[#707070] text-black cinzel-font text-2xl w-[140px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] xl:bottom-[3%] bottom-[5%]"
-        onClick={() => router.replace("/section2", "/", { shallow: true, scroll: false })}
+        onClick={() => {
+          toggle()
+          router.replace("/section2", "/", { shallow: true, scroll: false })
+        }}
       ></Start>
     </div>
   )
