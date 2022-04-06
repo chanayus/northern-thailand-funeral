@@ -18,7 +18,7 @@ const Home = () => {
       </video>
 
       <div className="w-full absolute top-[40%] text-center flex justify-center flex-col items-center">
-        <h2 className="text-5xl text-black font-bold mb-1">Scroll</h2>
+        <h2 className="text-2xl text-black font-bold mb-1 cinzel-font">Scroll</h2>
         <svg xmlns="http://www.w3.org/2000/svg" width="60.686" height="25.734" viewBox="0 0 60.686 25.734">
           <line id="Line_13" data-name="Line 13" x2={27} y2={25} transform="translate(0.34 0.367)" fill="none" stroke="#000" strokeWidth={1} />
           <line id="Line_15" data-name="Line 15" x2={27} y2={25} transform="translate(7.34 0.367)" fill="none" stroke="#000" strokeWidth={1} />
@@ -29,7 +29,7 @@ const Home = () => {
       <img src={gif} alt="" width="320" className="w-[32vw] min-w-[200px] absolute top-[2%] left-1/2 translate-x-[-50%]" />
 
       <Start
-        className="bg-white border-2 border-[#707070] text-black text-2xl w-[140px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] xl:bottom-[3%] bottom-[5%]"
+        className="bg-white border-2 border-[#707070] text-black cinzel-font text-2xl w-[140px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] xl:bottom-[3%] bottom-[5%]"
         onClick={() => router.replace("/section2", "/", { shallow: true, scroll: false })}
       ></Start>
     </div>

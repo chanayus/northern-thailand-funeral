@@ -56,8 +56,13 @@ path {
 }
 
 .header-font {
-  font-family: "SOV_watta" !important;
+  font-family: "SOV_watta", Helvetica, sans-serif !important;
   font-weight: lighter;
+}
+
+.cinzel-font {
+  font-family: "Cinzel Decorative", Helvetica, sans-serif !important;
+  font-weight: 400;
 }
 
 button {
