@@ -1,15 +1,19 @@
+import { useEffect, useState } from "react"
+
 import styled from "styled-components"
-import { useEffect } from "react"
 import { useRouter } from "next/router"
 
 const Home = () => {
   const router = useRouter()
+  const [gif, setGif] = useState("")
+
   useEffect(() => {
-    window.scroll(0, 0)
+    window.history.scrollRestoration = "manual"
+    setGif("/images/logo.gif")
   }, [])
   return (
     <div className="relative h-[200vh]">
-      <video width="100%" height="100%" autoPlay muted loop className="object-bottom w-full h-full object-cover">
+      <video width="100%" height="100%" autoPlay muted loop disablePictureInPicture className="object-bottom w-full h-full object-cover">
         <source src="/video/bg.mp4" type="video/mp4"></source>
       </video>
 
@@ -22,10 +26,10 @@ const Home = () => {
           <line id="Line_16" data-name="Line 16" x1={26} y2={25} transform="translate(34.34 0.367)" fill="none" stroke="#000" strokeWidth={1} />
         </svg>
       </div>
-      <img src="/images/logo.png" alt="" width="320" draggable={false} className="w-[35vw] absolute top-[2%] left-1/2 translate-x-[-50%]" />
+      <img src={gif} alt="" width="320" className="w-[32vw] min-w-[200px] absolute top-[2%] left-1/2 translate-x-[-50%]" />
 
       <Start
-        className="bg-white border-2 border-[#707070] text-black text-2xl w-[140px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] bottom-[1%]"
+        className="bg-white border-2 border-[#707070] text-black text-2xl w-[140px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] z-50 xl:bottom-[3%] bottom-[5%]"
         onClick={() => router.replace("/section2", "/", { shallow: true, scroll: false })}
       ></Start>
     </div>
@@ -45,7 +49,7 @@ const Start = styled.button`
     height: 100%;
     background: #fff;
     border-radius: 0.75rem;
-    z-index: -1;
+    z-index: -99999 !important;
     border: 2px solid #707070;
   }
 `

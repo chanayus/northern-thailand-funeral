@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Slider from "react-slick/lib/slider"
 import styled from "styled-components"
 import { useState } from "react"
@@ -98,9 +99,21 @@ const Section5 = () => {
     beforeChange: (current, next) => setImageIndex(next),
   }
   return (
-    <div className="w-full h-full min-h-screen relative flex items-center">
-      <div className="w-full">
-        <h1 className="header-font text-7xl text-white text-center mb-10">ของที่ระลึกงานศพ</h1>
+    <div className="w-full h-full min-h-screen relative bg-[url('/images/section5/bg.jpg')] bg-no-repeat bg-cover flex flex-col">
+      <div className="flex justify-between p-6 pb-0">
+        <Link href="/">
+          <a>
+            <img src="/images/section5/logo.svg" alt="" width={100} h={100} className="mx-auto mb-2 w-full max-w-[100px]" />
+            <h2 className="header-font text-4xl">กลับสู่หน้าแรก</h2>
+          </a>
+        </Link>
+
+        <button className="h-fit">
+          <img src="/icon/sound.svg" alt="" width={40} h={40} />
+        </button>
+      </div>
+      <div className="w-full flex-1 mb-6">
+        <h1 className="header-font text-7xl text-white text-center mb-6">ของที่ระลึกงานศพ</h1>
         <Slider {...settings}>
           {zodiac.map((value, index) => (
             <Slide className={`lg:h-[28rem] h-[50vh] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
@@ -113,8 +126,25 @@ const Section5 = () => {
             </Slide>
           ))}
         </Slider>
-        <div className="w-full flex justify-center mt-10">
+        <div className="w-full flex justify-center mt-6">
           <button className=" header-font text-4xl text-white text-center rounded-xl border-2 border-gray-500 px-6">Share</button>
+        </div>
+      </div>
+      <div className="w-full flex justify-between items-center bg-black py-3 px-4">
+        <div className="flex items-center">
+          <img src="/images/section5/logo.svg" alt="" width={75} h={75} className="mx-auto" />
+          <div className="ml-4">
+            <h2 className="text-2xl leading-none font-bold text-zinc-300">NORTHERN THAILAND FUNERAL</h2>
+            <p className="leading-none text-xl text-zinc-300">
+              Communication Arts & Design <br />
+              King Mongkut’s Institute of technology Ladkrabang
+            </p>
+          </div>
+        </div>
+        <div className="text-right">
+          <h3 className="leading-none text-2xl font-bold text-zinc-300">KITTICHA YOSKEAW</h3>
+          <p className="leading-none text-xl text-zinc-300">kitticha_prik@hotmail.com</p>
+          <p className="leading-none text-xl text-zinc-300">089-022-4298</p>
         </div>
       </div>
     </div>
@@ -129,7 +159,7 @@ const Slide = styled.div`
   }
   &.slide {
     transform: scale(0.75);
-    opacity: 0.5;
+    opacity: 0.6;
   }
 `
 

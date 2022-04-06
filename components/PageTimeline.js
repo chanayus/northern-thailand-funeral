@@ -14,13 +14,21 @@ const PageTimeline = () => {
 
   useEffect(() => {
     setVisible(false)
-    window.addEventListener("wheel", (e) => {
+
+    const eventToggle = () => {
       if (window.scrollY >= window.innerHeight - 150) {
         !visible && setVisible(true)
       } else {
         setVisible(false)
       }
-    })
+    }
+    window.addEventListener("wheel", (e) => eventToggle())
+    window.addEventListener("swiped", (e) => eventToggle())
+
+    return () => {
+      window.removeEventListener("wheel", (e) => eventToggle())
+      window.removeEventListener("swiped", (e) => eventToggle())
+    }
   }, [router])
 
   return (
