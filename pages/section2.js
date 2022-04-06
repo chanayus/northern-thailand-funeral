@@ -23,8 +23,8 @@ const Section2 = () => {
       scrollTrigger: {
         trigger: ".content-container",
         start: "-50 center",
-        end: `+=600 center`,
-        scrub: 3,
+        end: `+=500 center`,
+        scrub: 1,
         onEnter: () => setTimelinePoint(1),
         onLeaveBack: () => setTimelinePoint(0),
       },
@@ -44,7 +44,7 @@ const Section2 = () => {
     })
 
     coffinTl.fromTo("#candle", { opacity: 0 }, { opacity: 1 })
-    tl.fromTo("#text", { opacity: 0 }, { opacity: 1, delay: 1 })
+    tl.fromTo("#text", { opacity: 0 }, { opacity: 1 })
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill())
@@ -80,7 +80,7 @@ const Section2 = () => {
       </div>
       <div className="w-full min-h-screen relative content-container">
         <div className="flex xl:items-center xl:flex-row flex-col">
-          <img src="/images/section2/hand.png" alt="" id="hand" className="max-w-[680px] w-full" />
+          <img src="/images/section2/hand.gif" alt="" id="hand" className="max-w-[680px] w-full" />
           <div className="text-white xl:mb-48 2xl:ml-24 md:mb-0 md:w-[90ch] mb-12 ml-0 z-10 px-3 " id="text">
             <h2 className="lg:text-9xl text-8xl font-bold mb-2 header-font">ขอขมาศพ</h2>
             <p className="text-2xl lg:ml-5 ml-0 leading-tight">
@@ -110,7 +110,15 @@ const Section2 = () => {
         </AnimatePresence>
         <div className="translate-x-[-50%] translate-y-[-50%] top-[45%] left-1/2 absolute z-10 flex flex-col items-center" id="candle">
           <div className="absolute w-full top-[-100%]" id="smoke">
-            {candleActivate && <img src="/images/section2/smoke.gif" alt="smoke" />}
+            {candleActivate && (
+              <motion.img
+                src="/images/section2/smoke.gif"
+                alt="smoke"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4}}
+              />
+            )}
           </div>
           <img src="/images/section2/candle.png" alt="candle" id="candle-stick" className="w-[90%] max-h-[50vh]" />
           {!candleActivate && (

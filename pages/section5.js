@@ -104,7 +104,10 @@ const Section5 = () => {
         <Link href="/">
           <a>
             <img src="/images/section5/logo.svg" alt="" width={100} h={100} className="mx-auto mb-2 w-full max-w-[100px]" />
-            <h2 className="header-font text-4xl">กลับสู่หน้าแรก</h2>
+            <div className="flex items-center">
+              <img src="/icon/back.svg" alt="" className="rotate-90" />
+              <h2 className="header-font text-4xl">กลับสู่หน้าแรก</h2>
+            </div>
           </a>
         </Link>
 
