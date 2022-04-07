@@ -1,17 +1,17 @@
-import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
 import HeaderParallax from "../components/HeaderParallax"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import gsap from "gsap/dist/gsap"
+import { motion } from "framer-motion"
 import { useContext } from "react"
 import { useRouter } from "next/router"
 
 const Section2 = () => {
   gsap.registerPlugin(ScrollTrigger)
   const { setTimelinePoint } = useContext(TimelineContext)
-  const [isNext, setIsNext] = useState(false)
+
   const [candleActivate, setCandleActivate] = useState(false)
   const router = useRouter()
 
@@ -70,8 +70,7 @@ const Section2 = () => {
     activeTl.to("#smoke", { opacity: 0 })
     activeTl.fromTo("#smoke-active", { opacity: 0 }, { opacity: 1 })
     activeTl.to("#coffin", { x: 0, y: 0, scale: 1 })
-
-    setIsNext(true)
+    activeTl.to("#next-button", { opacity: 1 })
   }
 
   useEffect(() => {
@@ -104,21 +103,16 @@ const Section2 = () => {
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
         <img src="/images/section2/bg2.jpg" alt="bg" className="h-full w-full absolute object-cover object-top" />
-        <AnimatePresence>
-          {isNext && (
-            <motion.button
-              exit={{ opacity: 0 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 3 }}
-              className="flex items-center z-40 absolute right-5 top-[10%]"
-              onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
-            >
-              <img src="/images/section2/next.png" alt="" />
-              <img src="/icon/back.svg" alt="" className="rotate-[-90deg] w-12" />
-            </motion.button>
-          )}
-        </AnimatePresence>
+
+        <button
+          className="flex items-center z-40 absolute right-5 top-[10%] opacity-0"
+          id="next-button"
+          onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
+        >
+          <img src="/images/section2/next.png" alt="" />
+          <img src="/icon/back.svg" alt="" className="rotate-[-90deg] w-12" />
+        </button>
+
         <div className="translate-x-[-50%] translate-y-[-50%] top-[45%] left-1/2 absolute z-10 flex flex-col items-center" id="candle">
           <div className="absolute w-[10vw] h-[25vh] xl:top-[-70%] top-[-55%] origin-bottom" id="smoke">
             {candleActivate && (
