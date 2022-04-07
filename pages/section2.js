@@ -101,10 +101,11 @@ const Section2 = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 3 }}
-              className="z-50 absolute bg-gray-300 py-3 t px-10 rounded font-bold right-5 top-1/2"
+              className="flex items-center z-40 absolute right-5 top-[15%]"
               onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
             >
-              Next
+              <img src="/images/section2/next.png" alt="" />
+              <img src="/icon/back.svg" alt="" className="rotate-[-90deg] w-12" />
             </motion.button>
           )}
         </AnimatePresence>
@@ -116,7 +117,7 @@ const Section2 = () => {
                 alt="smoke"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.4}}
+                transition={{ duration: 0.4 }}
               />
             )}
           </div>
@@ -129,6 +130,14 @@ const Section2 = () => {
         </div>
 
         <div className="relative" id="coffin">
+          <motion.img
+            initial={{ opacity: 0.4 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, yoyo: Infinity }}
+            src="/images/section2/light.png"
+            className="absolute w-full h-screen object-contain"
+            alt=""
+          />
           <img src="/images/section2/smoke2.gif" alt="smoke" className="absolute w-full h-screen object-contain" />
           <img src="/images/section2/coffin.png" className=" w-full h-screen object-contain" alt="" />
         </div>
