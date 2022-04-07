@@ -55,10 +55,22 @@ const Section2 = () => {
 
   const candleHandle = () => {
     setCandleActivate(true)
-    gsap.to("#coffin", { opacity: 1, delay: 1, duration: durationValue })
-    gsap.to("#candle-stick", { opacity: 0, delay: 1, duration: durationValue })
-    gsap.to("#smoke", { opacity: 0, delay: 1, duration: durationValue })
-    gsap.to("#coffin", { x: 0, y: 0, scale: 1, delay: 2.5, duration: durationValue })
+    setTimelinePoint(2)
+    const activeTl = gsap.timeline({
+      scrollTrigger: {
+        ease: "none",
+        id: "coffin-active",
+        trigger: ".coffin-container",
+        start: "70% 70%",
+        end: `+=1000%`,
+        scrub: true,
+        pin: true,
+      },
+    })
+    activeTl.to("#coffin", { opacity: 1, delay: 1, duration: durationValue })
+    activeTl.to("#candle-stick", { opacity: 0, delay: 1, duration: durationValue })
+    activeTl.to("#smoke", { opacity: 0, delay: 1, duration: durationValue })
+    activeTl.to("#coffin", { x: 0, y: 0, scale: 1, delay: 2.5, duration: durationValue })
 
     setIsNext(true)
   }
