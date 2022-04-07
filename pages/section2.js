@@ -80,16 +80,16 @@ const Section2 = () => {
       </div>
       <div className="w-full min-h-screen relative content-container">
         <div className="flex xl:items-center xl:flex-row flex-col">
-          <img src="/images/section2/hand.gif" alt="" id="hand" className="max-w-[680px] w-full" />
-          <div className="text-white xl:mb-48 2xl:ml-24 md:mb-0 md:w-[90ch] mb-12 ml-0 z-10 px-3 " id="text">
-            <h2 className="lg:text-9xl text-8xl font-bold mb-2 header-font">ขอขมาศพ</h2>
+          <img src="/images/section2/hand.gif" alt="" id="hand" className="2xl:max-w-[700px] max-w-[580px] w-full" />
+          <div className="text-white xl:mb-64 2xl:ml-24 md:mb-0 md:w-[90ch] mb-12 ml-0 z-10 px-3" id="text">
+            <h2 className="lg:text-9xl text-8xl font-bold mb-1 header-font leading-tight">ขอขมาศพ</h2>
             <p className="text-2xl lg:ml-5 ml-0 leading-tight">
               หลังจากอาบน้ำศพ ก็จะจัดเตรียมอุปกรณ์ โดยจะมี ดอกไม้ ข้าวสาร ธูปคนละ 2 ดอก ใส่ในถาด พร้อมกับน้ำส้มป่อย เพื่อกล่าวขอขมากับศพ
               ขออโหสิกรรมซึ่งกันและกัน หลังจากนั้นก็ใช้น้ำส้มป่อยมาราดที่มือศพ
             </p>
           </div>
         </div>
-        <div className="xl:absolute xl:max-w-[70vw] xl:bottom-0 xl:right-0 xl:translate-y-0 translate-y-[-10vh] w-full flex justify-end">
+        <div className="xl:absolute xl:max-w-[70vw] xl:bottom-0 xl:right-0 xl:translate-y-0 translate-y-[-10vh] w-full flex justify-end ">
           <img src="/images/section2/plate.png" className="w-full h-full" alt="" />
         </div>
       </div>
@@ -101,7 +101,7 @@ const Section2 = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 3 }}
-              className="flex items-center z-40 absolute right-5 top-[15%]"
+              className="flex items-center z-40 absolute right-5 top-[10%]"
               onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
             >
               <img src="/images/section2/next.png" alt="" />
@@ -131,7 +131,7 @@ const Section2 = () => {
 
         <div className="relative" id="coffin">
           <motion.img
-            initial={{ opacity: 0.4 }}
+            initial={{ opacity: 0.3 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, yoyo: Infinity }}
             src="/images/section2/light.png"
