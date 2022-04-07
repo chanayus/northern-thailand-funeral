@@ -51,8 +51,6 @@ const Section2 = () => {
     }
   }, [])
 
-  const durationValue = 1.75
-
   const candleHandle = () => {
     setCandleActivate(true)
     setTimelinePoint(2)
@@ -62,15 +60,15 @@ const Section2 = () => {
         id: "coffin-active",
         trigger: ".coffin-container",
         start: "70% 70%",
-        end: `+=1000%`,
-        scrub: true,
+        end: `+=700%`,
+        scrub: 1.25,
         pin: true,
       },
     })
-    activeTl.to("#coffin", { opacity: 1, delay: 1, duration: durationValue })
-    activeTl.to("#candle-stick", { opacity: 0, delay: 1, duration: durationValue })
-    activeTl.to("#smoke", { opacity: 0, delay: 1, duration: durationValue })
-    activeTl.to("#coffin", { x: 0, y: 0, scale: 1, delay: 2.5, duration: durationValue })
+    activeTl.to("#coffin", { opacity: 1 })
+    activeTl.to("#candle-stick", { opacity: 0 })
+    activeTl.to("#smoke", { opacity: 0 })
+    activeTl.to("#coffin", { x: 0, y: 0, scale: 1 })
 
     setIsNext(true)
   }
