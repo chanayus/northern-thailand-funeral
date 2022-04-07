@@ -84,9 +84,8 @@ const Section2 = () => {
   return (
     <div className="min-h-screen h-full relative">
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
-        <HeaderParallax path={"/images/section2/header/เสีย_"} totalImage={14} parallaxExclude={[1, 13, 14]} />
+        <HeaderParallax path={"/images/section2/header/เสีย_"} section="2" totalImage={15} parallaxExclude={[2, 13, 14]} />
       </div>
-
       <div className="w-full h-screen relative content-container">
         <img src="/images/section2/bg1.jpg" alt="bg" className="h-full w-full absolute object-cover object-bottom" />
         <div className="flex xl:items-center">

@@ -57,7 +57,7 @@ const Section4 = () => {
   return (
     <>
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
-      <HeaderParallax path={"/images/section4/header/สลาย_"} totalImage={11} parallaxExclude={[11]} />
+      <HeaderParallax path={"/images/section4/header/สลาย_"} totalImage={11} section="4" parallaxExclude={[11]} />
       </div>
       <div className="scroll-container max-w-screen h-screen flex bg-blue-500 hide-scrollbar overscroll-none">
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-500 border border-black flex justify-center items-center">

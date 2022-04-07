@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 
 import styled from "styled-components"
 
-const HeaderParallax = ({ totalImage, parallaxExclude, path }) => {
+const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => {
   const itemsRef = useRef([])
   itemsRef.current = []
 
@@ -30,7 +30,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path }) => {
     <div className="w-full h-full" onMouseMove={(e) => parallax(e)}>
       {imageIndex.map((value, index) => (
         <Img
-          src={`${path}${value}.png`}
+          src={`${path}${index}.${index === 0 ? "gif" : "png"}`}
           ref={addToRefs}
           className="w-full h-full object-cover"
           key={index}
@@ -38,9 +38,10 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path }) => {
           draggable={false}
           width={"100%"}
           height={"100%"}
-          alt=""
+          alt="img-header"
         />
       ))}
+      
     </div>
   )
 }

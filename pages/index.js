@@ -28,6 +28,9 @@ const Home = () => {
         disablePictureInPicture
         className="object-bottom w-full h-full object-cover absolute"
       ></video>
+      {/* <div className="w-screen h-screen fixed">
+        <img src="/images/dust.gif" alt="" className="w-full h-full rotate-180" />
+      </div> */}
 
       <div className="relative h-screen w-full flex justify-center items-center">
         <motion.div

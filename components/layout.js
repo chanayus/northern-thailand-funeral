@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion"
 
+import Dust from "./Dust"
 import MobileDetect from "./MobileDetect"
 import PageTimeline from "./PageTimeline"
 import { useRouter } from "next/router"
@@ -11,6 +12,7 @@ export default function Layout({ children }) {
     <>
       <PageTimeline />
       <MobileDetect />
+      <Dust />
       <AnimatePresence exitBeforeEnter>
         <motion.div
           exit={{ opacity: 0 }}
