@@ -89,17 +89,17 @@ const Section2 = () => {
 
       <div className="w-full h-screen relative content-container">
         <img src="/images/section2/bg1.jpg" alt="bg" className="h-full w-full absolute object-cover object-bottom" />
-        <div className="flex items-center">
-          <img src="/images/section2/hand.gif" alt="" id="hand" className="w-[40vw] z-10" />
-          <div className="text-white xl:mb-64 2xl:ml-24 md:mb-0 md:w-[90ch] mb-12 ml-0 z-10 px-3" id="text">
+        <div className="flex xl:items-center">
+          <img src="/images/section2/hand.gif" alt="" id="hand" className="w-[40vw] h-[40vw] z-10" />
+          <div className="text-white xl:mb-64 2xl:ml-24 md:mb-0 xl:w-[90ch] w-[70ch] xl:mt-0 mt-6 mb-12 ml-0 z-10 px-3" id="text">
             <h2 className="lg:text-9xl text-[10vw] font-bold mb-1 header-font leading-none">ขอขมาศพ</h2>
-            <p className="lg:text-2xl text-[3vw] lg:ml-5 ml-0 leading-tight">
+            <p className="lg:text-2xl text-base lg:ml-5 ml-0 leading-tight">
               หลังจากอาบน้ำศพ ก็จะจัดเตรียมอุปกรณ์ โดยจะมี ดอกไม้ ข้าวสาร ธูปคนละ 2 ดอก ใส่ในถาด พร้อมกับน้ำส้มป่อย เพื่อกล่าวขอขมากับศพ
               ขออโหสิกรรมซึ่งกันและกัน หลังจากนั้นก็ใช้น้ำส้มป่อยมาราดที่มือศพ
             </p>
           </div>
         </div>
-        <div className="absolute max-w-[70vw] bottom-0 right-0 z-10">
+        <div className="absolute xl:max-w-[70vw] max-w-[60vw] bottom-0 right-0 z-10">
           <img src="/images/section2/plate.png" className="w-full h-full" alt="" />
         </div>
       </div>
@@ -121,7 +121,7 @@ const Section2 = () => {
           )}
         </AnimatePresence>
         <div className="translate-x-[-50%] translate-y-[-50%] top-[45%] left-1/2 absolute z-10 flex flex-col items-center" id="candle">
-          <div className="absolute w-full top-[-100%]" id="smoke">
+          <div className="absolute w-[10vw] h-[25vh] xl:top-[-70%] top-[-55%] origin-bottom" id="smoke">
             {candleActivate && (
               <motion.img
                 src="/images/section2/smoke.gif"
@@ -129,11 +129,11 @@ const Section2 = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
-                className="invert"
+                className="invert w-full h-full"
               />
             )}
           </div>
-          <img src="/images/section2/candle.png" alt="candle" id="candle-stick" className="w-[90%] max-h-[50vh]" />
+          <img src="/images/section2/candle.png" alt="candle" id="candle-stick" className="w-[90%] max-h-[40vh]" />
           {!candleActivate && (
             <button
               className="border border-black text-black rounded-xl py-2 text-2xl font-bold absolute w-32 bottom-[-40%]"
