@@ -30,7 +30,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
     <div className="w-full h-full" onMouseMove={(e) => parallax(e)}>
       {imageIndex.map((value, index) => (
         <Img
-          src={`${path}${index}.${index === 0 ? "gif" : "png"}`}
+          src={`${path}${index}.${index === 0 ? "gif" : section === "2" ? "webp" : "png"}`}
           ref={addToRefs}
           className="w-full h-full object-cover"
           key={index}
