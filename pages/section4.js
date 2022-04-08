@@ -1,6 +1,3 @@
-import { useEffect, useRef } from "react"
-
-import HeaderParallax from "../components/HeaderParallax"
 import Panel1 from "../screens/section4/horizontal/Panel1"
 import Panel2 from "../screens/section4/horizontal/Panel2"
 import Panel3 from "../screens/section4/horizontal/Panel3"
@@ -8,14 +5,16 @@ import Panel4 from "../screens/section4/horizontal/Panel4"
 import Panel5 from "../screens/section4/horizontal/Panel5"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
+import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
-import { motion } from "framer-motion"
 import { useContext } from "react"
+import { useEffect } from "react"
 import { useRouter } from "next/router"
+
+const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section4 = () => {
   gsap.registerPlugin(ScrollTrigger)
-  const boxRef = useRef(null)
   const router = useRouter()
 
   const { setTimelinePoint } = useContext(TimelineContext)
@@ -57,7 +56,7 @@ const Section4 = () => {
   return (
     <>
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
-      <HeaderParallax path={"/images/section4/header/สลาย_"} totalImage={11} section="4" parallaxExclude={[11]} />
+        <HeaderParallax path={"/images/section4/header/สลาย_"} totalImage={11} section="4" parallaxExclude={[11]} />
       </div>
       <div className="scroll-container max-w-screen h-screen flex bg-blue-500 hide-scrollbar overscroll-none">
         <div className="panel w-screen h-screen flex-shrink-0 bg-red-500 border border-black flex justify-center items-center">

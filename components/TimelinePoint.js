@@ -1,5 +1,4 @@
 const TimelinePoint = ({ active, header }) => {
-  const size = header ? "w-[50px] h-[50px]" : "w-[20px] h-[25px]"
   return (
     <>
       <div className="w-[22px] h-[28px]">

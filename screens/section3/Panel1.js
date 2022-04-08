@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
 import { useRouter } from "next/router"
 
-const Panel1 = ({ setTimelinePoint, setStep }) => {
+const Panel1 = ({ setTimelinePoint }) => {
   gsap.registerPlugin(ScrollTrigger)
 
   const router = useRouter()

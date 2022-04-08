@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick-theme.css"
 
 import Head from "next/head"
 import Layout from "../components/layout"
-import MobileDetect from "../components/MobileDetect"
 import React from "react"
 import { useAudio } from "../hooks/useAudio"
 import { useState } from "react"

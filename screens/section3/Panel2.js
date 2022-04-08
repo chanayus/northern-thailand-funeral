@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
 
-const Panel2 = ({ setTimelinePoint, setStep }) => {
+const Panel2 = ({ setTimelinePoint }) => {
   gsap.registerPlugin(ScrollTrigger)
   const itemRef = useRef(null)
 

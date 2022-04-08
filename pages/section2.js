@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 
-import HeaderParallax from "../components/HeaderParallax"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
+import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
 import { motion } from "framer-motion"
 import { useContext } from "react"
 import { useRouter } from "next/router"
+
+const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section2 = () => {
   gsap.registerPlugin(ScrollTrigger)
@@ -87,7 +89,6 @@ const Section2 = () => {
         <HeaderParallax path={"/images/section2/header/เสีย_"} section="2" totalImage={15} parallaxExclude={[2, 13, 14]} />
       </div>
       <div className="w-full h-screen relative content-container">
-        {/* <img src="/images/section2/bg1.jpg" alt="bg" className="h-full w-full absolute object-cover object-bottom" /> */}
         <div className="flex xl:items-center">
           <img src="/images/section2/hand.gif" alt="" id="hand" className="w-[40vw] h-[40vw] z-10" />
           <div className="text-white xl:mb-64 2xl:ml-24 md:mb-0 xl:w-[90ch] w-[70ch] xl:mt-0 mt-6 mb-12 ml-0 z-10 px-3" id="text">
@@ -103,8 +104,6 @@ const Section2 = () => {
         </div>
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
-        {/* <img src="/images/section2/bg2.jpg" alt="bg" className="h-full w-full absolute top-0 object-cover object-top" /> */}
-
         <button
           className="flex items-center z-40 absolute right-5 top-[10%] opacity-0"
           id="next-button"

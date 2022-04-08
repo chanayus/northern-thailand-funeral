@@ -1,9 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion"
 
-import Dust from "./Dust"
-import MobileDetect from "./MobileDetect"
-import PageTimeline from "./PageTimeline"
+import dynamic from 'next/dynamic'
 import { useRouter } from "next/router"
+
+const Dust = dynamic(() => import('./Dust'), { loading: () => <></> })
+const MobileDetect = dynamic(() => import('./MobileDetect'), { loading: () => <></> })
+const PageTimeline = dynamic(() => import('./PageTimeline'), { loading: () => <></> })
 
 export default function Layout({ children }) {
   const router = useRouter()
