@@ -60,7 +60,7 @@ const Section2 = () => {
         id: "coffin-active",
         trigger: ".coffin-container",
         start: "60% 60%",
-        end: `400% 99.5%`,
+        end: `+=270%`,
         scrub: 1.25,
         pin: true,
       },
@@ -82,7 +82,7 @@ const Section2 = () => {
 
   return (
     <div className="min-h-screen h-full relative">
-      <img src="/images/section2/bg.png" alt="bg" className="h-full w-full fixed object-cover object-top top-0" />
+      <img src="/images/section2/bg.webp" alt="bg" className="h-full w-full fixed object-cover object-top top-0" />
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
         <HeaderParallax path={"/images/section2/header/เสีย_"} section="2" totalImage={15} parallaxExclude={[2, 13, 14]} />
       </div>
@@ -99,7 +99,7 @@ const Section2 = () => {
           </div>
         </div>
         <div className="absolute xl:max-w-[70vw] max-w-[60vw] bottom-0 right-0 z-10">
-          <img src="/images/section2/plate.png" className="w-full h-full" alt="" />
+          <img src="/images/section2/plate.webp" className="w-full h-full" alt="" />
         </div>
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
@@ -110,7 +110,7 @@ const Section2 = () => {
           id="next-button"
           onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
         >
-          <img src="/images/section2/next.png" alt="" />
+          <img src="/images/section2/next.png" alt="next" />
           <img src="/icon/back.svg" alt="" className="rotate-[-90deg] w-12" />
         </button>
 
@@ -143,12 +143,12 @@ const Section2 = () => {
             initial={{ opacity: 0.3 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, yoyo: Infinity }}
-            src="/images/section2/light.png"
+            src="/images/section2/light.webp"
             className="absolute w-full h-screen object-contain"
             alt=""
           />
           <img src="/images/section2/smoke2.gif" alt="smoke" id="smoke-active" className="absolute w-full h-screen object-contain invert" />
-          <img src="/images/section2/coffin.png" className=" w-full h-screen object-contain" alt="" />
+          <img src="/images/section2/coffin.webp" className=" w-full h-screen object-contain" alt="" />
         </div>
       </div>
     </div>

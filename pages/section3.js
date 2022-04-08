@@ -30,6 +30,7 @@ const Section3 = () => {
         scrub: 0.5,
         invalidateOnRefresh: true,
         end: "+=1000%",
+        anticipatePin: 1
       },
     })
     return () => {

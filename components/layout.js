@@ -12,7 +12,7 @@ export default function Layout({ children }) {
     <>
       <PageTimeline />
       <MobileDetect />
-      <Dust />
+
       <AnimatePresence exitBeforeEnter>
         <motion.div
           exit={{ opacity: 0 }}
@@ -25,6 +25,7 @@ export default function Layout({ children }) {
           {children}
         </motion.div>
       </AnimatePresence>
+      <Dust />
     </>
   )
 }

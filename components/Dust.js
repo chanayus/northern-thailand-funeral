@@ -15,7 +15,7 @@ const Dust = () => {
     setTotal(data)
   }, [])
   return (
-    <div className="fixed top-0 w-full z-50">
+    <div className="fixed top-0 w-full h-4 z-50">
       {total.map((value, index) => (
         <Dot startX={`${value.x}%`} startY={`${value.y}px`} delay={`${value.delay}`} key={index}></Dot>
       ))}

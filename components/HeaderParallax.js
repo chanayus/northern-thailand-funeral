@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
 
 import styled from "styled-components"
 
 const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => {
+  const [imgLoaded, setImgLoaded] = useState(0)
   const itemsRef = useRef([])
   itemsRef.current = []
 
@@ -26,22 +28,59 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
     }
   }
 
+  useEffect(() => {
+    document.documentElement.style.overflow = imgLoaded === totalImage ? "unset" : "hidden"
+  }, [imgLoaded])
+
   return (
     <div className="w-full h-full" onMouseMove={(e) => parallax(e)}>
+      <AnimatePresence exitBeforeEnter>
+        {imgLoaded < totalImage && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="fixed w-screen bg-black h-screen flex top-0 justify-center items-center z-50"
+          >
+            <motion.img
+              src="/icon/castle.svg"
+              alt="loader"
+              className="w-36 h-36"
+              initial={{ opacity: 0.25 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5, yoyo: Infinity }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       {imageIndex.map((value, index) => (
         <Img
           src={`${path}${index}.${index === 0 ? "gif" : section === "2" ? "webp" : "png"}`}
           ref={addToRefs}
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover ${index === 0 && "hidden"}`}
           key={index}
           zIndex={imageIndex.length - value}
           draggable={false}
           width={"100%"}
           height={"100%"}
           alt="img-header"
+          onLoad={() => setImgLoaded(imgLoaded + 1)}
+          id={index}
         />
       ))}
-      
+      {imgLoaded === totalImage && (
+        <Img
+          src={`${path}0.gif`}
+          ref={addToRefs}
+          className={`w-full h-full object-cover`}
+          zIndex={imageIndex.length - 0}
+          draggable={false}
+          width={"100%"}
+          height={"100%"}
+          alt="img-header"
+        />
+      )}
     </div>
   )
 }
