@@ -63,8 +63,6 @@ const Section2 = () => {
         end: `400% 99.5%`,
         scrub: 1.25,
         pin: true,
-        pinSpacing: "margin",
-        anticipatePin: 1,
       },
     })
     activeTl.to("#coffin", { opacity: 1 })
@@ -84,11 +82,12 @@ const Section2 = () => {
 
   return (
     <div className="min-h-screen h-full relative">
+      <img src="/images/section2/bg.png" alt="bg" className="h-full w-full fixed object-cover object-top top-0" />
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
         <HeaderParallax path={"/images/section2/header/เสีย_"} section="2" totalImage={15} parallaxExclude={[2, 13, 14]} />
       </div>
       <div className="w-full h-screen relative content-container">
-        <img src="/images/section2/bg1.jpg" alt="bg" className="h-full w-full absolute object-cover object-bottom" />
+        {/* <img src="/images/section2/bg1.jpg" alt="bg" className="h-full w-full absolute object-cover object-bottom" /> */}
         <div className="flex xl:items-center">
           <img src="/images/section2/hand.gif" alt="" id="hand" className="w-[40vw] h-[40vw] z-10" />
           <div className="text-white xl:mb-64 2xl:ml-24 md:mb-0 xl:w-[90ch] w-[70ch] xl:mt-0 mt-6 mb-12 ml-0 z-10 px-3" id="text">
@@ -104,7 +103,7 @@ const Section2 = () => {
         </div>
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
-        <img src="/images/section2/bg2.jpg" alt="bg" className="h-full w-full absolute object-cover object-top" />
+        {/* <img src="/images/section2/bg2.jpg" alt="bg" className="h-full w-full absolute top-0 object-cover object-top" /> */}
 
         <button
           className="flex items-center z-40 absolute right-5 top-[10%] opacity-0"
@@ -124,14 +123,14 @@ const Section2 = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
-                className="invert w-full h-full"
+                className="w-full h-full"
               />
             )}
           </div>
           <img src="/images/section2/candle.png" alt="candle" id="candle-stick" className="w-[90%] max-h-[40vh]" />
           {!candleActivate && (
             <button
-              className="border border-black text-black rounded-xl py-2 text-2xl font-bold absolute w-32 bottom-[-40%]"
+              className="border border-white text-white rounded-xl py-2 text-2xl font-bold absolute w-32 bottom-[-40%]"
               onClick={() => candleHandle()}
             >
               จุดธุป
