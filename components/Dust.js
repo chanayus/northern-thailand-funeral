@@ -5,7 +5,7 @@ const Dust = () => {
   const [total, setTotal] = useState([])
   useEffect(() => {
     const data = []
-    for (let i = 1; i <= 75; i++) {
+    for (let i = 1; i <= 50; i++) {
       data.push({
         x: Math.floor(Math.random() * 100),
         y: Math.floor(Math.random() * 50),

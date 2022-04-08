@@ -36,7 +36,7 @@ const Home = () => {
         <motion.div
           initial={{ y: 0 }}
           animate={{ y: 15 }}
-          transition={{ duration: 1.5, yoyo: Infinity }}
+          transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
           className="w-full absolute bottom-[5%] text-center flex justify-center flex-col items-center"
         >
           <h2 className="text-2xl text-black font-bold mb-1 cinzel-font">SCROLL</h2>
@@ -54,7 +54,7 @@ const Home = () => {
           className="w-[55vw] max-w-[780px] mx-auto"
           initial={{ y: -7 }}
           animate={{ y: 0 }}
-          transition={{ duration: 1.75, repeat: Infinity, repeatType: "yoyo", delay: 3 }}
+          transition={{ duration: 1.75, repeat: Infinity, repeatType: "reverse", delay: 3 }}
         />
       </div>
 

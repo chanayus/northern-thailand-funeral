@@ -22,7 +22,7 @@ export const useAudio = (url) => {
   }
 
   useEffect(() => {
-    setAudio(new Howl({ src: url, volume: 0.3, loop: true }))
+    setAudio(new Howl({ src: url, volume: 0.2, loop: true }))
   }, [])
 
   return [playing, play, pause, stop]

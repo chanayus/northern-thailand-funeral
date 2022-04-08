@@ -12,7 +12,6 @@ export default function Layout({ children }) {
     <>
       <PageTimeline />
       <MobileDetect />
-
       <AnimatePresence exitBeforeEnter>
         <motion.div
           exit={{ opacity: 0 }}

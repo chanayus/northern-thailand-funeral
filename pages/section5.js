@@ -140,17 +140,17 @@ const Section5 = () => {
         <div className="flex items-center">
           <img src="/images/section5/logo.svg" alt="" width={75} h={75} className="mx-auto" />
           <div className="ml-4">
-            <h2 className="text-2xl leading-none font-bold text-zinc-300">NORTHERN THAILAND FUNERAL</h2>
-            <p className="leading-none text-xl text-zinc-300">
+            <h2 className="text-2xl leading-none font-bold text-zinc-400">NORTHERN THAILAND FUNERAL</h2>
+            <p className="leading-none text-xl text-zinc-400">
               Communication Arts & Design <br />
               King Mongkut’s Institute of technology Ladkrabang
             </p>
           </div>
         </div>
         <div className="text-right">
-          <h3 className="leading-none text-2xl font-bold text-zinc-300">KITTICHA YOSKEAW</h3>
-          <p className="leading-none text-xl text-zinc-300">kitticha_prik@hotmail.com</p>
-          <p className="leading-none text-xl text-zinc-300">089-022-4298</p>
+          <h3 className="leading-none text-2xl font-bold text-zinc-400">KITTICHA YOSKEAW</h3>
+          <p className="leading-none text-xl text-zinc-400">kitticha_prik@hotmail.com</p>
+          <p className="leading-none text-xl text-zinc-400">089-022-4298</p>
         </div>
       </div>
     </div>
