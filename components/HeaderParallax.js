@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 
+import Logo from "./Logo"
 import styled from "styled-components"
 
 const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => {
@@ -35,7 +36,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
   return (
     <div className="w-full h-full" onMouseMove={(e) => parallax(e)}>
       <AnimatePresence exitBeforeEnter>
-        {imgLoaded < totalImage && (
+        {imgLoaded < totalImage  && (
           <motion.div
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
@@ -43,14 +44,15 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
             transition={{ duration: 0.4 }}
             className="fixed w-screen bg-black h-screen flex top-0 justify-center items-center z-50"
           >
-            <motion.img
+            {/* <motion.img
               src="/icon/castle.svg"
               alt="loader"
               className="w-36 h-36"
               initial={{ opacity: 0.25 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, yoyo: Infinity }}
-            />
+            /> */}
+            <Logo/>
           </motion.div>
         )}
       </AnimatePresence>

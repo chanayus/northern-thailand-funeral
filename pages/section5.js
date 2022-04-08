@@ -59,7 +59,7 @@ const Section5 = () => {
 
   const PrevArrow = ({ onClick }) => {
     return (
-      <div onClick={onClick} className="absolute top-[45%] left-[39%] z-10 translate-y-[-50%] cursor-pointer lg:block hidden">
+      <div onClick={onClick} className="absolute top-[45%] left-[38%] z-10 translate-y-[-50%] cursor-pointer lg:block hidden">
         <img src="/icon/arrow.svg" className="rotate-180" alt="" />
       </div>
     )
@@ -67,7 +67,7 @@ const Section5 = () => {
 
   const NextArrow = ({ onClick }) => {
     return (
-      <div onClick={onClick} className="absolute top-[45%] right-[39%] z-10 translate-y-[-50%] cursor-pointer lg:block hidden">
+      <div onClick={onClick} className="absolute top-[45%] right-[38%] z-10 translate-y-[-50%] cursor-pointer lg:block hidden">
         <img src="/icon/arrow.svg" alt="" />
       </div>
     )
@@ -100,13 +100,13 @@ const Section5 = () => {
   }
   return (
     <div className="w-full h-full min-h-screen relative bg-[url('/images/section5/bg.jpg')] bg-no-repeat bg-cover flex flex-col">
-      <div className="flex justify-between p-6 pb-0">
+      <div className="flex justify-between lg:p-6 p-4 pb-0">
         <Link href="/">
           <a>
-            <img src="/images/section5/logo.svg" alt="" width={100} h={100} className="mx-auto mb-2 w-full max-w-[100px]" />
+            <img src="/images/section5/logo.svg" alt="" width={100} height={100} className="mx-auto mb-2 w-[50%] max-w-[100px]" />
             <div className="flex items-center">
               <img src="/icon/back.svg" alt="" className="rotate-90" />
-              <h2 className="header-font text-4xl">กลับสู่หน้าแรก</h2>
+              <h2 className="header-font lg:text-4xl text-3xl whitespace-nowrap">กลับสู่หน้าแรก</h2>
             </div>
           </a>
         </Link>
@@ -116,13 +116,16 @@ const Section5 = () => {
         </button>
       </div>
       <div className="w-full flex-1 mb-6">
-        <h1 className="header-font text-7xl text-white text-center mb-6">ของที่ระลึกงานศพ</h1>
+        <h1 className="header-font lg:text-7xl text-5xl text-white text-center mb-6">ของที่ระลึกงานศพ</h1>
         <Slider {...settings}>
           {zodiac.map((value, index) => (
             <Slide className={`lg:h-[28rem] h-[50vh] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
-              <div className="flex flex-col items-center h-full">
-                <div className="lg:w-[80%] w-full flex overflow-hidden justify-center items-center h-[100%] text-4xl">
-                  <img src={value.img} className="w-full h-full object-cover" alt="" />
+              <div className="flex flex-col items-center h-full ">
+                <div className="2xl:w-[80%] lg:w-[90%] w-full flex overflow-hidden justify-center items-center h-[100%] min-h-[300px]">
+                  {/* <img src={value.img} className="w-full h-full object-cover" alt="" /> */}
+                  <div className="w-full h-full bg-zinc-900 flex justify-center items-center">
+                    <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-1/2"/>
+                  </div>
                 </div>
                 <h3 className="text-5xl mt-1 header-font text-white">{value.title}</h3>
               </div>

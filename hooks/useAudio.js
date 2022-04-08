@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
 
 import { Howl } from "howler"
-import { useRouter } from "next/router"
 
 export const useAudio = (url) => {
-  const router = useRouter()
   const [audio, setAudio] = useState()
   const [playing, setPlaying] = useState(false)
 
@@ -20,10 +18,11 @@ export const useAudio = (url) => {
 
   const stop = () => {
     audio.stop()
+    setPlaying(false)
   }
 
   useEffect(() => {
-    setAudio(new Howl({ src: url, volume: 0.35, loop: true }))
+    setAudio(new Howl({ src: url, volume: 0.3, loop: true }))
   }, [])
 
   return [playing, play, pause, stop]
