@@ -31,6 +31,7 @@ const Section3 = () => {
         invalidateOnRefresh: true,
         end: "+=1000%",
         anticipatePin: 1,
+        pinSpacing: "margin"
       },
     })
     return () => {

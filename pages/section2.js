@@ -65,6 +65,7 @@ const Section2 = () => {
         end: `+=270%`,
         scrub: 1.25,
         pin: true,
+        invalidateOnRefresh: true,
       },
     })
     activeTl.to("#coffin", { opacity: 1 })

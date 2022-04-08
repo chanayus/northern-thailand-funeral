@@ -13,8 +13,8 @@ const Logo = () => {
   }
 
   const transition = {
-    pathLength: { duration: 3, delay: 0, repeat: Infinity, repeatType: "reverse", repeatDelay: 0 },
-    fill: { duration: 0.5, delay: 3, repeat: Infinity, repeatType: "reverse", repeatDelay: 2.5 },
+    pathLength: { duration: 2.75, delay: 0, repeat: Infinity, repeatType: "reverse", repeatDelay: 0 },
+    fill: { duration: 0.35, delay: 2.75, repeat: Infinity, repeatType: "reverse", repeatDelay: 2.5 },
   }
   return (
     <motion.svg
