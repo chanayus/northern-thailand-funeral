@@ -142,7 +142,7 @@ const Section2 = () => {
           <motion.img
             initial={{ opacity: 0.3 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.5, yoyo: Infinity }}
+            transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
             src="/images/section2/light.webp"
             className="absolute w-full h-screen object-contain"
             alt=""

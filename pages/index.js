@@ -54,7 +54,7 @@ const Home = () => {
           className="w-[55vw] max-w-[780px] mx-auto"
           initial={{ y: -7 }}
           animate={{ y: 0 }}
-          transition={{ duration: 1.75, yoyo: Infinity, delay: 3 }}
+          transition={{ duration: 1.75, repeat: Infinity, repeatType: "yoyo", delay: 3 }}
         />
       </div>
 

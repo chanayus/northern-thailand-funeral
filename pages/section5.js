@@ -103,7 +103,7 @@ const Section5 = () => {
       <div className="flex justify-between lg:p-6 p-4 pb-0">
         <Link href="/">
           <a>
-            <img src="/images/section5/logo.svg" alt="" width={100} height={100} className="mx-auto mb-2 w-[50%] max-w-[100px]" />
+            <img src="/images/section5/logo.svg" alt="" width={100} height={100} className="mx-auto mb-1 w-[50%] max-w-[100px]" />
             <div className="flex items-center">
               <img src="/icon/back.svg" alt="" className="rotate-90" />
               <h2 className="header-font lg:text-4xl text-3xl whitespace-nowrap">กลับสู่หน้าแรก</h2>
@@ -119,12 +119,12 @@ const Section5 = () => {
         <h1 className="header-font lg:text-7xl text-5xl text-white text-center mb-6">ของที่ระลึกงานศพ</h1>
         <Slider {...settings}>
           {zodiac.map((value, index) => (
-            <Slide className={`lg:h-[28rem] h-[50vh] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
+            <Slide className={`lg:h-[28rem]  ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
               <div className="flex flex-col items-center h-full ">
-                <div className="2xl:w-[80%] lg:w-[90%] w-full flex overflow-hidden justify-center items-center h-[100%] min-h-[300px]">
+                <div className="2xl:w-[80%] lg:w-[90%] w-full flex overflow-hidden justify-center items-center h-full ">
                   {/* <img src={value.img} className="w-full h-full object-cover" alt="" /> */}
-                  <div className="w-full h-full bg-zinc-900 flex justify-center items-center">
-                    <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-1/2"/>
+                  <div className="w-full h-full bg-zinc-900 flex justify-center items-center min-h-[50vh] max-h-[400px]">
+                    <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%]"/>
                   </div>
                 </div>
                 <h3 className="text-5xl mt-1 header-font text-white">{value.title}</h3>
