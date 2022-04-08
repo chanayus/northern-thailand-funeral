@@ -59,10 +59,12 @@ const Section2 = () => {
         ease: "none",
         id: "coffin-active",
         trigger: ".coffin-container",
-        start: "70% 70%",
-        end: `+=400%`,
-        scrub: 2,
+        start: "60% 60%",
+        end: `400% 99.5%`,
+        scrub: 1.25,
         pin: true,
+        pinSpacing: "margin",
+        anticipatePin: 1,
       },
     })
     activeTl.to("#coffin", { opacity: 1 })

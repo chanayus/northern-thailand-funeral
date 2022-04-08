@@ -29,14 +29,14 @@ const anim = keyframes`
   
   }
   50% {
-    opacity: 1;  
+    opacity: 0.75;  
   }
   75%{
-    opacity: 0.75;
+    opacity: 0.5;
   }
   100% {
     opacity: 0;
-    transform: translateX(-120px) translateY(28vh);
+    transform: translateX(-120px) translateY(35vh);
   }
 `
 
