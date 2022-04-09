@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react"
+
 import Panel1 from "../screens/section3/Panel1"
 import Panel2 from "../screens/section3/Panel2"
 import Panel3 from "../screens/section3/Panel3"
@@ -6,11 +8,11 @@ import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
 import { useContext } from "react"
-import { useEffect } from "react"
 
 const HeaderParallax = dynamic(() => import("../components/HeaderParallax"), { loading: () => <></> })
 
 const Section3 = () => {
+  const [panelStep, setPanelStep] = useState(0)
   gsap.registerPlugin(ScrollTrigger)
 
   const { setTimelinePoint } = useContext(TimelineContext)
@@ -31,7 +33,7 @@ const Section3 = () => {
         invalidateOnRefresh: true,
         end: "+=1000%",
         anticipatePin: 1,
-        pinSpacing: "margin"
+        pinSpacing: "margin",
       },
     })
     return () => {
@@ -46,11 +48,11 @@ const Section3 = () => {
       </div>
       <div className="scroll-container max-w-screen h-screen flex hide-scrollbar overscroll-none">
         <div className="panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-1.jpg')] bg-no-repeat bg-cover relative">
-          <Panel1 setTimelinePoint={setTimelinePoint} />
+          <Panel1 setTimelinePoint={setTimelinePoint} setPanelStep={setPanelStep} panelStep={panelStep} />
         </div>
 
         <div className={`panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-2.jpg')] bg-no-repeat bg-cover relative`}>
-          <Panel2 setTimelinePoint={setTimelinePoint} />
+          <Panel2 setTimelinePoint={setTimelinePoint} panelStep={panelStep} />
         </div>
 
         <div className={`panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center`}>

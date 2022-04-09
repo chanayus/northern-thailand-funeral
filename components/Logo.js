@@ -8,13 +8,21 @@ const Logo = () => {
     },
     visible: {
       pathLength: 1,
-      fill: "rgba(255,255,255,1)",
+      opacity: [0.75, 1, 0.75],
+      filter: [
+        "drop-shadow(0px 0px 0px rgba(255,255,255,0.75))",
+        "drop-shadow(0px 0px 15px rgba(255,255,255,0.75))",
+        "drop-shadow(0px 0px 0px rgba(255,255,255,0.75))",
+      ],
+      fill: "rgba(255,255,255,0.9)",
     },
   }
 
   const transition = {
-    pathLength: { duration: 2.75, delay: 0, repeat: Infinity, repeatType: "reverse", repeatDelay: 0 },
-    fill: { duration: 0.35, delay: 2.75, repeat: Infinity, repeatType: "reverse", repeatDelay: 2.5 },
+    pathLength: { duration: 3, delay: 0, repeatDelay: 0 },
+    opacity: { duration: 3, delay: 3, repeat: Infinity, repeatType: "reverse" },
+    filter: { duration: 3, delay: 3, repeat: Infinity, repeatType: "reverse" },
+    fill: { duration: 0.35, delay: 3, repeatDelay: 2.75 },
   }
   return (
     <motion.svg

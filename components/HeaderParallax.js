@@ -6,6 +6,7 @@ import styled from "styled-components"
 const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => {
   const [imgLoaded, setImgLoaded] = useState(0)
   const itemsRef = useRef([])
+
   itemsRef.current = []
 
   const imageIndex = new Array(totalImage).fill("").map((_, i) => i + 1)
@@ -14,6 +15,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
     const { pageX, pageY } = e
     const x = (window.innerWidth - pageX) / 50
     const y = (window.innerHeight - pageY) / 50
+    console.log(itemsRef.current[0])
     itemsRef.current.map((ele, index) => {
       if (!parallaxExclude.includes(index + 1)) {
         ele.style.transition = "0.175s"
@@ -54,6 +56,18 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
           </motion.div>
         )}
       </AnimatePresence>
+      {imgLoaded === totalImage && (
+        <Img
+          src={`${path}0.gif`}
+          ref={addToRefs}
+          className={`w-full h-full object-cover`}
+          zIndex={imageIndex.length + 1}
+          draggable={false}
+          width={"100%"}
+          height={"100%"}
+          alt="img-header"
+        />
+      )}
       {imageIndex.map((value, index) => (
         <Img
           src={`${path}${index}.${index === 0 ? "gif" : section === "2" ? "webp" : "png"}`}
@@ -66,21 +80,8 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
           height={"100%"}
           alt="img-header"
           onLoad={() => setImgLoaded(imgLoaded + 1)}
-          id={index}
         />
       ))}
-      {imgLoaded === totalImage && (
-        <Img
-          src={`${path}0.gif`}
-          ref={addToRefs}
-          className={`w-full h-full object-cover`}
-          zIndex={imageIndex.length - 0}
-          draggable={false}
-          width={"100%"}
-          height={"100%"}
-          alt="img-header"
-        />
-      )}
     </div>
   )
 }
