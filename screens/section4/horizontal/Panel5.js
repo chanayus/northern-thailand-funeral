@@ -14,7 +14,6 @@ const Panel5 = ({ setTimelinePoint }) => {
         start: "500% center",
         end: "+=50%",
         scrub: true,
-        markers: true,
         onEnter: () => setTimelinePoint(10),
         onLeaveBack: () => setTimelinePoint(9),
       },

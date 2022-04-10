@@ -32,6 +32,7 @@ const Section4 = () => {
         scrub: 0.5,
         anticipatePin: 1,
         end: "+=1500%",
+        invalidateOnRefresh: true,
       },
     })
 
@@ -53,25 +54,27 @@ const Section4 = () => {
     }
   }, [])
 
+  const panelStyle = "panel w-screen h-screen flex-shrink-0 bg-no-repeat bg-cover flex justify-center items-center m-0 p-0 "
+
   return (
     <>
-      <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
+      <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative ">
         <HeaderParallax path={"/images/section4/header/สลาย_"} totalImage={11} section="4" parallaxExclude={[11]} />
       </div>
-      <div className="scroll-container max-w-screen h-screen flex bg-blue-500 hide-scrollbar overscroll-none">
-        <div className="panel w-screen h-screen flex-shrink-0 bg-red-500 border border-black flex justify-center items-center">
+      <div className="scroll-container max-w-screen h-screen flex hide-scrollbar overscroll-none">
+        <div className={`${panelStyle} bg-[url('/images/section4/horizon/bg-1.webp')]`}>
           <Panel1 setTimelinePoint={setTimelinePoint} />
         </div>
-        <div className="panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center">
+        <div className={`${panelStyle} bg-[url('/images/section4/horizon/bg-2.webp')]`}>
           <Panel2 setTimelinePoint={setTimelinePoint} />
         </div>
-        <div className="panel w-screen h-screen flex-shrink-0 border border-black flex justify-center items-center">
+        <div className={`${panelStyle} bg-[url('/images/section4/horizon/bg-3.webp')]`}>
           <Panel3 setTimelinePoint={setTimelinePoint} />
         </div>
-        <div className="panel w-screen h-Fscreen flex-shrink-0 bg-red-800 border border-black flex justify-center items-center">
+        <div className={`${panelStyle} bg-[url('/images/section4/horizon/bg-4.webp')]`}>
           <Panel4 setTimelinePoint={setTimelinePoint} />
         </div>
-        <div className="panel w-screen h-screen flex-shrink-0 bg-red-900 border border-black flex justify-center items-center">
+        <div className={`${panelStyle} bg-[url('/images/section4/horizon/bg-5.webp')]`}>
           <Panel5 setTimelinePoint={setTimelinePoint} />
         </div>
       </div>

@@ -14,7 +14,6 @@ const Panel2 = ({ setTimelinePoint }) => {
         start: "120% center",
         end: "+=100%",
         scrub: true,
-        markers: true,
         onEnter: () => setTimelinePoint(7),
         onLeaveBack: () => setTimelinePoint(6),
       },

@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components"
 
 import { motion } from "framer-motion"
 
-const PulseButton = ({ title, handle }) => {
+const PulseButton = ({ title, handle, dark = false }) => {
   return (
     <Button
       onClick={() => handle()}
@@ -10,7 +10,8 @@ const PulseButton = ({ title, handle }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.75 }}
-      className="text-sm min-w-[70px] min-h-[70px] rounded-full font-[700] cinzel-font relative"
+      className={`text-sm min-w-[70px] min-h-[70px] ${dark && "text-black"} rounded-full font-[700] cinzel-font relative`}
+      dark={dark}
     >
       {title}
     </Button>
@@ -43,7 +44,7 @@ const Button = styled(motion.button)`
     top: 0;
     left: 0;
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid ${props => props.dark ? "#000" : "#fff"};
     animation: ${anim} 3s infinite;
   }
 `

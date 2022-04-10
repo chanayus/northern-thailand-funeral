@@ -38,10 +38,10 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
       <Line
         width={step < 1 ? "0%" : "100%"}
         direction={"right"}
-        className={`${lineStyle} w-[25vw] max-w-[300px] top-[43%] left-[60%] rotate-[10deg]`}
+        className={`${lineStyle} w-[25vw] max-w-[300px] top-[43.5%] left-[61%] rotate-[10.5deg]`}
       ></Line>
-      <Line width={step < 2 ? "0%" : "100%"} direction={"right"} className={`${lineStyle} w-[30vw] top-[43%] left-[35%] -rotate-[5deg]`}></Line>
-      <Line width={step < 3 ? "0%" : "100%"} direction={"left"} className={`${lineStyle} w-[15vw] top-[62.5%] left-[22.5%] rotate-[63deg]`}></Line>
+      <Line width={step < 2 ? "0%" : "100%"} direction={"right"} className={`${lineStyle} w-[35vw] top-[43%] left-[35%] -rotate-[6deg]`}></Line>
+      <Line width={step < 3 ? "0%" : "100%"} direction={"left"} className={`${lineStyle} w-[18vw] top-[62.5%] left-[22.5%] rotate-[63deg]`}></Line>
       <Line width={step < 4 ? "0%" : "100%"} direction={"left"} className={`${lineStyle} w-[45vw] top-[65.5%] left-[52.5%] -rotate-[18deg]`}></Line>
 
       <AnimatePresence exitBeforeEnter>
