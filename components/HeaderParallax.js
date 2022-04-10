@@ -29,14 +29,14 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
     }
   }
 
-  // useEffect(() => {
-  //   document.documentElement.style.overflow = imgLoaded === totalImage ? "unset" : "hidden"
-  // }, [imgLoaded])
+  useEffect(() => {
+    document.documentElement.style.overflow = imgLoaded === totalImage ? "unset" : "hidden"
+  }, [imgLoaded])
 
   return (
     <div className="w-full h-full" onMouseMove={(e) => parallax(e)}>
       <AnimatePresence exitBeforeEnter>
-        {false && (
+        {imgLoaded < totalImage && (
           <motion.div
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
