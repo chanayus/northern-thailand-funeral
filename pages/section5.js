@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react"
+
 import Link from "next/link"
 import Slider from "react-slick/lib/slider"
 import styled from "styled-components"
-import { useState } from "react"
 
 const Section5 = () => {
   const zodiac = [
@@ -73,6 +74,10 @@ const Section5 = () => {
     )
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const settings = {
     infinite: true,
     lazyLoad: false,
@@ -124,7 +129,7 @@ const Section5 = () => {
                 <div className="2xl:w-[80%] lg:w-[90%] w-full flex overflow-hidden justify-center items-center h-full ">
                   {/* <img src={value.img} className="w-full h-full object-cover" alt="" /> */}
                   <div className="w-full h-full bg-zinc-900 flex justify-center items-center min-h-[50vh] max-h-[400px]">
-                    <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%]"/>
+                    <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%]" />
                   </div>
                 </div>
                 <h3 className="text-5xl mt-1 header-font text-white">{value.title}</h3>

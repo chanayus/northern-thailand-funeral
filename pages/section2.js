@@ -47,25 +47,23 @@ const Section2 = () => {
 
     coffinTl.fromTo("#candle", { opacity: 0 }, { opacity: 1 })
     tl.fromTo("#text", { opacity: 0 }, { opacity: 1 })
-
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill())
     }
   }, [])
 
   const candleHandle = () => {
-    setCandleActivate(true)
-    setTimelinePoint(2)
     const activeTl = gsap.timeline({
       scrollTrigger: {
         ease: "none",
         id: "coffin-active",
         trigger: ".coffin-container",
-        start: "60% 60%",
-        end: `+=270%`,
-        scrub: 1.25,
+        start: "65% 60%",
+        end: `+=350%`,
+        scrub: 1,
         pin: true,
         invalidateOnRefresh: true,
+        anticipatePin: 1,
       },
     })
     activeTl.to("#coffin", { opacity: 1 })
@@ -74,20 +72,16 @@ const Section2 = () => {
     activeTl.fromTo("#smoke-active", { opacity: 0 }, { opacity: 1 })
     activeTl.to("#coffin", { x: 0, y: 0, scale: 1 })
     activeTl.to("#next-button", { opacity: 1 })
-  }
 
-  useEffect(() => {
-    if (candleActivate) {
-      ScrollTrigger.getById("coffin-timeline").kill()
-      gsap.to("#candle", { opacity: 1, duration: 0 })
-    }
-  }, [candleActivate])
+    setCandleActivate(true)
+    setTimelinePoint(2)
+  }
 
   return (
     <div className="min-h-screen h-full relative">
       <img src="/images/section2/bg.webp" alt="bg" className="h-full w-full fixed object-cover object-top top-0" />
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
-        <HeaderParallax path={"/images/section2/header/เสีย_"} section="2" totalImage={15} parallaxExclude={[2, 13, 14]} />
+        <HeaderParallax path={"/images/section2/header/เสีย_"} section="2" totalImage={15} parallaxExclude={[3, 15]} />
       </div>
       <div className="w-full h-screen relative content-container">
         <div className="flex xl:items-center">

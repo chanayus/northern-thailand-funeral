@@ -15,7 +15,6 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
     const { pageX, pageY } = e
     const x = (window.innerWidth - pageX) / 50
     const y = (window.innerHeight - pageY) / 50
-    console.log(itemsRef.current[0])
     itemsRef.current.map((ele, index) => {
       if (!parallaxExclude.includes(index + 1)) {
         ele.style.transition = "0.175s"

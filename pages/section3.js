@@ -19,6 +19,7 @@ const Section3 = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    console.log("page3")
     const sections = gsap.utils.toArray(".panel")
     const x = -100 * (sections.length - 1)
 
@@ -33,7 +34,7 @@ const Section3 = () => {
         invalidateOnRefresh: true,
         end: "+=1000%",
         anticipatePin: 1,
-        pinSpacing: "margin",
+
       },
     })
     return () => {
