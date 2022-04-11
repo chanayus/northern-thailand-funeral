@@ -17,17 +17,22 @@ const Panel5 = ({ setTimelinePoint }) => {
         onEnter: () => setTimelinePoint(10),
         onLeaveBack: () => setTimelinePoint(9),
       },
-      opacity: 0,
-      duration: 0.25,
-      ease: "none",
     })
     return () => anim.kill()
   }, [])
 
   return (
-    <h1 className="text-9xl" ref={itemRef}>
-      5
-    </h1>
+    <div className="w-screen h-screen relative" ref={itemRef}>
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/hEdzv7D4CbQ?rel=0"
+        title="YouTube video player"
+        frameBorder={0}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
   )
 }
 

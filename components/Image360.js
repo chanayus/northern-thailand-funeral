@@ -34,7 +34,7 @@ const Image360 = ({ amount = 72, path = "" }) => {
   }
   return (
     <div
-      className="z-10 w-screen h-screen relative cursor-grab active:cursor-grabbing"
+      className="z-10 w-full h-full relative cursor-grab active:cursor-grabbing"
       onTouchMove={(e) => swipeHandle(e)}
       onMouseMove={(e) => grabHandle(e)}
       onMouseDown={() => setIsClick(true)}
@@ -42,7 +42,7 @@ const Image360 = ({ amount = 72, path = "" }) => {
     >
       <img
         src={`https://fastly-production.24c.in/webin/360/output_${imageValue}.jpeg`}
-        className="w-full h-full z-10 object-cover"
+        className="w-full h-full z-10 object-contain"
         draggable={false}
         alt=""
       />

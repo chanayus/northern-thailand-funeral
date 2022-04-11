@@ -49,7 +49,6 @@ const Home = () => {
               type={"video/mp4"}
               autoPlay
               muted
-              preload="none"
               disablePictureInPicture
               className="hidden"
               onLoadedData={() => onLoadVideo()}
@@ -64,7 +63,6 @@ const Home = () => {
               type={"video/mp4"}
               autoPlay
               muted
-              preload="none"
               loop
               disablePictureInPicture
               className="object-bottom w-full h-full object-cover absolute"

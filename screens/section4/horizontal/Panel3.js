@@ -12,7 +12,7 @@ const Panel3 = ({ setTimelinePoint }) => {
     const anim = gsap.from(itemRef.current, {
       scrollTrigger: {
         trigger: "body",
-        start: "240% center",
+        start: "200% center",
         end: "+=100%",
         scrub: true,
         onEnter: () => setTimelinePoint(8),
@@ -26,8 +26,11 @@ const Panel3 = ({ setTimelinePoint }) => {
   }, [])
 
   return (
-    <div ref={itemRef}>
-      <Image360 />
+    <div className="w-screen h-screen relative" ref={itemRef}>
+      <div className="w-[70%] h-[80%] mx-auto flex flex-col mt-5">
+        <Image360 />
+        <h1 className="text-center mt-5 text-[8vmin] header-font text-white">พิธีผัดตาสิน</h1>
+      </div>
     </div>
   )
 }

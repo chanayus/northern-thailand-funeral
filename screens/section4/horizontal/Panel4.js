@@ -25,9 +25,13 @@ const Panel4 = ({ setTimelinePoint }) => {
   }, [])
 
   return (
-    <h1 className="text-9xl" ref={itemRef}>
-      4
-    </h1>
+    <div className="w-[200vw] h-screen relative">
+      <h1 className="text-center mt-5 text-[12vmin] header-font text-black absolute top-[10px] left-[15px] leading-[0.75]">
+        ขบวน <br />
+        แห่ศพ
+      </h1>
+      <img src="/images/section4/horizon/4.4/procession.png" alt="" className="w-full h-full absolute top-0 object-contain" />
+    </div>
   )
 }
 
