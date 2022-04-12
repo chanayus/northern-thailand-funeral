@@ -47,9 +47,9 @@ const Section4 = () => {
         trigger: ".scroll-container",
         pin: true,
         scrub: 0.5,
-        // anticipatePin: 1,
+        anticipatePin: 1,
         end: "+=1500%",
-        // invalidateOnRefresh: true,
+        invalidateOnRefresh: true,
       },
     })
 
@@ -72,18 +72,18 @@ const Section4 = () => {
           <Panel3 setTimelinePoint={setTimelinePoint} />
           <Panel4 setTimelinePoint={setTimelinePoint} />
         </div>
-        {/* <div className={`${panelStyle} w-screen bg-black`}>
+        <div className={`${panelStyle} w-screen bg-black`}>
           <Panel5 setTimelinePoint={setTimelinePoint} />
-        </div> */}
+        </div>
       </div>
-      {/* <div className="w-full h-screen flex justify-center items-center">
+      <div className="w-full h-screen flex justify-center items-center">
         <button
           className="border border-white rounded-xl py-3 text-2xl font-bold w-36"
           onClick={() => router.replace("/section5", "/", { shallow: true, scroll: false })}
         >
           Next
         </button>
-      </div> */}
+      </div>
     </>
   )
 }

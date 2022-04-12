@@ -66,7 +66,7 @@ const Panel4 = ({ setTimelinePoint }) => {
         และ ห้ามหันหลังกลับเด็ดขาด จะต้องมอง และเดินไปข้างหน้า <br />
         เพราะเชื่อว่า หากหันหลังกลับจะทำให้วิญญาณผู้ตายกลับเข้าบ้าน
       </p>
-      <div className="absolute w-full max-h-[100vh] h-[55vw] translate-y-[-50%] top-1/2 z-10 border-red-500 border-2">
+      <div className="absolute w-full max-h-[100vh] h-[55vw] translate-y-[-50%] top-1/2 z-10">
         <div className="absolute left-[clamp(68vw,83vw,142vh)] pr-[1vw] xl:top-[47.5%] top-[45.5%]">
           <h1 className="relative lg:text-5xl text-3xl header-font leading-none border-b-[1px] w-fit">
             ปราสาทศพ
@@ -96,13 +96,13 @@ const Panel4 = ({ setTimelinePoint }) => {
           <div className="absolute bottom-[-1px] left-full w-[6vmin] h-[1px] bg-white origin-bottom-left rotate-[40deg]"></div>
         </div>
 
-        <div className="absolute 2xl:right-[14%] right-[3%] pl-[1vw] top-[46%] z-10 border-b-[1px]">
+        <div className="absolute 2xl:right-[14%] sm:right-[3%] right-[21%] pl-[1vw] top-[46%] z-10 border-b-[1px]">
           <p className="text-[2.5vmin] text-left">ตุง 3 หาง</p>
           <div className="absolute bottom-[-1px] left-0 w-[6vmin] h-[1px] bg-white origin-bottom-left rotate-[130deg]"></div>
         </div>
-        <div className="absolute left-[min(13%,45vh)] pr-[1vw] top-[53%] z-10 border-b-[1px]">
-          <p className="text-[2.5vmin]">ส่วนฐาน</p>
-          <div className="absolute bottom-[-1px] left-full w-[6vmin] h-[1px] bg-white origin-bottom-left rotate-[40deg]"></div>
+        <div className="absolute 2xl:right-[14.5%] sm:right-[4%] right-[22%] pl-[3.5vw] top-[64%] z-10 border-b-[1px]">
+          <p className="text-[2.5vmin] text-left">ย่ามข้าว 100 ห่อ</p>
+          <div className="absolute bottom-[-1px] left-0 w-[8vmin] h-[1px] bg-white origin-bottom-left rotate-[130deg]"></div>
         </div>
       </div>
       <img src="/images/section4/horizon/4.4/procession.png" alt="" className="w-full h-full absolute top-0 left-0 object-contain object-left" />

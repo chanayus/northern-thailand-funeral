@@ -6,7 +6,7 @@ const PulseButton = ({ title, handle, dark = false }) => {
       <motion.div
         animate={{ scale: [1, 1.25, 1] }}
         transition={{ scale: { repeat: Infinity, repeatType: "reverse", duration: 3 } }}
-        className={`text-sm min-w-[70px] min-h-[70px] border-2  ${
+        className={`text-sm min-w-[55px] w-[4vw] min-h-[55px] h-[4vw] border-2  ${
           dark ? "text-black border-black" : "text-white border-white"
         } rounded-full font-[700]  relative`}
       ></motion.div>
