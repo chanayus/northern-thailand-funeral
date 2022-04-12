@@ -18,8 +18,6 @@ const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 const Section4 = () => {
   gsap.registerPlugin(ScrollTrigger)
   const router = useRouter()
-  const forceUpdate = useForceUpdate()
-  const [maxWidth, setMaxWidth] = useState(0)
   const { setTimelinePoint } = useContext(TimelineContext)
 
   const getMaxWidth = () => {
@@ -49,9 +47,9 @@ const Section4 = () => {
         trigger: ".scroll-container",
         pin: true,
         scrub: 0.5,
-        anticipatePin: 1,
+        // anticipatePin: 1,
         end: "+=1500%",
-        invalidateOnRefresh: true,
+        // invalidateOnRefresh: true,
       },
     })
 
@@ -68,24 +66,24 @@ const Section4 = () => {
         <HeaderParallax path={"/images/section4/header/สลาย_"} totalImage={11} section="4" parallaxExclude={[11]} />
       </div>
       <div className="scroll-container max-w-screen h-screen flex hide-scrollbar overscroll-none">
-        <div className={`${panelStyle} w-[500vw] bg-[url('/images/section4/horizon/bg.png')]`}>
+        <div className={`${panelStyle} min-w-[500vw] bg-[url('/images/section4/horizon/bg.png')] bg-center`}>
           <Panel1 setTimelinePoint={setTimelinePoint} />
           <Panel2 setTimelinePoint={setTimelinePoint} />
           <Panel3 setTimelinePoint={setTimelinePoint} />
           <Panel4 setTimelinePoint={setTimelinePoint} />
         </div>
-        <div className={`${panelStyle} w-screen bg-black`}>
+        {/* <div className={`${panelStyle} w-screen bg-black`}>
           <Panel5 setTimelinePoint={setTimelinePoint} />
-        </div>
+        </div> */}
       </div>
-      <div className="w-full h-screen flex justify-center items-center">
+      {/* <div className="w-full h-screen flex justify-center items-center">
         <button
           className="border border-white rounded-xl py-3 text-2xl font-bold w-36"
           onClick={() => router.replace("/section5", "/", { shallow: true, scroll: false })}
         >
           Next
         </button>
-      </div>
+      </div> */}
     </>
   )
 }
