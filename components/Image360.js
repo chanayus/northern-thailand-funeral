@@ -1,15 +1,9 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const Image360 = ({ amount = 72, path = "" }) => {
   const [swipeValue, setSwipeValue] = useState(0)
   const [imageValue, setImageValue] = useState(1)
   const [isClick, setIsClick] = useState(false)
-
-  useEffect(() => {
-    for (let index = 1; index <= amount; index++) {
-      new Image().src = `https://fastly-production.24c.in/webin/360/output_${index}.jpeg`
-    }
-  }, [])
 
   const swipeHandle = (e) => {
     const { clientX } = e.targetTouches[0]
@@ -40,12 +34,14 @@ const Image360 = ({ amount = 72, path = "" }) => {
       onMouseDown={() => setIsClick(true)}
       onMouseUp={() => setIsClick(false)}
     >
-      <img
-        src={`https://fastly-production.24c.in/webin/360/output_${imageValue}.jpeg`}
-        className="w-full h-full z-10 object-contain"
-        draggable={false}
-        alt=""
-      />
+      {[...Array(amount)].map((value, index) => (
+        <img
+          src={`https://fastly-production.24c.in/webin/360/output_${index + 1}.jpeg`}
+          className={`w-full h-full ${imageValue === index + 1 && "z-50"} object-contain absolute top-0 left-0`}
+          draggable={false}
+          alt=""
+        />
+      ))}
     </div>
   )
 }
