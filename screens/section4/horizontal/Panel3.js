@@ -18,7 +18,7 @@ const Panel3 = ({ setTimelinePoint }) => {
         onEnter: () => setTimelinePoint(8),
         onLeaveBack: () => setTimelinePoint(7),
       },
-      opacity: 0,
+      // opacity: 0,
       duration: 0.25,
       ease: "none",
     })

@@ -4,15 +4,12 @@ import { useEffect, useRef, useState } from "react"
 import PulseButton from "../../../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
-import { useRouter } from "next/router"
 
 const Panel1 = ({ setTimelinePoint }) => {
   gsap.registerPlugin(ScrollTrigger)
 
   const [dropInArea, setDropInArea] = useState(false)
-  const router = useRouter()
   const itemRef = useRef(null)
-  const dropAreaRef = useRef(null)
 
   const [state, setState] = useState({
     smoke: false,
