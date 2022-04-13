@@ -69,7 +69,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
       )}
       {imageIndex.map((value, index) => (
         <Img
-          src={`${path}${index}.${index === 0 ? "gif" : section === "2" ? "webp" : "png"}`}
+          src={`${path}${index}.${index === 0 ? "gif" : "webp"}`}
           ref={addToRefs}
           className={`w-full h-full object-cover ${index === 0 && "hidden"}`}
           key={index}
