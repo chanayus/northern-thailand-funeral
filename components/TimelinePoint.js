@@ -1,7 +1,7 @@
 const TimelinePoint = ({ active, header }) => {
   return (
     <>
-      <div className="w-[22px] h-[28px]">
+      <div className="w-[1.25vw] h-[1.75vw] max-w-[22px] max-h-[28px]">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.5466 70.9176" width="100%" height="100%">
           <polygon style={{ fill: active ? "white" : "none" }} points="21.773 70.918 0 35.459 21.773 0 43.547 35.459 21.773 70.918" />
           <path

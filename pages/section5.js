@@ -104,7 +104,7 @@ const Section5 = () => {
     beforeChange: (current, next) => setImageIndex(next),
   }
   return (
-    <div className="w-full h-full min-h-screen relative bg-[url('/images/section5/bg.jpg')] bg-no-repeat bg-cover flex flex-col">
+    <div className="w-full h-full min-h-screen relative bg-[url('/images/section5/bg.webp')] bg-no-repeat bg-cover flex flex-col">
       <div className="flex justify-between lg:p-6 p-4 pb-0">
         <Link href="/">
           <a>

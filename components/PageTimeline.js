@@ -8,19 +8,19 @@ const PageTimeline = () => {
   const router = useRouter()
   const { timelinePoint } = useContext(TimelineContext)
 
-  const tlHeaderStyle = "text-center text-xl absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-10"
+  const tlHeaderStyle = "text-center lg:text-xl text-xs absolute top-[45%] left-1/2 translate-x-[-50%] translate-y-[-50%] z-10"
   return (
     <motion.div
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.35 }}
-      className={`fixed left-6 top-1/2 translate-y-[-50%] z-50`}
+      className={`fixed lg:left-6 left-4 top-1/2 translate-y-[-50%] max-h-[100vh] z-50`}
     >
-      <img src="/images/timeline.svg" alt="" width="100" className="w-[93px] mx-auto" />
+      <img src="/images/timeline.svg" alt="" width="100" className="w-[6vw] max-w-[93px] mx-auto" />
       <div className="flex justify-center ml-[0.5px]">
         <div>
-          <div className="h-full overflow-hidden">
+          <div className="lg:h-full h-[95%] overflow-hidden">
             <div className="w-[0.25px] top-[-1px] h-3 bg-white mx-auto"></div>
             <TimelinePoint active={timelinePoint >= 1} />
             <TimelinePoint active={timelinePoint >= 2} />
@@ -33,7 +33,7 @@ const PageTimeline = () => {
         </div>
 
         <div>
-          <div className="h-full overflow-hidden">
+          <div className="lg:h-full h-[95%] overflow-hidden">
             <div className="w-[0.25px] top-[-1px] h-3 bg-white mx-auto"></div>
             <TimelinePoint active={timelinePoint >= 3} />
             <TimelinePoint active={timelinePoint >= 4} />
@@ -47,7 +47,7 @@ const PageTimeline = () => {
         </div>
 
         <div>
-          <div className="h-full overflow-hidden">
+          <div className="lg:h-full h-[95%] overflow-hidden">
             <div className="w-[0.25px] top-[-1px] h-3 bg-white mx-auto"></div>
             <TimelinePoint active={timelinePoint >= 6} />
             <TimelinePoint active={timelinePoint >= 7} />

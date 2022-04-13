@@ -131,7 +131,7 @@ const Panel4 = ({ setTimelinePoint }) => {
           <div className="absolute bottom-[-1px] left-0 w-[8vmin] h-[1px] bg-white origin-bottom-left rotate-[130deg]"></div>
         </div>
       </div>
-      <img src="/images/section4/horizon/4.4/procession.png" alt="" className="w-full h-full absolute top-0 left-0 object-contain object-left" />
+      <img src="/images/section4/horizon/4.4/procession.webp" alt="" className="w-full h-full absolute top-0 left-0 object-contain object-left" />
     </div>
   )
 }

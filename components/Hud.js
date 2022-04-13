@@ -14,7 +14,6 @@ const Hud = () => {
 
   useEffect(() => {
     setVisible(false)
-
     const eventToggle = () => {
       if (window.scrollY >= window.innerHeight - 150) {
         !visible && setVisible(true)
@@ -22,17 +21,15 @@ const Hud = () => {
         setVisible(false)
       }
     }
-    window.addEventListener("wheel", (e) => eventToggle())
-    window.addEventListener("swiped", (e) => eventToggle())
+    window.addEventListener("scroll", (e) => eventToggle())
 
     return () => {
-      window.removeEventListener("wheel", (e) => eventToggle())
-      window.removeEventListener("swiped", (e) => eventToggle())
+      window.removeEventListener("scroll", (e) => eventToggle())
     }
   }, [router])
 
   return (
-    <div className={`z-50 relative duration-300 ${!exclude.includes(router.pathname) && visible ? "opacity-100" : "opacity-0 pointer-events-none" } `}>
+    <div className={`z-50 relative duration-300 ${!exclude.includes(router.pathname) && visible ? "opacity-100" : "opacity-0 pointer-events-none"} `}>
       <PageTimeline />
       <motion.div
         exit={{ opacity: 0 }}

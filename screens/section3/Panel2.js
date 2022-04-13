@@ -33,14 +33,14 @@ const Panel2 = ({ setTimelinePoint, panelStep }) => {
   return (
     <div className="w-full h-full">
       <div ref={itemRef}>
-        <img src="/images/section3/horizon-1/2.png" alt="" className="object-contain object-bottom h-full w-full absolute bottom-0" />
-        <img src="/images/section3/horizon-1/2-layer2.png" alt="" className="object-contain object-bottom h-full w-full absolute z-10 bottom-0" />
+        <img src="/images/section3/horizon-1/2.webp" alt="" className="object-contain object-bottom h-full w-full absolute bottom-0" />
+        <img src="/images/section3/horizon-1/2-layer2.webp" alt="" className="object-contain object-bottom h-full w-full absolute z-10 bottom-0" />
         {state.light && (
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ opacity: { duration: 4, repeat: Infinity } }}
-            src="/images/section3/horizon-1/light.png"
+            src="/images/section3/horizon-1/light.webp"
             alt="light-effect"
             className="object-contain object-bottom h-full w-full absolute bottom-0 duration-500"
           />

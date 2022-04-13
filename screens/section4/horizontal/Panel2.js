@@ -48,7 +48,7 @@ const Panel2 = ({ setTimelinePoint }) => {
         อาจารย์จะสวดทำพิธีและตัดด้ายให้ขาด ถือเป็นการตัดขาดจากกัน <br />
         หลังจากนี้ห้ามสามี/ภรรยา ของผู้เสียชีวิตไปเผาศพที่ป่าช้า
       </p>
-      <img src="/images/section4/horizon/4.2/content.png" alt="" className="w-full h-full object-contain" />
+      <img src="/images/section4/horizon/4.2/content.webp" alt="" className="w-full h-full object-contain" />
     </div>
   )
 }

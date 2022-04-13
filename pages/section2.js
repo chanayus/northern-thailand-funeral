@@ -100,12 +100,11 @@ const Section2 = () => {
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
         <button
-          className="flex items-center z-40 absolute right-5 top-[15%] opacity-0"
+          className="flex items-center z-40 absolute right-5 top-[15%] opacity-0 w-[10vw] min-w-[100px] max-w-[160px]"
           id="next-button"
           onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
         >
-          <img src="/images/section2/next.png" alt="next" />
-          <img src="/icon/back.svg" alt="" className="rotate-[-90deg] w-12" />
+          <img src="/images/section2/next.svg" alt="next" className="w-full h-full" />
         </button>
 
         <div className="translate-x-[-50%] translate-y-[-50%] top-[45%] left-1/2 absolute z-10 flex flex-col items-center" id="candle">

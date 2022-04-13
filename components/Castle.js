@@ -9,7 +9,7 @@ const Castle = () => {
   const pageIncludes = ["/section2", "/section3", "/section4"]
 
   const setting = {
-    "/section2": { maxHeight: 33.33, minHeight: 0, ratio: 3 },
+    "/section2": { maxHeight: 33.33, minHeight: 0, ratio: 0 },
     "/section3": { maxHeight: 66.66, minHeight: 33.33, ratio: 5 },
     "/section4": { maxHeight: 99.99, minHeight: 66.66, ratio: 8.5 },
   }
@@ -19,15 +19,11 @@ const Castle = () => {
     const wheelHandle = (e) => {
       const currentScrollPercent = (window.scrollY / scrollHeight) * 100
       const { ratio } = setting[router.pathname]
-      if (e.deltaY === 100) {
-        iconRef.current.style.height = `${currentScrollPercent / ratio + setting[router.pathname].minHeight}%` ?? "0%"
-      } else if (e.deltaY === -100) {
-        iconRef.current.style.height = `${currentScrollPercent / ratio + setting[router.pathname].minHeight}%` ?? "0%"
-      }
+      iconRef.current.style.height = `${currentScrollPercent / ratio + setting[router.pathname].minHeight}%` ?? "0%"
     }
 
-    pageIncludes.includes(router.pathname) && window.addEventListener("wheel", (e) => wheelHandle(e))
-    return window.removeEventListener("wheel", (e) => wheelHandle(e))
+    pageIncludes.includes(router.pathname) && window.addEventListener("scroll", (e) => wheelHandle(e))
+    return window.removeEventListener("scroll", (e) => wheelHandle(e))
   }, [router])
 
   useEffect(() => {

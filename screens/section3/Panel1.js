@@ -33,7 +33,7 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
 
   return (
     <div className="w-full h-full " ref={itemRef}>
-      <img src="/images/section3/horizon-1/1.png" alt="" className="object-contain h-full w-full" />
+      <img src="/images/section3/horizon-1/1.webp" alt="" className="object-contain h-full w-full" />
 
       <Line
         width={step < 1 ? "0%" : "100%"}

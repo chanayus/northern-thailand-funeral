@@ -106,7 +106,7 @@ const Panel1 = ({ setTimelinePoint }) => {
         />
       )}
       <img src="/images/section4/horizon/4.1/candle.webp" alt="" className="absolute top-0 w-full h-full object-contain" />
-      <img src="/images/section4/horizon/4.1/table.png" alt="" className="w-full h-full object-contain z-10" />
+      <img src="/images/section4/horizon/4.1/table.webp" alt="" className="w-full h-full object-contain z-10" />
     </div>
   )
 }
