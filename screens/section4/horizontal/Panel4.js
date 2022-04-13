@@ -32,7 +32,6 @@ const Panel4 = ({ setTimelinePoint }) => {
           start: `${start} center`,
           end: "+=50%",
           scrub: true,
-          markers: true,
         },
         opacity: 0,
         duration: 0.25,

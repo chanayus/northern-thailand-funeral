@@ -5,14 +5,14 @@ import { useRouter } from "next/router"
 
 const Dust = dynamic(() => import('./Dust'), { loading: () => <></> })
 const MobileDetect = dynamic(() => import('./MobileDetect'), { loading: () => <></> })
-const PageTimeline = dynamic(() => import('./PageTimeline'), { loading: () => <></> })
+const Hud = dynamic(() => import('./Hud'), { loading: () => <></> })
 
 export default function Layout({ children }) {
   const router = useRouter()
 
   return (
     <>
-      <PageTimeline />
+      <Hud />
       <MobileDetect />
       <AnimatePresence exitBeforeEnter>
         <motion.div

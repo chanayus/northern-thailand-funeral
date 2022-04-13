@@ -18,7 +18,7 @@ const MobileDetect = () => {
   }, [])
 
   return (
-    <AnimatePresence>
+    <AnimatePresence exitBeforeEnter>
       {visible && (
         <motion.div
           exit={{ opacity: 0 }}

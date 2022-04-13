@@ -13,9 +13,9 @@ const BgMusicContext = React.createContext()
 
 function MyApp({ Component, pageProps }) {
   const [timelinePoint, setTimelinePoint] = useState(0)
-  const [playing, play, pause, stop] = useAudio("/sound/1.mp3")
+  const [playing, play, pause, stop, mute, isMute] = useAudio("/sound/1.mp3")
   return (
-    <BgMusicContext.Provider value={{ playing, play, pause, stop }}>
+    <BgMusicContext.Provider value={{ playing, play, pause, stop, mute, isMute }}>
       <TimelineContext.Provider value={{ timelinePoint, setTimelinePoint }}>
         <Head>
           <title>เมี้ยนมลาย</title>

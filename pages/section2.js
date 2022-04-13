@@ -100,7 +100,7 @@ const Section2 = () => {
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
         <button
-          className="flex items-center z-40 absolute right-5 top-[10%] opacity-0"
+          className="flex items-center z-40 absolute right-5 top-[15%] opacity-0"
           id="next-button"
           onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
         >
