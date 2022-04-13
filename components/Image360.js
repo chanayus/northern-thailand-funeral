@@ -38,7 +38,7 @@ const Image360 = ({ amount = 72, path = "" }) => {
         <img
           key={index}
           src={`https://fastly-production.24c.in/webin/360/output_${index + 1}.jpeg`}
-          className={`w-full h-full ${imageValue === index + 1 && "z-50"} object-contain absolute top-0 left-0`}
+          className={`w-full h-full ${imageValue === index + 1 ? "" : "hidden"} z-10 object-contain absolute top-0 left-0`}
           draggable={false}
           alt=""
         />
