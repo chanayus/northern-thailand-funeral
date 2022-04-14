@@ -9,6 +9,7 @@ import { useRouter } from "next/router"
 const Hud = () => {
   const exclude = ["/", "/section5"]
   const [visible, setVisible] = useState(false)
+  const [end, setEnd] = useState(false)
   const { mute, isMute } = useContext(BgMusicContext)
   const router = useRouter()
 
@@ -29,28 +30,42 @@ const Hud = () => {
   }, [router])
 
   return (
-    <div className={`z-50 relative duration-300 ${!exclude.includes(router.pathname) && visible ? "opacity-100" : "opacity-0 pointer-events-none"} `}>
-      <PageTimeline />
-      <motion.div
-        exit={{ opacity: 0 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.35 }}
-        className="fixed bottom-[1vw] right-[1vw] z-50"
+    <>
+      <div
+        className={`duration-1000 relative z-50 ${!exclude.includes(router.pathname) && visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        <Castle />
-      </motion.div>
-      <motion.button
-        exit={{ opacity: 0 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.35 }}
-        onClick={() => mute()}
-        className="fixed top-[2%] right-[1%] z-50"
+        <PageTimeline />
+      </div>
+      <div
+        className={`duration-1000 relative z-40 ${!exclude.includes(router.pathname) && visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        <img src={`/icon/${isMute ? "mute" : "sound"}.svg`} alt="" className="w-[4vw] h-[4vw] max-w-14 max-h-14" />
-      </motion.button>
-    </div>
+        <motion.div
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.35 }}
+          className={`fixed  translate-x-[-50%] translate-y-[-50%]  ${
+            end ? "left-1/2 top-1/2  duration-[1500ms]" : "left-[96%] top-[91%] duration-[1500ms]"
+          } z-30 `}
+        >
+          <Castle setEnd={setEnd} end={end} />
+        </motion.div>
+      </div>
+      <div
+        className={`duration-1000 relative z-50 ${!exclude.includes(router.pathname) && visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+      >
+        <motion.button
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.35 }}
+          onClick={() => mute()}
+          className="fixed top-[2%] right-[1%] z-50"
+        >
+          <img src={`/icon/${isMute ? "mute" : "sound"}.svg`} alt="" className="w-[4vw] h-[4vw] max-w-14 max-h-14" />
+        </motion.button>
+      </div>
+    </>
   )
 }
 

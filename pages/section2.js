@@ -88,8 +88,9 @@ const Section2 = () => {
           <img src="/images/section2/hand.gif" alt="" id="hand" className="w-[40vw] h-[40vw] z-10" />
           <div className="text-white xl:mb-64 2xl:ml-24 md:mb-0 xl:w-[90ch] w-[70ch] xl:mt-0 mt-6 mb-12 ml-0 z-10 px-3" id="text">
             <h2 className="lg:text-9xl text-[10vw] font-bold mb-1 header-font leading-none">ขอขมาศพ</h2>
-            <p className="lg:text-2xl text-base lg:ml-5 ml-0 leading-tight">
-              หลังจากอาบน้ำศพ ก็จะจัดเตรียมอุปกรณ์ โดยจะมี ดอกไม้ ข้าวสาร ธูปคนละ 2 ดอก ใส่ในถาด พร้อมกับน้ำส้มป่อย เพื่อกล่าวขอขมากับศพ
+            <p className="lg:text-2xl text-base lg:ml-5 ml-0 leading-tight whitespace-nowrap">
+              หลังจากอาบน้ำศพ ก็จะจัดเตรียมอุปกรณ์ โดยจะมี ดอกไม้ ข้าวสาร <br />
+              ธูป คนละ 2 ดอก ใส่ในถาด พร้อมกับน้ำส้มป่อย เพื่อกล่าวขอขมากับศพ <br />
               ขออโหสิกรรมซึ่งกันและกัน หลังจากนั้นก็ใช้น้ำส้มป่อยมาราดที่มือศพ
             </p>
           </div>

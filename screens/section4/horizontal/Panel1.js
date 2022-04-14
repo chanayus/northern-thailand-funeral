@@ -19,14 +19,13 @@ const Panel1 = ({ setTimelinePoint }) => {
   useEffect(() => {
     const anim = gsap.from(itemRef.current, {
       scrollTrigger: {
-        trigger: "body",
-        start: "50% center",
+        trigger: itemRef.current,
+        start: "5% center",
         end: "+=50%",
         scrub: true,
         onEnter: () => setTimelinePoint(6),
         onLeaveBack: () => setTimelinePoint(5),
       },
-      opacity: 0,
       duration: 0.25,
       ease: "none",
     })
@@ -45,7 +44,7 @@ const Panel1 = ({ setTimelinePoint }) => {
   }
 
   return (
-    <div className="w-screen h-screen relative">
+    <div className="w-screen h-screen relative" ref={itemRef}>
       <div className="absolute z-10 top-[10%] left-[58%] translate-x-[-50%] max-w-[40vw] leading-tight">
         <h2 className="text-[10vmin] mb-0 header-font font-bold text-black">ข้าว 100 ห่อ</h2>
         <p className="text-[2.6vmin] leading-tight text-black">

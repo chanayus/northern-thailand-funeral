@@ -60,7 +60,7 @@ const Section5 = () => {
 
   const PrevArrow = ({ onClick }) => {
     return (
-      <div onClick={onClick} className="absolute top-[45%] left-[38%] z-10 translate-y-[-50%] cursor-pointer lg:block hidden">
+      <div onClick={onClick} className="absolute top-[45%] left-[38%] z-10 translate-y-[-50%] cursor-pointer xl:block hidden">
         <img src="/icon/arrow.svg" className="rotate-180" alt="" />
       </div>
     )
@@ -68,7 +68,7 @@ const Section5 = () => {
 
   const NextArrow = ({ onClick }) => {
     return (
-      <div onClick={onClick} className="absolute top-[45%] right-[38%] z-10 translate-y-[-50%] cursor-pointer lg:block hidden">
+      <div onClick={onClick} className="absolute top-[45%] right-[38%] z-10 translate-y-[-50%] cursor-pointer xl:block hidden">
         <img src="/icon/arrow.svg" alt="" />
       </div>
     )
@@ -94,7 +94,7 @@ const Section5 = () => {
     className: "relative",
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1280,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 0,

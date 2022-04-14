@@ -75,9 +75,9 @@ const Panel2 = ({ setTimelinePoint, panelStep }) => {
           </div>
         )}
       </AnimatePresence>
-      <div className="absolute z-10 top-[10%] right-[12%] max-w-[40vw]">
+      <div className="absolute z-10 top-[10%] xl:right-[12%] right-[6%] max-w-[40vw]">
         <h2 className="text-[10vmin] font-bold mb-0 header-font leading-tight">ปราสาทศพ</h2>
-        <p className="text-[2.6vmin] leading-tight">
+        <p className="text-[clamp(9px,2.7vmin,1.5rem)] leading-tight whitespace-nowrap">
           หลังจากตานของให้ผู้ตายแล้ว ก็จะนำศพออกจากบ้านขึ้นบนขบวนแห่ <br />
           และตกแต่งด้วยปราสาทศพ คนเรานั้นเมื่อตายไปแล้ว ญาติพี่น้องก็หวังว่า <br />
           ผู้ตายจะได้ไปสูสวรรค์จึงทําปราสาทขึ้นมาครอบตกแต่งโลงศพ <br />

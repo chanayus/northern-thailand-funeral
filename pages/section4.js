@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react"
-
 import Panel1 from "../screens/section4/horizontal/Panel1"
+import Panel10 from "../screens/section4/Panel10"
 import Panel2 from "../screens/section4/horizontal/Panel2"
 import Panel3 from "../screens/section4/horizontal/Panel3"
 import Panel4 from "../screens/section4/horizontal/Panel4"
 import Panel5 from "../screens/section4/horizontal/Panel5"
+import Panel6 from "../screens/section4/Panel6"
+import Panel7 from "../screens/section4/Panel7"
+import Panel8 from "../screens/section4/Panel8"
+import Panel9 from "../screens/section4/Panel9"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
 import { useContext } from "react"
-import useForceUpdate from "use-force-update"
-import { useRouter } from "next/router"
+import { useEffect } from "react"
 
 const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section4 = () => {
   gsap.registerPlugin(ScrollTrigger)
-  const router = useRouter()
   const { setTimelinePoint } = useContext(TimelineContext)
 
   const getMaxWidth = () => {
@@ -31,9 +32,6 @@ const Section4 = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
-
-  useEffect(() => {
     const sections = gsap.utils.toArray(".panel")
 
     getMaxWidth()
@@ -76,14 +74,11 @@ const Section4 = () => {
           <Panel5 setTimelinePoint={setTimelinePoint} />
         </div>
       </div>
-      <div className="w-full h-screen flex justify-center items-center">
-        <button
-          className="border border-white rounded-xl py-3 text-2xl font-bold w-36"
-          onClick={() => router.replace("/section5", "/", { shallow: true, scroll: false })}
-        >
-          Next
-        </button>
-      </div>
+      <Panel6 setTimelinePoint={setTimelinePoint} />
+      <Panel7 setTimelinePoint={setTimelinePoint} />
+      <Panel8 setTimelinePoint={setTimelinePoint} />
+      <Panel9 setTimelinePoint={setTimelinePoint} />
+      <Panel10 setTimelinePoint={setTimelinePoint} />
     </>
   )
 }

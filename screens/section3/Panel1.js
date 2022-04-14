@@ -83,9 +83,9 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
         className={`w-[50vw] lg:h-[1.5px] h-[1.25px] absolute top-[60%] left-[70%] -z-10 duration-500`}
       ></Line>
 
-      <div className="absolute z-10 top-[10%] right-[5%] max-w-[40vw] leading-tight">
+      <div className="absolute z-10 top-[8%] right-[4.5%] max-w-[40vw] leading-tight">
         <h2 className="text-[10vmin] font-bold mb-0 header-font">ตานของให้คนตาย</h2>
-        <p className="text-[2.6vmin] leading-tight">
+        <p className="text-[clamp(10px,2.65vmin,1.4rem)] leading-tight whitespace-nowrap">
           เป็นการส่งข้าวของเครื่องใช้ รถ เงินทอง เสื้อผ้า หมอนผ้าห่มที่นอน เฮือนน้อย <br /> ไปให้ผู้ตาย โดยจะผูกสายสิญจน์ไว้ทั้งหมด และ
           ไปผูกไว้กับโลงศพ <br />
           หลังจากนั้นก็จะทำพิธีตานของให้ผู้ตายไว้ใช้ในโลกหน้า

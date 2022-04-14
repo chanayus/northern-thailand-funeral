@@ -12,9 +12,9 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
   const imageIndex = new Array(totalImage).fill("").map((_, i) => i + 1)
 
   const parallax = (e) => {
-    const { pageX, pageY } = e
+    const { pageX, screenY } = e
     const x = (window.innerWidth - pageX) / 50
-    const y = (window.innerHeight - pageY) / 50
+    const y = (window.innerHeight - screenY) / 50
     itemsRef.current.map((ele, index) => {
       if (!parallaxExclude.includes(index + 1)) {
         ele.style.transition = "0.175s"
@@ -36,7 +36,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
   return (
     <div className="w-full h-full" onMouseMove={(e) => parallax(e)}>
       <AnimatePresence exitBeforeEnter>
-        {imgLoaded < totalImage  && (
+        {imgLoaded < totalImage && section !== "4" && (
           <motion.div
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
@@ -55,7 +55,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
           </motion.div>
         )}
       </AnimatePresence>
-      {imgLoaded === totalImage && (
+      {imgLoaded === totalImage && section !== 4 && (
         <Img
           src={`${path}0.gif`}
           ref={addToRefs}
