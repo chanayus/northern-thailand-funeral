@@ -14,13 +14,13 @@ const Panel3 = ({ setTimelinePoint }) => {
     const anim = gsap.from(itemRef.current, {
       scrollTrigger: {
         trigger: "body",
-        start: "450% center",
+        start: "250% center",
         end: "+=100%",
         scrub: true,
         onEnter: () => setTimelinePoint(5),
         onLeaveBack: () => setTimelinePoint(4),
       },
-      opacity: 0,
+      // opacity: 0,
       duration: 0.25,
       ease: "none",
     })

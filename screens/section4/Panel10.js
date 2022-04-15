@@ -10,7 +10,7 @@ const Panel10 = ({ setTimelinePoint }) => {
   const [showBg, setShowBg] = useState(false)
 
   return (
-    <div className="w-full min-h-screen relative border border-red-500 overflow-hidden">
+    <div className="w-full min-h-screen relative bg-[url('/images/section4/4.10/bg.webp')]">
       <AnimatePresence>
         {!showBg && (
           <Button

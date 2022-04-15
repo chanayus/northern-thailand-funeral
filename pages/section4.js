@@ -63,7 +63,8 @@ const Section4 = () => {
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative ">
         <HeaderParallax path={"/images/section4/header/สลาย_"} totalImage={11} section="4" parallaxExclude={[11]} />
       </div>
-      <div className="scroll-container max-w-screen h-screen flex hide-scrollbar overscroll-none">
+
+      <div className="scroll-container max-w-screen min-h-screen flex hide-scrollbar overscroll-none">
         <div className={`${panelStyle} min-w-[500vw] bg-[url('/images/section4/horizon/bg.webp')] bg-center`}>
           <Panel1 setTimelinePoint={setTimelinePoint} />
           <Panel2 setTimelinePoint={setTimelinePoint} />

@@ -36,7 +36,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
   return (
     <div className="w-full h-full" onMouseMove={(e) => parallax(e)}>
       <AnimatePresence exitBeforeEnter>
-        {imgLoaded < totalImage && section !== "4" && (
+        {imgLoaded < totalImage && (
           <motion.div
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
