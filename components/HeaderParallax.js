@@ -30,7 +30,9 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
   }
 
   useEffect(() => {
-    document.documentElement.style.overflow = imgLoaded === totalImage ? "unset" : "hidden"
+    if (section !== "4") {
+      document.documentElement.style.overflow = imgLoaded === totalImage ? "unset" : "hidden"
+    }
   }, [imgLoaded])
 
   return (
