@@ -1,16 +1,17 @@
-import { AnimatePresence, motion } from "framer-motion"
+import { BgMusicContext, IsEndContext } from "../pages/_app"
 import { useContext, useEffect, useState } from "react"
 
-import { BgMusicContext } from "../pages/_app"
 import Castle from "./Castle"
 import PageTimeline from "./PageTimeline"
+import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 
 const Hud = () => {
   const exclude = ["/", "/section5"]
   const [visible, setVisible] = useState(false)
-  const [end, setEnd] = useState(false)
+  const [scrollEnd, setScrollEnd] = useState(false)
   const { mute, isMute } = useContext(BgMusicContext)
+  const { isEnd } = useContext(IsEndContext)
   const router = useRouter()
 
   useEffect(() => {
@@ -44,11 +45,13 @@ const Hud = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.35 }}
-          className={`fixed  translate-x-[-50%] translate-y-[-50%]  ${
-            end ? "left-1/2 top-1/2  duration-[1500ms]" : "md:left-[95.5%] md:top-[91%] left-[93%] top-[87%] duration-[1500ms]"
-          } z-30 `}
+          className={`fixed  translate-x-[-50%] translate-y-[-50%] z-30  ${
+            scrollEnd && !isEnd
+              ? `left-1/2 top-1/2 duration-[1500ms]`
+              : `md:left-[95.5%] md:top-[91%] left-[93%] top-[87%] duration-[1500ms] ${isEnd ? "delay-[250ms]" : ""}`
+          }`}
         >
-          <Castle setEnd={setEnd} end={end} />
+          <Castle setScrollEnd={setScrollEnd} scrollEnd={scrollEnd} />
         </motion.div>
       </div>
       <div

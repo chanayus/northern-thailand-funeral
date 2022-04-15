@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from "react"
 
+import { IsEndContext } from "../pages/_app"
 import styled from "styled-components"
+import { useContext } from "react"
 import { useRouter } from "next/router"
 
-const Castle = ({ setEnd, end }) => {
+const Castle = ({ setScrollEnd, scrollEnd }) => {
   const router = useRouter()
   const iconRef = useRef()
+  const { isEnd } = useContext(IsEndContext)
   const pageIncludes = ["/section2", "/section3", "/section4"]
 
   const setting = {
@@ -23,10 +26,10 @@ const Castle = ({ setEnd, end }) => {
 
       const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight
       if (router.pathname === "/section4" && bottom) {
-        setEnd(true)
+        setScrollEnd(true)
         iconRef.current.style.height = "100%"
       } else {
-        setEnd(false)
+        setScrollEnd(false)
       }
     }
 
@@ -47,15 +50,15 @@ const Castle = ({ setEnd, end }) => {
   }, [router])
 
   return (
-    <Wrapper delay={end ? "1s" : "0s"} className={`${end ? "w-[40vw] h-[40vw]" : "lg:w-[100px] lg:h-[100px] w-[65px] h-[65px]"} transform relative`}>
+    <Wrapper delay={scrollEnd ? "1s" : "0s"} className={`${scrollEnd && !isEnd ? `w-[40vw] h-[40vw]` : "lg:w-[100px] lg:h-[100px] w-[65px] h-[65px]"} transform relative`}>
       <Icon
         className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 ${
-          end ? "bg-[length:100%_100%]" : "lg:bg-[length:100px_100px] bg-[length:70px_70px]"
+          scrollEnd ? "bg-[length:100%_100%]" : "lg:bg-[length:100px_100px] bg-[length:70px_70px]"
         }`}
-        size={end ? "100% 100%" : "65px 65px"}
+        size={scrollEnd ? "100% 100%" : "65px 65px"}
         ref={iconRef}
-        duration={end ? "1.5s" : "1s"}
-        delay={end ? "4s" : "4s"}
+        duration={scrollEnd ? "1.5s" : "1s"}
+        delay={scrollEnd ? "4s" : "4s"}
       ></Icon>
     </Wrapper>
   )

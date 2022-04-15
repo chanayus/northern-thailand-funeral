@@ -1,14 +1,15 @@
 import { AnimatePresence, motion } from "framer-motion"
+import { useContext, useState } from "react"
 
 import HeaderParallax from "../../components/HeaderParallax"
+import { IsEndContext } from "../../pages/_app"
 import styled from "styled-components"
 import { useRouter } from "next/router"
-import { useState } from "react"
 
 const Panel10 = ({ setTimelinePoint }) => {
   const router = useRouter()
   const [showBg, setShowBg] = useState(false)
-
+  const { setIsEnd } = useContext(IsEndContext)
   return (
     <div className="w-full min-h-screen relative bg-[url('/images/section4/4.10/bg.webp')]">
       <AnimatePresence>
@@ -19,7 +20,10 @@ const Panel10 = ({ setTimelinePoint }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
             className="bg-transparent border border-[#000] text-black header-font text-3xl header-bold w-[180px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] bottom-[13%] z-[60]"
-            onClick={() => setShowBg(true)}
+            onClick={() => {
+              setShowBg(true)
+              setIsEnd(true)
+            }}
             title="ไปสู่สุคติ"
             bg="transparent"
           ></Button>
