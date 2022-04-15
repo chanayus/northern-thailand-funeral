@@ -45,7 +45,7 @@ const Hud = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.35 }}
           className={`fixed  translate-x-[-50%] translate-y-[-50%]  ${
-            end ? "left-1/2 top-1/2  duration-[1500ms]" : "left-[96%] top-[91%] duration-[1500ms]"
+            end ? "left-1/2 top-1/2  duration-[1500ms]" : "md:left-[95.5%] md:top-[91%] left-[93%] top-[87%] duration-[1500ms]"
           } z-30 `}
         >
           <Castle setEnd={setEnd} end={end} />

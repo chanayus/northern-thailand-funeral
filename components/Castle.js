@@ -47,10 +47,12 @@ const Castle = ({ setEnd, end }) => {
   }, [router])
 
   return (
-    <Wrapper delay={end ? "1s" : "0s"} className={`${end ? "w-[40vw] h-[40vw]" : "w-[6vw] h-[6vw]"} transform relative`}>
+    <Wrapper delay={end ? "1s" : "0s"} className={`${end ? "w-[40vw] h-[40vw]" : "lg:w-[100px] lg:h-[100px] w-[65px] h-[65px]"} transform relative`}>
       <Icon
-        className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0`}
-        size={end ? "100% 100%" : "100px 100px"}
+        className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 ${
+          end ? "bg-[length:100%_100%]" : "lg:bg-[length:100px_100px] bg-[length:70px_70px]"
+        }`}
+        size={end ? "100% 100%" : "65px 65px"}
         ref={iconRef}
         duration={end ? "1.5s" : "1s"}
         delay={end ? "4s" : "4s"}
@@ -60,7 +62,7 @@ const Castle = ({ setEnd, end }) => {
 }
 
 const Icon = styled.div`
-  background-size: ${(props) => props.size};
+  /* background-size: ${(props) => props.size}; */
   background-position: bottom;
 
   transition: background-size 1s ease 0.25s;
@@ -68,7 +70,7 @@ const Icon = styled.div`
 
 const Wrapper = styled.div`
   transition-duration: 1.5s;
-  transition-delay: ${props => props.delay};
+  transition-delay: ${(props) => props.delay};
 `
 
 export default Castle
