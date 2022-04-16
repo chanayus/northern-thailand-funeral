@@ -1,18 +1,19 @@
 import { AnimatePresence, motion } from "framer-motion"
 
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
 
-const Dust = dynamic(() => import('./Dust'), { loading: () => <></> })
-const MobileDetect = dynamic(() => import('./MobileDetect'), { loading: () => <></> })
-const Hud = dynamic(() => import('./Hud'), { loading: () => <></> })
+const Dust = dynamic(() => import("./Dust"), { loading: () => <></> })
+const MobileDetect = dynamic(() => import("./MobileDetect"), { loading: () => <></> })
+const Hud = dynamic(() => import("./Hud"), { loading: () => <></> })
 
 export default function Layout({ children }) {
   const router = useRouter()
+  const pageIncludes = ["/section2", "/section3", "/section4"]
 
   return (
     <>
-      <Hud />
+      <AnimatePresence exitBeforeEnter>{pageIncludes.includes(router.pathname) && <Hud />}</AnimatePresence>
       <MobileDetect />
       <AnimatePresence exitBeforeEnter>
         <motion.div

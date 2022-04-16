@@ -7,7 +7,6 @@ import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 
 const Hud = () => {
-  const exclude = ["/", "/section5"]
   const [visible, setVisible] = useState(false)
   const [scrollEnd, setScrollEnd] = useState(false)
   const { mute, isMute } = useContext(BgMusicContext)
@@ -31,20 +30,12 @@ const Hud = () => {
   }, [router])
 
   return (
-    <>
-      <div
-        className={`duration-1000 relative z-50 ${!exclude.includes(router.pathname) && visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-      >
+    <motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <div className={`duration-1000 relative z-50 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
         <PageTimeline />
       </div>
-      <div
-        className={`duration-1000 relative z-40 ${!exclude.includes(router.pathname) && visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-      >
-        <motion.div
-          exit={{ opacity: 0 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.35 }}
+      <div className={`duration-1000 relative z-40 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+        <div
           className={`fixed  translate-x-[-50%] translate-y-[-50%] z-30  ${
             scrollEnd && !isEnd
               ? `left-1/2 top-1/2 duration-[1500ms]`
@@ -52,23 +43,14 @@ const Hud = () => {
           }`}
         >
           <Castle setScrollEnd={setScrollEnd} scrollEnd={scrollEnd} />
-        </motion.div>
+        </div>
       </div>
-      <div
-        className={`duration-1000 relative z-50 ${!exclude.includes(router.pathname) && visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-      >
-        <motion.button
-          exit={{ opacity: 0 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.35 }}
-          onClick={() => mute()}
-          className="fixed top-[2%] right-[1%] z-50"
-        >
+      <div className={`duration-1000 relative z-50 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+        <button onClick={() => mute()} className="fixed top-[2%] right-[1%] z-50">
           <img src={`/icon/${isMute ? "mute" : "sound"}.svg`} alt="" className="w-[4vw] h-[4vw] max-w-14 max-h-14" />
-        </motion.button>
+        </button>
       </div>
-    </>
+    </motion.div>
   )
 }
 

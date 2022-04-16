@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 
 import { IsEndContext } from "../pages/_app"
 import styled from "styled-components"
@@ -9,7 +9,6 @@ const Castle = ({ setScrollEnd, scrollEnd }) => {
   const router = useRouter()
   const iconRef = useRef()
   const { isEnd } = useContext(IsEndContext)
-  const pageIncludes = ["/section2", "/section3", "/section4"]
 
   const setting = {
     "/section2": { maxHeight: 33.33, minHeight: 0, ratio: 3 },
@@ -32,44 +31,30 @@ const Castle = ({ setScrollEnd, scrollEnd }) => {
         setScrollEnd(false)
       }
     }
-
-    if (pageIncludes.includes(router.pathname)) {
-      window.addEventListener("scroll", wheelHandle)
-    }
-    return () => {
-      window.removeEventListener("scroll", wheelHandle)
-    }
+    window.addEventListener("scroll", wheelHandle)
+    return () => window.removeEventListener("scroll", wheelHandle)
   }, [router])
 
   useEffect(() => {
-    if (pageIncludes.includes(router.pathname)) {
-      iconRef.current.style.maxHeight = `${setting[router.pathname].maxHeight}%`
-      iconRef.current.style.minHeight = `${setting[router.pathname].minHeight}%`
-      iconRef.current.style.height = `${setting[router.pathname].minHeight}%`
-    }
+    iconRef.current.style.maxHeight = `${setting[router.pathname].maxHeight}%`
+    iconRef.current.style.minHeight = `${setting[router.pathname].minHeight}%`
+    iconRef.current.style.height = `${setting[router.pathname].minHeight}%`
   }, [router])
 
   return (
-    <Wrapper delay={scrollEnd ? "1s" : "0s"} className={`${scrollEnd && !isEnd ? `w-[40vw] h-[40vw]` : "lg:w-[100px] lg:h-[100px] w-[65px] h-[65px]"} transform relative`}>
-      <Icon
-        className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 ${
+    <Wrapper
+      delay={scrollEnd ? "1s" : "0s"}
+      className={`${scrollEnd && !isEnd ? `w-[40vw] h-[40vw]` : "lg:w-[100px] lg:h-[100px] w-[65px] h-[65px]"} transform relative`}
+    >
+      <div
+        className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 bg-bottom ${
           scrollEnd ? "bg-[length:100%_100%]" : "lg:bg-[length:100px_100px] bg-[length:70px_70px]"
         }`}
-        size={scrollEnd ? "100% 100%" : "65px 65px"}
         ref={iconRef}
-        duration={scrollEnd ? "1.5s" : "1s"}
-        delay={scrollEnd ? "4s" : "4s"}
-      ></Icon>
+      ></div>
     </Wrapper>
   )
 }
-
-const Icon = styled.div`
-  /* background-size: ${(props) => props.size}; */
-  background-position: bottom;
-
-  transition: background-size 1s ease 0.25s;
-`
 
 const Wrapper = styled.div`
   transition-duration: 1.5s;
