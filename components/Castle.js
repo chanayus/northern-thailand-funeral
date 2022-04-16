@@ -9,7 +9,7 @@ const Castle = ({ setScrollEnd, scrollEnd }) => {
   const router = useRouter()
   const iconRef = useRef()
   const { isEnd } = useContext(IsEndContext)
-
+  const excludePath = ["/", "/section5"]
   const setting = {
     "/section2": { maxHeight: 33.33, minHeight: 0, ratio: 3 },
     "/section3": { maxHeight: 66.66, minHeight: 33.33, ratio: 15 },
@@ -36,9 +36,11 @@ const Castle = ({ setScrollEnd, scrollEnd }) => {
   }, [router])
 
   useEffect(() => {
-    iconRef.current.style.maxHeight = `${setting[router.pathname].maxHeight}%`
-    iconRef.current.style.minHeight = `${setting[router.pathname].minHeight}%`
-    iconRef.current.style.height = `${setting[router.pathname].minHeight}%`
+    if (!excludePath.includes(router.pathname)) {
+      iconRef.current.style.maxHeight = `${setting[router.pathname].maxHeight}%`
+      iconRef.current.style.minHeight = `${setting[router.pathname].minHeight}%`
+      iconRef.current.style.height = `${setting[router.pathname].minHeight}%`
+    }
   }, [router])
 
   return (
