@@ -38,7 +38,7 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="fixed w-screen bg-black h-screen flex top-0 justify-center items-center z-50"
+            className="fixed w-screen bg-black h-screen flex top-0 justify-center items-center z-[70]"
             key={"loader"}
           >
             <Logo />
