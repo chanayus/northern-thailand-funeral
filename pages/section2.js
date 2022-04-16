@@ -1,11 +1,12 @@
+import { useContext, useRef } from "react"
 import { useEffect, useState } from "react"
 
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import Scrollbar from "smooth-scrollbar"
 import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
 import { motion } from "framer-motion"
-import { useContext } from "react"
 import { useRouter } from "next/router"
 
 const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
@@ -13,20 +14,21 @@ const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 const Section2 = () => {
   gsap.registerPlugin(ScrollTrigger)
   const { setTimelinePoint } = useContext(TimelineContext)
-
+  const wrapperRef = useRef(null)
   const [candleActivate, setCandleActivate] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    gsap.to("#coffin", { opacity: 0, scale: 1.75, x: "26%", y: "-44.0%", duration: 0, delay: 0 })
 
+    gsap.to("#coffin", { opacity: 0, scale: 1.75, x: "26%", y: "-44.0%", duration: 0, delay: 0 })
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".content-container",
         start: "-50 center",
         end: `+=500 center`,
         scrub: 1,
+
         onEnter: () => setTimelinePoint(1),
         onLeaveBack: () => setTimelinePoint(0),
       },
@@ -58,12 +60,14 @@ const Section2 = () => {
         ease: "none",
         id: "coffin-active",
         trigger: ".coffin-container",
-        start: "65% 60%",
+        start: "center center",
         end: `+=350%`,
         scrub: 1,
         pin: true,
-        invalidateOnRefresh: true,
-        anticipatePin: 1,
+        // invalidateOnRefresh: true,
+        // anticipatePin: 1,
+
+        pinType: "transform",
       },
     })
     activeTl.to("#coffin", { opacity: 1 })
@@ -78,12 +82,12 @@ const Section2 = () => {
   }
 
   return (
-    <div className="min-h-screen h-full relative">
-      <img src="/images/section2/bg.webp" alt="bg" className="h-full w-full fixed object-cover object-top top-0" />
+    <div className="min-h-screen h-full relative z-[1] bg-[url('/images/section2/bg.webp')] bg-contain bg-no-repeat bg-fixed" ref={wrapperRef}>
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
         <HeaderParallax path={"/images/section2/header/เสีย_"} section="2" totalImage={15} parallaxExclude={[3, 15]} />
       </div>
       <div className="w-full h-screen relative content-container">
+        <img src="/images/section2/bg1.webp" alt="bg" className="h-full w-full absolute object-cover object-top top-0" />
         <div className="flex xl:items-center">
           <img src="/images/section2/hand.gif" alt="" id="hand" className="w-[40vw] h-[40vw] z-10" />
           <div className="text-white xl:mb-64 2xl:ml-24 md:mb-0 xl:w-[90ch] w-[70ch] xl:mt-0 mt-6 mb-12 ml-0 z-10 px-3" id="text">
@@ -100,6 +104,7 @@ const Section2 = () => {
         </div>
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
+        <img src="/images/section2/bg2.webp" alt="bg" className="h-full w-full absolute object-cover object-top bottom-0" />
         <button
           className="flex items-center z-40 absolute right-5 top-[15%] opacity-0 w-[10vw] min-w-[100px] max-w-[160px]"
           id="next-button"

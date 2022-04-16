@@ -50,7 +50,7 @@ const Castle = ({ setScrollEnd, scrollEnd }) => {
     >
       <div
         className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 bg-bottom ${
-          scrollEnd ? "bg-[length:100%_100%]" : "lg:bg-[length:100px_100px] bg-[length:70px_70px]"
+          scrollEnd ? "bg-[length:100%_100%]" : "lg:bg-[length:100px_100px] bg-[length:70px_70px] delay-[250ms] duration-1000"
         }`}
         ref={iconRef}
       ></div>
