@@ -46,12 +46,12 @@ const Castle = ({ setScrollEnd, scrollEnd }) => {
   return (
     <Wrapper
       delay={scrollEnd ? "1s" : "0s"}
-      className={`${scrollEnd && !isEnd ? `w-[40vw] h-[40vw]` : "lg:w-[100px] lg:h-[100px] w-[65px] h-[65px]"} transform relative`}
+      className={`${scrollEnd && !isEnd ? `w-[40vw] h-[40vw]` : "lg:w-[100px] lg:h-[100px] w-[65px] h-[65px]"} transform relative  `}
     >
       <div
         className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 bg-bottom ${
           scrollEnd ? "bg-[length:100%_100%]" : "lg:bg-[length:100px_100px] bg-[length:70px_70px]"
-        }`}
+        } delay-[250ms] duration-1000`}
         ref={iconRef}
       ></div>
     </Wrapper>
