@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 
+import { BgMusicContext } from "./_app"
 import Link from "next/link"
 import Slider from "react-slick/lib/slider"
 import styled from "styled-components"
+import { useContext } from "react"
 
 const Section5 = () => {
+  const { mute, isMute } = useContext(BgMusicContext)
   const zodiac = [
     {
       title: "ราศีมังกร",
@@ -116,8 +119,8 @@ const Section5 = () => {
           </a>
         </Link>
 
-        <button className="h-fit">
-          <img src="/icon/sound.svg" alt="" width={40} h={40} />
+        <button onClick={() => mute()} className="h-fit">
+          <img src={`/icon/${isMute ? "mute" : "sound"}.svg`} alt="" className="w-[4vw] h-[4vw] max-w-12 max-h-12" />
         </button>
       </div>
       <div className="w-full flex-1 mb-6">

@@ -24,7 +24,7 @@ const Castle = ({ setScrollEnd, scrollEnd }) => {
       iconRef.current.style.height = `${currentScrollPercent / ratio + setting[router.pathname].minHeight}%` ?? "0%"
 
       const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight
-      console.log(router.pathname === "/section4", Math.ceil(window.innerHeight + window.scrollY), document.documentElement.scrollHeight)
+
       if (router.pathname === "/section4" && bottom) {
         setScrollEnd(true)
         iconRef.current.style.height = "100%"

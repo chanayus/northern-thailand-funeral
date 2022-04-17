@@ -15,6 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     window.history.scrollRestoration = "manual"
+    document.documentElement.style.overflow = "hidden"
     playing && stop()
     setLoading(true)
     return () => {
@@ -24,8 +25,11 @@ const Home = () => {
 
   const onLoadVideo = () => {
     setTimeout(() => {
+      document.documentElement.style.overflow = "unset"
       setLoading(false)
     }, 4800)
+
+    // document.documentElement.style.overflow = "unset"
     setGif("/images/logo.gif")
   }
 

@@ -58,7 +58,7 @@ const Section2 = () => {
         ease: "none",
         id: "coffin-active",
         trigger: ".coffin-container",
-        start: "65% 60%",
+        start: "center center",
         end: `+=350%`,
         scrub: 1,
         pin: true,

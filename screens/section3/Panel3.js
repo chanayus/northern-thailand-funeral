@@ -27,10 +27,15 @@ const Panel3 = ({ setTimelinePoint }) => {
     return () => anim.kill()
   }, [])
 
+  useEffect(() => {})
+
   return (
     <button
       className="border border-white rounded-xl py-3 text-2xl font-bold w-36"
-      onClick={() => router.replace("/section4", "/", { shallow: true, scroll: false })}
+      onClick={() => {
+        router.replace("/section4", "/", { shallow: false, scroll: true })
+        router.events.on("routeChangeComplete", () => window.scrollTo(0, 0))
+      }}
       ref={itemRef}
     >
       Next
