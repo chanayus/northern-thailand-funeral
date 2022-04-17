@@ -11,7 +11,6 @@ const Panel9 = ({ setTimelinePoint }) => {
   const textRef = useRef(null)
 
   useEffect(() => {
-    console.log("update")
     const tl = gsap.timeline({
       scrollTrigger: {
         ease: "none",

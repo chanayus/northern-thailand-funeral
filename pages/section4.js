@@ -48,6 +48,7 @@ const Section4 = () => {
         anticipatePin: 1,
         end: "+=1500%",
         invalidateOnRefresh: true,
+        pinType: "fixed",
       },
     })
 
@@ -64,7 +65,7 @@ const Section4 = () => {
         <HeaderParallax path={"/images/section4/header/สลาย_"} totalImage={11} section="4" parallaxExclude={[11]} />
       </div>
 
-      <div className="scroll-container max-w-screen min-h-screen flex hide-scrollbar overscroll-none">
+      <div className="scroll-container max-w-screen min-h-screen flex hide-scrollbar overscroll-none" id="#pin-section4">
         <div className={`${panelStyle} min-w-[500vw] bg-[url('/images/section4/horizon/bg.webp')] bg-center`}>
           <Panel1 setTimelinePoint={setTimelinePoint} />
           <Panel2 setTimelinePoint={setTimelinePoint} />

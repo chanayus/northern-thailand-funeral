@@ -28,11 +28,12 @@ const Section3 = () => {
       scrollTrigger: {
         id: "horizontal-section2",
         trigger: ".scroll-container",
-        pin: true,
+        pin: "#pin-section3",
         scrub: 0.5,
         invalidateOnRefresh: true,
         end: "+=1000%",
         anticipatePin: 1,
+        pinType: "fixed"
       },
     })
     return () => {
@@ -45,7 +46,7 @@ const Section3 = () => {
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
         <HeaderParallax path={"/images/section3/header/ก่อนสลาย_"} totalImage={7} section="3" parallaxExclude={[2, 7]} />
       </div>
-      <div className="scroll-container max-w-screen h-screen flex hide-scrollbar overscroll-none">
+      <div className="scroll-container max-w-screen h-screen flex hide-scrollbar overscroll-none"  id="pin-section3">
         <div className="panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-1.webp')] bg-no-repeat bg-cover relative">
           <Panel1 setTimelinePoint={setTimelinePoint} setPanelStep={setPanelStep} panelStep={panelStep} />
         </div>

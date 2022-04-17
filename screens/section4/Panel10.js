@@ -19,7 +19,7 @@ const Panel10 = ({ setTimelinePoint }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="bg-transparent border border-[#000] text-black header-font text-3xl header-bold w-[180px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] bottom-[13%] z-[60]"
+            className="bg-transparent border border-[#000] text-black header-font lg:text-3xl text-2xl header-bold max-w-[180px] min-w-[120px] w-[15vw] h-[43px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] lg:bottom-[13%] bottom-[9%] z-[60]"
             onClick={() => {
               setShowBg(true)
               setIsEnd(true)

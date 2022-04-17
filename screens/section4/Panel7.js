@@ -1,7 +1,17 @@
 const Panel7 = ({ setTimelinePoint }) => {
   return (
-    <div className="w-full h-screen flex justify-center items-center">
-      <button className="border border-white rounded-xl py-3 text-2xl font-bold w-36">Next</button>
+    <div className="w-full min-h-screen h-full relative">
+      <video
+        src="/video/4.7.mp4"
+        width="100%"
+        height="100%"
+        type={"video/mp4"}
+        muted
+        autoPlay
+        loop
+        disablePictureInPicture
+        className="w-full h-full object-cover object-top absolute"
+      />
     </div>
   )
 }
