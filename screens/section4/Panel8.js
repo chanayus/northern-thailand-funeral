@@ -14,8 +14,10 @@ const Panel8 = ({ setTimelinePoint }) => {
   }
 
   return (
-    <div className="w-full min-h-screen relative">
+    <div className="w-full h-full min-h-screen relative">
       <video
+        src="/video/4.8.mp4"
+        type="video/mp4"
         width="100%"
         height="100%"
         autoPlay
@@ -23,19 +25,19 @@ const Panel8 = ({ setTimelinePoint }) => {
         muted
         playsInLine="true"
         disablePictureInPicture
-        className={`w-full h-full object-cover object-bottom absolute ${isPlay ? "" : "opacity-0"} duration-1000`}
+        className={`w-full h-screen min-h-screen z-10 object-cover object-bottom absolute ${
+          isPlay ? "" : "opacity-0"
+        } duration-1000`}
         ref={videoRef}
-      >
-        <source src="/video/4.8.mp4" type="video/mp4"></source>
-      </video>
+      />
       <AnimatePresence>
         {!isPlay && (
-          <div className="absolute top-[87%] left-[34.5%]">
+          <div className="absolute top-[89.25%] left-[34.5%] z-10">
             <PulseButton title="Click" dark handle={() => playHandle()} />
           </div>
         )}
       </AnimatePresence>
-      <img src="/images/section4/4.8/4.8.webp" alt="4.8-bg" className="" />
+      <img src="/images/section4/4.8/4.8.webp" alt="4.8-bg" className="w-full h-full object-cover absolute" />
     </div>
   )
 }

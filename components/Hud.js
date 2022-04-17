@@ -39,7 +39,7 @@ const Hud = () => {
           className={`fixed  translate-x-[-50%] translate-y-[-50%] z-30  ${
             scrollEnd && !isEnd
               ? `left-1/2 top-1/2 duration-[1500ms]`
-              : `md:left-[95.5%] md:top-[91%] left-[93%] top-[87%] duration-[1500ms] ${isEnd ? "delay-[250ms]" : ""}`
+              : `lg:left-[95.5%] lg:top-[91%] md:left-[94.5%] md:top-[88%] left-[93%] top-[87%] duration-[1500ms] ${isEnd ? "delay-[250ms]" : ""}`
           }`}
         >
           <Castle setScrollEnd={setScrollEnd} scrollEnd={scrollEnd} />

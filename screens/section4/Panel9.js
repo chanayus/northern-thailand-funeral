@@ -3,9 +3,9 @@ import { useEffect, useRef } from "react"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
 
-const Panel9 = ({ setTimelinePoint }) => {
+const Panel9 = ({ setTimelinePoint, wrapRef }) => {
   gsap.registerPlugin(ScrollTrigger)
-  const wrapRef = useRef(null)
+  // const wrapRef = useRef(null)
   const plateRef = useRef(null)
   const canvasRef = useRef(null)
   const textRef = useRef(null)
@@ -15,22 +15,25 @@ const Panel9 = ({ setTimelinePoint }) => {
       scrollTrigger: {
         ease: "none",
         trigger: wrapRef.current,
-        start: "-25% center",
-        end: `+=72.5%`,
-        scrub: 1.25,
-        invalidateOnRefresh: true,
+        start: "center center",
+        end: `+=270%`,
+        scrub: 1.3,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
+        pin: true,
+        pinType: "fixed",
+        markers: true,
       },
     })
     tl.fromTo(plateRef.current, { x: "-100%" }, { x: 0, duration: 5 })
     tl.fromTo(canvasRef.current, { x: "100%" }, { x: 0, duration: 5 })
-    tl.fromTo(textRef.current, { opacity: 0 }, { opacity: 1 })
+    tl.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 5 })
     return () => {
       tl.kill()
     }
-  }, [wrapRef.current, canvasRef.current, textRef.current])
+  }, [wrapRef.current])
   return (
-    <div className=" relative w-full h-screen  bg-[url('/images/section4/4.9/bg.webp')]" ref={wrapRef}>
+    <>
       <div ref={textRef} className="absolute lg:left-[55%] left-[58%] 2xl:top-[16%] lg:top-[21%] top-[28%] text-black z-20">
         <h1 className="text-black header-font text-[10vmin] lg:mb-3">ตานขันข้าว</h1>
         <p className="text-black text-[clamp(9px,2.2vmin,1.5rem)] ">
@@ -49,7 +52,7 @@ const Panel9 = ({ setTimelinePoint }) => {
         className="absolute 2xl:w-full w-[90%] h-full object-contain object-left top-0 left-0 z-10"
       />
 
-      <div className="w-full h-full">
+      <div className="w-full h-full max-w-[50vw]">
         <img
           ref={canvasRef}
           src="/images/section4/4.9/canvas.webp"
@@ -57,7 +60,7 @@ const Panel9 = ({ setTimelinePoint }) => {
           className="absolute w-full h-full object-contain object-right  top-0 left-0"
         />
       </div>
-    </div>
+    </>
   )
 }
 

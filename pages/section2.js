@@ -121,7 +121,7 @@ const Section2 = () => {
               />
             )}
           </div>
-          <img src="/images/section2/candle.png" alt="candle" id="candle-stick" className="w-[90%] max-h-[40vh]" />
+          <img src="/images/section2/candle.png" alt="candle" id="candle-stick" className="w-[80%] max-h-[40vh]" />
           {!candleActivate && (
             <button
               className="border border-white text-white rounded-xl py-2 text-2xl font-bold absolute w-32 bottom-[-40%]"

@@ -19,7 +19,7 @@ const Panel6 = ({ setTimelinePoint }) => {
   }
 
   return (
-    <div className="w-full h-screen flex justify-center items-center relative">
+    <div className="w-full h-screen relative">
       <video
         src="/video/burn.mp4"
         width="100%"
@@ -40,7 +40,7 @@ const Panel6 = ({ setTimelinePoint }) => {
           </div>
         )}
       </AnimatePresence>
-      {/* <img src="/images/section4/4.6/bg.webp" alt="4.6-bg" className="w-full h-full top-0" /> */}
+      <img src="/images/section4/4.6/bg.webp" alt="4.6-bg" className="w-full h-full bottom-0 object-cover  object-bottom" />
     </div>
   )
 }
