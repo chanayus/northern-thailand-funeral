@@ -23,7 +23,7 @@ const Panel8 = ({ setTimelinePoint }) => {
         autoPlay
         loop
         muted
-        playsInLine="true"
+        playsInline={true}
         disablePictureInPicture
         className={`w-full h-screen min-h-screen z-10 object-cover object-bottom absolute ${
           isPlay ? "" : "opacity-0"

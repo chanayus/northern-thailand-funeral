@@ -10,7 +10,7 @@ const Hud = () => {
   const [visible, setVisible] = useState(false)
   const [scrollEnd, setScrollEnd] = useState(false)
   const { mute, isMute } = useContext(BgMusicContext)
-  const { isEnd } = useContext(IsEndContext)
+  const { isEnd, setIsEnd } = useContext(IsEndContext)
   const router = useRouter()
 
   useEffect(() => {
@@ -26,6 +26,7 @@ const Hud = () => {
 
     return () => {
       window.removeEventListener("scroll", (e) => eventToggle())
+      setIsEnd(false)
     }
   }, [router])
 

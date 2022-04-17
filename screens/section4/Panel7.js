@@ -7,7 +7,7 @@ const Panel7 = ({ setTimelinePoint }) => {
         height="100%"
         type={"video/mp4"}
         muted
-        playsInLine="true"
+        playsInline={true}
         autoPlay
         loop
         disablePictureInPicture

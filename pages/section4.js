@@ -70,7 +70,6 @@ const Section4 = () => {
         invalidateOnRefresh: true,
         pin: true,
         pinType: "fixed",
-        markers: true,
       },
     })
     tl.fromTo(plateRef.current, { x: "-100%" }, { x: 0, duration: 5 })

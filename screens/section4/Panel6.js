@@ -27,7 +27,7 @@ const Panel6 = ({ setTimelinePoint }) => {
         type={"video/mp4"}
         muted
         loop
-        playsInLine="true"
+        playsInline={true}
         disablePictureInPicture
         className={`w-full h-full object-cover bottom-0 object-bottom absolute ${isPlay ? "" : "opacity-0"}`}
         ref={videoRef}
