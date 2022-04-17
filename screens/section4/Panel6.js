@@ -12,6 +12,12 @@ const Panel6 = ({ setTimelinePoint }) => {
     setIsPlay(true)
   }
 
+  const endLoop = () => {
+    if (videoRef.current.currentTime > 19) {
+      videoRef.current.currentTime = 8
+    }
+  }
+
   return (
     <div className="w-full h-screen flex justify-center items-center relative">
       <video
@@ -20,10 +26,12 @@ const Panel6 = ({ setTimelinePoint }) => {
         height="100%"
         type={"video/mp4"}
         muted
+        loop
+        playsInLine="true"
         disablePictureInPicture
-        className="object-bottom w-full h-full object-cover absolute"
+        className={`w-full h-full object-cover bottom-0 object-bottom absolute ${isPlay ? "" : "opacity-0"}`}
         ref={videoRef}
-        // onLoadedData={() => onLoadVideo()}
+        onTimeUpdate={() => endLoop()}
       />
       <AnimatePresence>
         {!isPlay && (
@@ -32,6 +40,7 @@ const Panel6 = ({ setTimelinePoint }) => {
           </div>
         )}
       </AnimatePresence>
+      {/* <img src="/images/section4/4.6/bg.webp" alt="4.6-bg" className="w-full h-full top-0" /> */}
     </div>
   )
 }

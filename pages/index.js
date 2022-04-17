@@ -64,6 +64,7 @@ const Home = () => {
               autoPlay
               muted
               loop
+              playsInLine="true"
               disablePictureInPicture
               className="object-bottom w-full h-full object-cover absolute"
               onLoadedData={() => onLoadVideo()}
