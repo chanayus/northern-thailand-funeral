@@ -26,7 +26,7 @@ const Section3 = () => {
       xPercent: x,
       ease: "none",
       scrollTrigger: {
-        id: "horizontal-section2",
+        id: "horizontal-section3",
         trigger: ".scroll-container",
         pin: "#pin-section3",
         scrub: 0.5,

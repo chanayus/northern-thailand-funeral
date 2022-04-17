@@ -29,7 +29,6 @@ const Home = () => {
       setLoading(false)
     }, 4800)
 
-    // document.documentElement.style.overflow = "unset"
     setGif("/images/logo.gif")
   }
 

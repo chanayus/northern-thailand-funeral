@@ -9,7 +9,6 @@ import Panel5 from "../screens/section4/horizontal/Panel5"
 import Panel6 from "../screens/section4/Panel6"
 import Panel7 from "../screens/section4/Panel7"
 import Panel8 from "../screens/section4/Panel8"
-import Panel9 from "../screens/section4/Panel9"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
@@ -20,6 +19,7 @@ const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section4 = () => {
   gsap.registerPlugin(ScrollTrigger)
+
   const { setTimelinePoint } = useContext(TimelineContext)
   const panel9Ref = useRef(null)
 
@@ -38,7 +38,9 @@ const Section4 = () => {
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+    }, 0.1)
     const sections = gsap.utils.toArray(".panel")
 
     getMaxWidth()
@@ -48,7 +50,7 @@ const Section4 = () => {
       x: () => `-${getMaxWidth() - window.innerWidth}`,
       ease: "none",
       scrollTrigger: {
-        id: "horizontal-section2",
+        id: "horizontal-section4",
         trigger: ".scroll-container",
         pin: true,
         scrub: 0.5,
