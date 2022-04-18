@@ -47,7 +47,7 @@ const Section4 = () => {
     ScrollTrigger.addEventListener("refreshInit", getMaxWidth)
 
     gsap.to(sections, {
-      x: () => `-${getMaxWidth() - window.innerWidth}`,
+      x: () => `-83.3%`,
       ease: "none",
       scrollTrigger: {
         id: "horizontal-section4",
@@ -55,8 +55,8 @@ const Section4 = () => {
         pin: true,
         scrub: 0.5,
         anticipatePin: 1,
-        end: "+=1500%",
-        invalidateOnRefresh: true,
+        end: "+=1700%",
+        // invalidateOnRefresh: true,
         pinType: "fixed",
       },
     })
@@ -69,7 +69,7 @@ const Section4 = () => {
         end: `+=270%`,
         scrub: 1.3,
         anticipatePin: 1,
-        invalidateOnRefresh: true,
+        // invalidateOnRefresh: true,
         pin: true,
         pinType: "fixed",
       },
@@ -92,15 +92,16 @@ const Section4 = () => {
       </div>
 
       <div className="scroll-container max-w-screen min-h-screen flex hide-scrollbar overscroll-none" id="#pin-section4">
-        <div className={`${panelStyle} min-w-[500vw] bg-[url('/images/section4/horizon/bg.webp')] bg-center`}>
+        <div className={`${panelStyle} min-w-[500vw] bg-[url('/images/section4/horizon/bg.webp')] bg-left bg-[length:500vw_100%]`}>
           <Panel1 setTimelinePoint={setTimelinePoint} />
           <Panel2 setTimelinePoint={setTimelinePoint} />
           <Panel3 setTimelinePoint={setTimelinePoint} />
           <Panel4 setTimelinePoint={setTimelinePoint} />
-        </div>
-        <div className={`${panelStyle} w-screen bg-black`}>
           <Panel5 setTimelinePoint={setTimelinePoint} />
         </div>
+        {/* <div className={`${panelStyle} w-screen bg-black`}>
+      
+        </div> */}
       </div>
       <Panel6 setTimelinePoint={setTimelinePoint} />
       <Panel7 setTimelinePoint={setTimelinePoint} />

@@ -37,7 +37,7 @@ const Panel8 = ({ setTimelinePoint }) => {
           </div>
         )}
       </AnimatePresence>
-      <img src="/images/section4/4.8/4.8.webp" alt="4.8-bg" className="w-full h-full object-cover absolute" />
+      <img src="/images/section4/4.8/4.8.webp" alt="4.8-bg" className="w-full h-full object-cover object-bottom  absolute" />
     </div>
   )
 }
