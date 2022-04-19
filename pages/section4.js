@@ -1,3 +1,4 @@
+import { useContext, useState } from "react"
 import { useEffect, useRef } from "react"
 
 import Panel1 from "../screens/section4/horizontal/Panel1"
@@ -13,13 +14,14 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
-import { useContext } from "react"
+import useForceUpdate from "use-force-update"
 
 const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section4 = () => {
   gsap.registerPlugin(ScrollTrigger)
-
+  // const [progress, setProgress] = useState(0)
+  const forceUpdate = useForceUpdate()
   const { setTimelinePoint } = useContext(TimelineContext)
   const panel9Ref = useRef(null)
 
@@ -29,23 +31,23 @@ const Section4 = () => {
   const textRef = useRef(null)
 
   useEffect(() => {
+    let progress = 0
     setTimeout(() => {
       window.scrollTo(0, 0)
     }, 0.1)
     const sections = gsap.utils.toArray(".panel")
 
-    gsap.to(sections, {
-      xPercent: -83.3,
+    const horizon = gsap.to(sections, {
+      xPercent: () => -83.3,
       ease: "none",
       scrollTrigger: {
-        id: "horizontal-section4",
         trigger: ".scroll-container",
-        pin: true,
-        scrub: 0.5,
+        pin: ".scroll-container",
+        start: "top top",
+        scrub: 1,
         anticipatePin: 1,
-        end: "+=1700%",
-        // invalidateOnRefresh: true,
-        pinType: "fixed",
+        end: () => `+=${sections[0].offsetWidth}`,
+        invalidateOnRefresh: true,
       },
     })
 
@@ -66,12 +68,22 @@ const Section4 = () => {
     tl.fromTo(canvasRef.current, { x: "100%" }, { x: 0, duration: 5 })
     tl.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 5 })
 
+    ScrollTrigger.refresh()
+    ScrollTrigger.addEventListener("refreshInit", () => {
+      progress = horizon.scrollTrigger.progress
+    })
+    ScrollTrigger.addEventListener("refresh", () => {
+      if (progress < 1) {
+        horizon.scrollTrigger.scroll(sections[0].offsetWidth * progress)
+      }
+    })
+
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill())
     }
   }, [])
 
-  const panelStyle = "panel h-screen flex-shrink-0 bg-no-repeat bg-cover flex bg-right justify-center items-center m-0 p-0 "
+  const panelStyle = "panel h-screen flex-shrink-0 bg-no-repeat flex m-0 p-0 "
 
   return (
     <>
@@ -80,16 +92,13 @@ const Section4 = () => {
       </div>
 
       <div className="scroll-container max-w-screen min-h-screen flex hide-scrollbar overscroll-none" id="#pin-section4">
-        <div className={`${panelStyle} min-w-[500vw] bg-[url('/images/section4/horizon/bg.webp')] bg-left bg-[length:500vw_100%]`}>
+        <div className={`${panelStyle} min-w-[500%] bg-[url('/images/section4/horizon/bg.webp')] bg-left bg-[length:500vw_100%]`}>
           <Panel1 setTimelinePoint={setTimelinePoint} />
           <Panel2 setTimelinePoint={setTimelinePoint} />
           <Panel3 setTimelinePoint={setTimelinePoint} />
           <Panel4 setTimelinePoint={setTimelinePoint} />
           <Panel5 setTimelinePoint={setTimelinePoint} />
         </div>
-        {/* <div className={`${panelStyle} w-screen bg-black`}>
-      
-        </div> */}
       </div>
       <Panel6 setTimelinePoint={setTimelinePoint} />
       <Panel7 setTimelinePoint={setTimelinePoint} />
@@ -125,7 +134,6 @@ const Section4 = () => {
             className="absolute w-full h-full object-contain object-right  top-0 left-0"
           />
         </div>
-        {/* <Panel9 setTimelinePoint={setTimelinePoint} wrapRef={panel9Ref} /> */}
       </div>
       <Panel10 setTimelinePoint={setTimelinePoint} />
     </>
