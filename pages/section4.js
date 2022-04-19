@@ -1,5 +1,4 @@
-import { useContext, useState } from "react"
-import { useEffect, useRef } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 
 import Panel1 from "../screens/section4/horizontal/Panel1"
 import Panel10 from "../screens/section4/Panel10"
@@ -14,14 +13,12 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
-import useForceUpdate from "use-force-update"
 
 const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section4 = () => {
-  gsap.registerPlugin(ScrollTrigger)
   // const [progress, setProgress] = useState(0)
-  const forceUpdate = useForceUpdate()
+
   const { setTimelinePoint } = useContext(TimelineContext)
   const panel9Ref = useRef(null)
 
@@ -31,7 +28,7 @@ const Section4 = () => {
   const textRef = useRef(null)
 
   useEffect(() => {
-    let progress = 0
+    gsap.registerPlugin(ScrollTrigger)
     setTimeout(() => {
       window.scrollTo(0, 0)
     }, 0.1)
@@ -68,17 +65,19 @@ const Section4 = () => {
     tl.fromTo(canvasRef.current, { x: "100%" }, { x: 0, duration: 5 })
     tl.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 5 })
 
-    ScrollTrigger.refresh()
-    ScrollTrigger.addEventListener("refreshInit", () => {
-      progress = horizon.scrollTrigger.progress
-    })
-    ScrollTrigger.addEventListener("refresh", () => {
-      if (progress < 1) {
-        horizon.scrollTrigger.scroll(sections[0].offsetWidth * progress)
-      }
-    })
+    // ScrollTrigger.refresh()
+    // ScrollTrigger.addEventListener("refreshInit", () => {
+    //   setProgress(horizon.scrollTrigger.progress)
+    //   forceUpdate()
+    // })
+    // ScrollTrigger.addEventListener("refresh", () => {
+    //   if (progress < 1) {
+    //     horizon.scrollTrigger.scroll(sections[0].offsetWidth * progress)
+    //   }
+    // })
 
     return () => {
+      // setProgress(0)
       ScrollTrigger.getAll().forEach((t) => t.kill())
     }
   }, [])
