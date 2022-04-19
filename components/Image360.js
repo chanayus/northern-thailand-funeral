@@ -1,6 +1,7 @@
+import Image from "next/image"
 import { useState } from "react"
 
-const Image360 = ({ amount = 72, path = "" }) => {
+const Image360 = ({ amount = 360, path = "" }) => {
   const [swipeValue, setSwipeValue] = useState(0)
   const [imageValue, setImageValue] = useState(1)
   const [isClick, setIsClick] = useState(false)
@@ -37,7 +38,7 @@ const Image360 = ({ amount = 72, path = "" }) => {
       {[...Array(amount)].map((value, index) => (
         <img
           key={index}
-          src={`https://fastly-production.24c.in/webin/360/output_${index + 1}.jpeg`}
+          src={`/images/section4/360/(${index + 1}).webp`}
           className={`w-full h-full ${imageValue === index + 1 ? "" : "hidden"} z-10 object-contain absolute top-0 left-0`}
           draggable={false}
           alt=""

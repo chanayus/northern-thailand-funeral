@@ -23,19 +23,10 @@ const Section4 = () => {
   const { setTimelinePoint } = useContext(TimelineContext)
   const panel9Ref = useRef(null)
 
-  // Ref for Panel P
+  // Ref for Panel 9
   const plateRef = useRef(null)
   const canvasRef = useRef(null)
   const textRef = useRef(null)
-
-  const getMaxWidth = () => {
-    const sections = gsap.utils.toArray(".panel")
-    let totalWidth = 0
-    sections.forEach((section) => {
-      totalWidth += section.offsetWidth
-    })
-    return totalWidth
-  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -43,11 +34,8 @@ const Section4 = () => {
     }, 0.1)
     const sections = gsap.utils.toArray(".panel")
 
-    getMaxWidth()
-    ScrollTrigger.addEventListener("refreshInit", getMaxWidth)
-
     gsap.to(sections, {
-      x: () => `-83.3%`,
+      xPercent: -83.3,
       ease: "none",
       scrollTrigger: {
         id: "horizontal-section4",

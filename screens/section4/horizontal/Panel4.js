@@ -37,9 +37,9 @@ const Panel4 = ({ setTimelinePoint }) => {
       }
       return option
     }
-    gsap.from("#text-3", setOption("1000%"))
-    gsap.from("#text-4", setOption("1100%"))
-    gsap.from("#text-5", setOption("1200%"))
+    gsap.from("#text-3", setOption("1110%"))
+    gsap.from("#text-4", setOption("1270%"))
+    gsap.from("#text-5", setOption("1370%"))
   }, [])
 
   return (
