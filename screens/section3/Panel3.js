@@ -51,6 +51,13 @@ const Panel3 = ({ setTimelinePoint }) => {
         alt=""
         className={`absolute w-full h-full duration-[1500ms] ${count >= 3 ? "" : "translate-y-[50%]"} `}
       />
+      <button
+        className="flex items-center z-30 absolute right-[10%] bottom-[5%] w-[15vw] min-w-[120px] max-w-[200px]"
+        id="next-button"
+        onClick={() => router.replace("/section4", "/", { shallow: true, scroll: false })}
+      >
+        <img src="/images/section3/next.svg" alt="next" className="w-full h-full" />
+      </button>
     </div>
   )
 }

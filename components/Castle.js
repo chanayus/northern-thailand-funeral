@@ -64,7 +64,6 @@ const Castle = ({ setScrollEnd, scrollEnd, showCastle }) => {
         variants={animVariant}
         className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 bg-bottom lg:bg-[length:100px_100px] bg-[length:70px_70px] `}
         ref={iconRef}
-        scrollEnd={scrollEnd ? "true" : "false"}
       ></motion.div>
     </div>
   )

@@ -58,7 +58,7 @@ const Section2 = () => {
         ease: "none",
         id: "coffin-active",
         trigger: ".coffin-container",
-        start: "53% center",
+        start: "65% 60%",
         end: `+=350%`,
         scrub: 1,
         pin: true,
@@ -102,7 +102,7 @@ const Section2 = () => {
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
         <button
-          className="flex items-center z-40 absolute right-5 top-[12.5%] opacity-0 w-[10vw] min-w-[100px] max-w-[160px]"
+          className="flex items-center z-40 absolute right-5 top-[15%] opacity-0 w-[10vw] min-w-[100px] max-w-[160px]"
           id="next-button"
           onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
         >
