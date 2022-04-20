@@ -24,20 +24,20 @@ const MobileDetect = () => {
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.35 }}
-          className="fixed w-screen h-screen bg-black z-50 flex justify-center items-center"
+          transition={{ duration: 0.2 }}
+          className="fixed w-screen h-screen bg-black z-50 flex justify-center items-center bg-[url('/images/rotateBG.webp')] bg-cover "
           key={"Landscape Warning"}
         >
-          <h2 className="text-center text-3xl absolute top-[20%]">Rotate Screen to Landscape</h2>
+          <h2 className="text-center text-3xl absolute top-[20%] cinzel-font text-light">Rotate Screen to Landscape</h2>
           <div className="">
             <motion.img
-              src="/images/iPhone.svg"
+              src="/images/iPhone.webp"
               alt=""
               width={180}
-              className="w-[40%] mx-auto"
+              className="w-[50%] mx-auto"
               initial={{ rotate: 0 }}
               animate={{ rotate: 90 }}
-              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", repeatDelay: 2 }}
+              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", repeatDelay: 1.5 }}
             />
           </div>
         </motion.div>
