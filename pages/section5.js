@@ -94,7 +94,7 @@ const Section5 = () => {
     focusOnSelect: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    className: "relative",
+    className: "relative ",
     responsive: [
       {
         breakpoint: 1280,
@@ -107,58 +107,63 @@ const Section5 = () => {
     beforeChange: (current, next) => setImageIndex(next),
   }
   return (
-    <div className="w-full h-full min-h-screen relative bg-[url('/images/section5/bg.webp')] bg-no-repeat bg-cover flex flex-col">
-      <div className="flex justify-between lg:p-6 p-4 pb-0">
+    <div className="w-full h-full min-h-screen relative bg-[url('/images/section5/bg.webp')] bg-[5%_top] bg-no-repeat bg-cover flex flex-col">
+      <div className="flex justify-between lg:p-6 md:p-4 pt-4 px-2 pb-0">
         <Link href="/">
           <a>
             <img src="/images/section5/logo.svg" alt="" width={100} height={100} className="mx-auto mb-1 w-[50%] max-w-[100px]" />
             <div className="flex items-center">
               <img src="/icon/back.svg" alt="" className="rotate-90" />
-              <h2 className="header-font lg:text-4xl text-3xl whitespace-nowrap">กลับสู่หน้าแรก</h2>
+              <h2 className="header-font lg:text-4xl text-2xl whitespace-nowrap">กลับสู่หน้าแรก</h2>
             </div>
           </a>
         </Link>
 
         <button onClick={() => mute()} className="h-fit">
-          <img src={`/icon/${isMute ? "mute" : "sound"}.svg`} alt="" className="w-[4vw] h-[4vw] max-w-12 max-h-12" />
+          <img src={`/icon/${isMute ? "mute" : "sound"}.svg`} alt="" className="w-[4vw] h-[4vw] max-w-12 max-h-12 min-w-[35px] min-h-[35px]" />
         </button>
       </div>
-      <div className="w-full flex-1 mb-6">
-        <h1 className="header-font lg:text-7xl text-5xl text-white text-center mb-6">ของที่ระลึกงานศพ</h1>
+      <div className="w-full flex-1 flex flex-col justify-center mb-6">
+        <h1 className="header-font lg:text-7xl text-4xl text-white text-center md:mb-6 mb-3">ของที่ระลึกงานศพ</h1>
         <Slider {...settings}>
           {zodiac.map((value, index) => (
-            <Slide className={`lg:h-[28rem]  ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
+            <Slide className={`lg:h-[28rem] h-[40vh] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
               <div className="flex flex-col items-center h-full ">
-                <div className="2xl:w-[80%] lg:w-[90%] w-full flex overflow-hidden justify-center items-center h-full ">
+                <div className="2xl:w-[80%] lg:w-[90%] w-full flex overflow-hidden justify-center items-center md:h-[100%] h-[80%]">
                   {/* <img src={value.img} className="w-full h-full object-cover" alt="" /> */}
                   <div className="w-full h-full bg-zinc-900 flex justify-center items-center min-h-[50vh] max-h-[400px]">
                     <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%]" />
                   </div>
                 </div>
-                <h3 className="text-5xl mt-1 header-font text-white">{value.title}</h3>
+                <h3 className="lg:text-5xl text-3xl mt-1 header-font text-white text-center">{value.title}</h3>
               </div>
             </Slide>
           ))}
         </Slider>
-        <div className="w-full flex justify-center mt-6">
-          <button className=" header-font text-4xl text-white text-center rounded-xl border-2 border-gray-500 px-6">Share</button>
+        <div className="w-full flex justify-center md:mt-6 mb-3">
+          <Button
+            className="bg-transparent border border-[#FFF] text-white cinzel-font text-2xl w-[180px] h-[50px] rounded-xl "
+            onClick={() => {}}
+          >
+            SHARE
+          </Button>
         </div>
       </div>
-      <div className="w-full flex justify-between items-center bg-black py-3 px-4">
+      <div className="w-full flex justify-between items-center md:bg-black bg-transparent py-3 px-4">
         <div className="flex items-center">
-          <img src="/images/section5/logo.svg" alt="" width={75} h={75} className="mx-auto" />
+          <img src="/images/section5/logo.svg" alt="" width={75} h={75} className="md:w-[75px] md:h-[75px] w-[60px] h-[60px] mx-auto" />
           <div className="ml-4">
-            <h2 className="text-2xl leading-none font-bold text-zinc-400">NORTHERN THAILAND FUNERAL</h2>
-            <p className="leading-none text-xl text-zinc-400">
+            <h2 className="md:text-2xl text-xl leading-none font-bold text-zinc-400">NORTHERN THAILAND FUNERAL</h2>
+            <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">
               Communication Arts & Design <br />
               King Mongkut’s Institute of technology Ladkrabang
             </p>
           </div>
         </div>
         <div className="text-right">
-          <h3 className="leading-none text-2xl font-bold text-zinc-400">KITTICHA YOSKEAW</h3>
-          <p className="leading-none text-xl text-zinc-400">kitticha_prik@hotmail.com</p>
-          <p className="leading-none text-xl text-zinc-400">089-022-4298</p>
+          <h3 className="leading-none md:text-2xl text-xl font-bold text-zinc-400">KITTICHA YOSKEAW</h3>
+          <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">kitticha_prik@hotmail.com</p>
+          <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">089-022-4298</p>
         </div>
       </div>
     </div>
@@ -170,10 +175,34 @@ const Slide = styled.div`
   &.activeSlide {
     transform: scale(1);
     opacity: 1;
+    @media (max-width: 768px) {
+      transform: scale(1.1);
+    }
   }
   &.slide {
     transform: scale(0.75);
     opacity: 0.6;
+    @media (max-width: 768px) {
+      transform: scale(0.6);
+    }
+  }
+`
+
+const Button = styled.button`
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: transparent;
+    border-radius: 0.75rem;
+    z-index: -99999 !important;
+    border: 1px solid #FFF;
   }
 `
 

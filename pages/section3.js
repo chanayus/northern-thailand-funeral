@@ -44,7 +44,7 @@ const Section3 = () => {
   return (
     <>
       <div className="w-full h-screen overflow-hidden mx-0 pt-[50.75%] relative">
-        <HeaderParallax path={"/images/section3/header/ก่อนสลาย_"} totalImage={7} section="3" parallaxExclude={[2, 7]} />
+        <HeaderParallax path={"/images/section3/header/ก่อนสลาย_"} totalImage={7} section="3" parallaxExclude={[3]} />
       </div>
       <div className="scroll-container max-w-screen h-screen flex hide-scrollbar overscroll-none"  id="pin-section3">
         <div className="panel w-screen h-screen flex-shrink-0 bg-[url('/images/section3/horizon-1/bg-1.webp')] bg-no-repeat bg-cover relative">
@@ -55,7 +55,7 @@ const Section3 = () => {
           <Panel2 setTimelinePoint={setTimelinePoint} panelStep={panelStep} />
         </div>
 
-        <div className={`panel w-screen h-screen flex-shrink-0 bg-red-600 border border-black flex justify-center items-center`}>
+        <div className={`panel w-screen h-screen flex-shrink-0`}>
           <Panel3 setTimelinePoint={setTimelinePoint} />
         </div>
       </div>

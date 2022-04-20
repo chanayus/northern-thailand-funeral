@@ -26,9 +26,9 @@ const Section2 = () => {
         trigger: ".content-container",
         start: "-50 center",
         end: `+=500 center`,
-        scrub: 1,
         onEnter: () => setTimelinePoint(1),
         onLeaveBack: () => setTimelinePoint(0),
+        toggleActions: "play pause resume reverse",
       },
     })
 
@@ -46,7 +46,7 @@ const Section2 = () => {
     })
 
     coffinTl.fromTo("#candle", { opacity: 0 }, { opacity: 1 })
-    tl.fromTo("#text", { opacity: 0 }, { opacity: 1 })
+    tl.fromTo("#text", { opacity: 0 }, { opacity: 1, duration: 1 })
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill())
     }
@@ -58,12 +58,13 @@ const Section2 = () => {
         ease: "none",
         id: "coffin-active",
         trigger: ".coffin-container",
-        start: "center center",
+        start: "53% center",
         end: `+=350%`,
         scrub: 1,
         pin: true,
         invalidateOnRefresh: true,
         anticipatePin: 1,
+        pinType: "fixed",
       },
     })
     activeTl.to("#coffin", { opacity: 1 })
@@ -101,7 +102,7 @@ const Section2 = () => {
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
         <button
-          className="flex items-center z-40 absolute right-5 top-[15%] opacity-0 w-[10vw] min-w-[100px] max-w-[160px]"
+          className="flex items-center z-40 absolute right-5 top-[12.5%] opacity-0 w-[10vw] min-w-[100px] max-w-[160px]"
           id="next-button"
           onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
         >

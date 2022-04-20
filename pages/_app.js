@@ -15,9 +15,10 @@ const IsEndContext = React.createContext()
 function MyApp({ Component, pageProps }) {
   const [timelinePoint, setTimelinePoint] = useState(0)
   const [isEnd, setIsEnd] = useState(false)
+  const [showCastle, setShowCastle] = useState(false)
   const [playing, play, pause, stop, mute, isMute] = useAudio("/sound/1.mp3")
   return (
-    <IsEndContext.Provider value={{ isEnd, setIsEnd }}>
+    <IsEndContext.Provider value={{ isEnd, setIsEnd, showCastle, setShowCastle }}>
       <BgMusicContext.Provider value={{ playing, play, pause, stop, mute, isMute }}>
         <TimelineContext.Provider value={{ timelinePoint, setTimelinePoint }}>
           <Head>

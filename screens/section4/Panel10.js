@@ -9,16 +9,16 @@ import { useRouter } from "next/router"
 const Panel10 = ({ setTimelinePoint }) => {
   const router = useRouter()
   const [showBg, setShowBg] = useState(false)
-  const { setIsEnd } = useContext(IsEndContext)
+  const { setIsEnd, showCastle } = useContext(IsEndContext)
   return (
     <div className="w-full min-h-screen relative bg-[url('/images/section4/4.10/bg.webp')]">
       <AnimatePresence>
-        {!showBg && (
+        {!showBg && showCastle && (
           <Button
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 2 }}
             className="bg-transparent border border-[#000] text-black header-font lg:text-3xl text-2xl header-bold max-w-[180px] min-w-[120px] w-[15vw] h-[43px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] lg:bottom-[13%] bottom-[9%] z-[60]"
             onClick={() => {
               setShowBg(true)
@@ -30,15 +30,29 @@ const Panel10 = ({ setTimelinePoint }) => {
         )}
       </AnimatePresence>
 
-      <div className={`w-full h-screen overflow-hidden mx-0 pt-[50.75%] duration-1000 ${showBg ? "opacity-100" : "opacity-0"} relative z-40 `}>
+      <div
+        className={`w-full h-screen overflow-hidden mx-0 pt-[50.75%] duration-[2500ms] ${
+          showBg ? "opacity-100" : "opacity-0 pointer-events-none"
+        } relative z-50 `}
+      >
         <HeaderParallax path={"/images/section4/4.10/ปราสาทบนสวรรค์_"} section="" totalImage={10} parallaxExclude={[]} />
         <Button
-          className="bg-[#FFFDF5] border border-[#000] text-black header-font text-3xl header-bold max-w-[180px] min-w-[140px] w-[20vw] h-[50px] rounded-xl font-bold absolute right-[5%] bottom-[7%] z-50"
+          className="bg-[#FFFDF5] border border-[#000] text-black header-font text-3xl header-bold max-w-[180px] min-w-[140px] w-[16vw] max-h-[50px] h-[10vh] rounded-xl font-bold absolute right-[5%] bottom-[7%] z-50"
           onClick={() => router.replace("/section5", "/", { shallow: true, scroll: false })}
           title="ที่ระลึกงานศพ"
           bg="#FFFDF5"
         ></Button>
       </div>
+      {showCastle && (
+        <motion.img
+          src="/icon/castle.svg"
+          alt=""
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] tr w-[80%] h-[80%] object-contain drop-shadow-md"
+        />
+      )}
     </div>
   )
 }

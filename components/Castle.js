@@ -1,14 +1,11 @@
 import { useEffect, useRef } from "react"
 
-import { IsEndContext } from "../pages/_app"
-import styled from "styled-components"
-import { useContext } from "react"
+import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 
-const Castle = ({ setScrollEnd, scrollEnd }) => {
+const Castle = ({ setScrollEnd, scrollEnd, showCastle }) => {
   const router = useRouter()
   const iconRef = useRef()
-  const { isEnd } = useContext(IsEndContext)
   const excludePath = ["/", "/section5"]
   const setting = {
     "/section2": { maxHeight: 33.33, minHeight: 0, ratio: 3 },
@@ -16,6 +13,18 @@ const Castle = ({ setScrollEnd, scrollEnd }) => {
     "/section4": { maxHeight: 99.99, minHeight: 66.66, ratio: 9.5 },
   }
 
+  const animVariant = {
+    visible: {},
+    animate: {
+      y: [0, -15, 0],
+      opacity: [1, 0.5, 1],
+      transition: {
+        duration: 1,
+        repeat: Infinity,
+        repeatType: "reverse",
+      },
+    },
+  }
   useEffect(() => {
     const scrollHeight = document.documentElement.scrollHeight
     const wheelHandle = (e) => {
@@ -48,23 +57,17 @@ const Castle = ({ setScrollEnd, scrollEnd }) => {
   }, [router])
 
   return (
-    <Wrapper
-      delay={scrollEnd ? "1s" : "0s"}
-      className={`${scrollEnd && !isEnd ? `w-[40vw] h-[40vw]` : "lg:w-[100px] lg:h-[100px] w-[65px] h-[65px]"} transform relative  `}
-    >
-      <div
-        className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 bg-bottom ${
-          scrollEnd ? "bg-[length:100%_100%]" : "lg:bg-[length:100px_100px] bg-[length:70px_70px]"
-        } duration-1000`}
+    <div className={`lg:w-[100px] lg:h-[100px] w-[65px] h-[65px] relative drop-shadow-xl`}>
+      <motion.div
+        animate={scrollEnd && !showCastle ? "animate" : "visible"}
+        transition={"transition"}
+        variants={animVariant}
+        className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 bg-bottom lg:bg-[length:100px_100px] bg-[length:70px_70px] `}
         ref={iconRef}
-      ></div>
-    </Wrapper>
+        scrollEnd={scrollEnd ? "true" : "false"}
+      ></motion.div>
+    </div>
   )
 }
-
-const Wrapper = styled.div`
-  transition-duration: 1.5s;
-  transition-delay: ${(props) => props.delay};
-`
 
 export default Castle

@@ -14,7 +14,7 @@ export default function Layout({ children }) {
   return (
     <>
       <AnimatePresence exitBeforeEnter>{pageIncludes.includes(router.pathname) && <Hud />}</AnimatePresence>
-      <MobileDetect />
+      <AnimatePresence exitBeforeEnter>{router.pathname !== "/section5" && <MobileDetect />}</AnimatePresence>
       <AnimatePresence exitBeforeEnter>
         <motion.div
           exit={{ opacity: 0 }}

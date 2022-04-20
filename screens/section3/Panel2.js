@@ -14,24 +14,26 @@ const Panel2 = ({ setTimelinePoint, panelStep }) => {
   })
 
   useEffect(() => {
-    const anim = gsap.from(itemRef.current, {
+    const anim = gsap.timeline({
       scrollTrigger: {
-        trigger: "body",
-        start: "175% center",
-        end: "+=100%",
+        trigger: itemRef.current,
+        start: "250% center",
+        end: "+=370%",
         scrub: true,
         onEnter: () => setTimelinePoint(4),
         onLeaveBack: () => setTimelinePoint(3),
       },
-      opacity: 0,
-      duration: 0.25,
       ease: "none",
     })
+
+    anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.75 })
+
+    anim.fromTo(".text-panel2", { opacity: 0 }, { opacity: 1, duration: 0.75 })
     return () => anim.kill()
   }, [])
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full" ref={itemRef}>
       <div ref={itemRef}>
         <img src="/images/section3/horizon-1/2.webp" alt="" className="object-contain object-bottom h-full w-full absolute bottom-0" />
         <img src="/images/section3/horizon-1/2-layer2.webp" alt="" className="object-contain object-bottom h-full w-full absolute z-10 bottom-0" />
@@ -75,9 +77,9 @@ const Panel2 = ({ setTimelinePoint, panelStep }) => {
           </div>
         )}
       </AnimatePresence>
-      <div className="absolute z-10 top-[10%] xl:right-[12%] right-[6%] max-w-[40vw]">
-        <h2 className="text-[10vmin] font-bold mb-0 header-font leading-tight">ปราสาทศพ</h2>
-        <p className="text-[clamp(9px,2.7vmin,1.5rem)] leading-tight whitespace-nowrap">
+      <div className="absolute z-10 top-[10%] xl:right-[12%] right-[6%] max-w-[40vw] text-panel2">
+        <h2 className="text-[8.5vmin] font-bold mb-0 header-font leading-tight">ปราสาทศพ</h2>
+        <p className="text-[clamp(9px,2.7vmin,1.4rem)] leading-tight whitespace-nowrap">
           หลังจากตานของให้ผู้ตายแล้ว ก็จะนำศพออกจากบ้านขึ้นบนขบวนแห่ <br />
           และตกแต่งด้วยปราสาทศพ คนเรานั้นเมื่อตายไปแล้ว ญาติพี่น้องก็หวังว่า <br />
           ผู้ตายจะได้ไปสูสวรรค์จึงทําปราสาทขึ้นมาครอบตกแต่งโลงศพ <br />

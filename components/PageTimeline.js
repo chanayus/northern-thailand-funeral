@@ -17,14 +17,14 @@ const PageTimeline = () => {
       transition={{ duration: 0.35 }}
       className={`fixed lg:left-6 left-4 top-1/2 translate-y-[-50%] max-h-[100vh] z-50`}
     >
-      <img src="/images/timeline.svg" alt="" width="100" className="w-[6vw] max-w-[93px] mx-auto" />
+      <img src="/images/timeline.svg" alt="" width="100" className="w-[6vw] max-w-[93px] mx-auto relative left-[-1px]" />
       <div className="flex justify-center ml-[0.5px]">
         <div>
           <div className="lg:h-full h-[95%] overflow-hidden">
-            <div className="w-[0.25px] top-[-1px] h-3 bg-white mx-auto"></div>
+            <div className="w-[1px] top-[-1px] h-3 bg-white mx-auto"></div>
             <TimelinePoint active={timelinePoint >= 1} />
             <TimelinePoint active={timelinePoint >= 2} />
-            <div className="w-[0.25px] top-[-1px] h-full bg-white mx-auto"></div>
+            <div className="w-[1px] top-[-1px] h-full bg-white mx-auto"></div>
           </div>
           <div className="relative">
             <TimelinePoint header={true} active={true} />
@@ -34,11 +34,11 @@ const PageTimeline = () => {
 
         <div>
           <div className="lg:h-full h-[95%] overflow-hidden">
-            <div className="w-[0.25px] top-[-1px] h-3 bg-white mx-auto"></div>
+            <div className="w-[1px] top-[-1px] h-3 bg-white mx-auto"></div>
             <TimelinePoint active={timelinePoint >= 3} />
             <TimelinePoint active={timelinePoint >= 4} />
             <TimelinePoint active={timelinePoint >= 5} />
-            <div className="w-[0.25px] top-[-1px] h-full bg-white mx-auto"></div>
+            <div className="w-[1px] top-[-1px] h-full bg-white mx-auto"></div>
           </div>
           <div className="relative">
             <TimelinePoint header={true} active={timelinePoint >= 3 || router.pathname === "/section3"} />
@@ -48,7 +48,7 @@ const PageTimeline = () => {
 
         <div>
           <div className="lg:h-full h-[95%] overflow-hidden">
-            <div className="w-[0.25px] top-[-1px] h-3 bg-white mx-auto"></div>
+            <div className="w-[1px] top-[-1px] h-3 bg-white mx-auto"></div>
             <TimelinePoint active={timelinePoint >= 6} />
             <TimelinePoint active={timelinePoint >= 7} />
             <TimelinePoint active={timelinePoint >= 8} />
@@ -57,7 +57,7 @@ const PageTimeline = () => {
             <TimelinePoint active={timelinePoint >= 11} />
             <TimelinePoint active={timelinePoint >= 12} />
             <TimelinePoint active={timelinePoint >= 13} />
-            <div className="w-[0.25px] top-[-1px] h-full bg-white mx-auto"></div>
+            <div className="w-[1px] top-[-1px] h-full bg-white mx-auto"></div>
           </div>
           <div className="relative">
             <TimelinePoint header={true} active={timelinePoint >= 6 || router.pathname === "/section4"} />

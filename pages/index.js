@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
 import { BgMusicContext } from "./_app"
-import Logo from "../components/Logo"
+import Loader from "../components/Loader"
 import styled from "styled-components"
 import { useContext } from "react"
 import { useRouter } from "next/router"
@@ -27,7 +27,7 @@ const Home = () => {
     setTimeout(() => {
       document.documentElement.style.overflow = "unset"
       setLoading(false)
-    }, 4800)
+    }, 4500)
 
     setGif("/images/logo.gif")
   }
@@ -44,7 +44,7 @@ const Home = () => {
             className="fixed w-screen bg-black h-screen flex top-0 justify-center items-center z-[70]"
             key={"loader"}
           >
-            <Logo />
+            <Loader />
             <video
               src="/video/bg.mp4"
               width="0%"
@@ -79,8 +79,8 @@ const Home = () => {
                 transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
                 className="w-full absolute bottom-[5%] text-center flex justify-center flex-col items-center"
               >
-                <h2 className="text-lg lg:text-2xl text-black font-bold mb-1 cinzel-font">SCROLL</h2>
-                <svg xmlns="http://www.w3.org/2000/svg" width="60.686" height="25.734" viewBox="0 0 60.686 25.734">
+                <h2 className="lg:text-2xl text-base text-black font-bold mb-1 cinzel-font">SCROLL</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="55.686" height="20.734" viewBox="0 0 60.686 25.734">
                   <line
                     id="Line_13"
                     data-name="Line 13"
@@ -136,7 +136,7 @@ const Home = () => {
             </div>
 
             <Start
-              className="bg-white border border-[#707070] text-black cinzel-font text-2xl w-[180px] h-[50px] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] xl:bottom-[3%] bottom-[5%]"
+              className="bg-white border border-[#707070] text-black cinzel-font text-2xl w-[clamp(140px,16vw,180px)] h-[clamp(40px,10vh,50px)] rounded-xl font-bold absolute left-1/2 translate-x-[-50%] xl:bottom-[3%] bottom-[5%]"
               onClick={() => {
                 !playing && play()
                 router.replace("/section2", "/", { shallow: true, scroll: false })

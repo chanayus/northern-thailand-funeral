@@ -25,12 +25,14 @@ const Panel3 = ({ setTimelinePoint }) => {
   }, [])
 
   return (
-    <div className="w-screen h-screen relative" ref={itemRef}>
-      <div className="w-[70%] h-[90%] min-h-[90%] mx-auto flex flex-col mt-5 ">
-        <div className="z-10 w-full h-full">
+    <div className="w-screen h-screen relative p-4 flex flex-col" ref={itemRef}>
+      <div className="w-[90%] h-full mx-auto">
+        <div className="z-10 w-full h-full ">
           <Image360 />
         </div>
-        <h1 className="text-center mt-[1vh] text-[10vmin] header-font font-bold text-white">พิธีผัดตาสิน</h1>
+      </div>
+      <div className="w-full ">
+        <h1 className="text-center text-[10vmin] header-font font-bold text-white">พิธีผัดตาสิน</h1>
       </div>
     </div>
   )

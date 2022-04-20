@@ -36,8 +36,8 @@ const Panel2 = ({ setTimelinePoint }) => {
             </div>
           )}
         </AnimatePresence>
-        <h2 className="text-[8.25vmin] mb-0 header-font text-white absolute left-[38%] top-[25%] font-bold">ตัดขาดผัว-เมีย</h2>
-        <p className="absolute z-10 text-[clamp(9px,2.7vmin,1.5rem)] leading-tight xl:left-[42.5%] left-[40.5%] top-[40%]">
+        <h2 className="text-[8.25vmin] mb-0 header-font text-white absolute left-[32%] top-[25%] font-bold">ตัดขาดผัว-เมีย</h2>
+        <p className="absolute z-10 text-[clamp(9px,2.7vmin,1.5rem)] leading-tight left-[40.5%] top-[40%]">
           นำสะตวง (จะมี ปั้นรูปคน ดอกไม้ ธูป ข้าวสาร) วางไว้หน้าโลงศพ <br />
           จากนั้นนำด้ายสีดำผูกสะตวงโยงมาผูกที่คอ สามี/ภรรยา ของผู้ตาย
           <br />

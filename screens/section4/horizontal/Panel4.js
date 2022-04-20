@@ -37,9 +37,9 @@ const Panel4 = ({ setTimelinePoint }) => {
       }
       return option
     }
-    gsap.from("#text-3", setOption("1110%"))
-    gsap.from("#text-4", setOption("1270%"))
-    gsap.from("#text-5", setOption("1370%"))
+    gsap.from("#text-3", setOption("840%"))
+    gsap.from("#text-4", setOption("900%"))
+    gsap.from("#text-5", setOption("970%"))
   }, [])
 
   return (
@@ -48,18 +48,12 @@ const Panel4 = ({ setTimelinePoint }) => {
         ขบวน <br />
         แห่ศพ
       </h1>
-      <div className="absolute top-[2.35vh] left-[clamp(40vw,50vw,90vh)]">
+      <div className="absolute top-[3vh] left-[clamp(40vw,50vw,90vh)]">
         <h1 className="text-[7.25vmin] header-font leading-none">ปราสาทศพ</h1>
-        <p className="2xl:text-xl lg:text-base text-xs leading-none">ปราสาทศพมีทั้งหมด 5 ประเภท</p>
-        <ul className="2xl:text-[1.3rem] lg:text-base text-xs">
-          <li className="leading-[1]">1. แมวควบ - เป็นโครงไม้ไผ่วางครอบศพ ตกแต่งด้วยดอกไม้ สำหรับชาวบ้านทั่วไป ฐานะยากจน</li>
-          <li className="leading-[1]">2. ปากกระบาน - เรือนศพที่มีหลังคา ไม่มีจั่วและยอด สำหรับชาวบ้านธรรมดา ฐานะค่อนข้างดี</li>
-          <li className="leading-[1]">3. หลังกลาย - เรือนศพที่มี 4 จั่ว จั่วมีชั้นเดียวไม่มียอด สำหรับบุคคลที่เป็นที่เคารพ อาวุโส</li>
-          <li className="leading-[1]">4. ปราสาทยอดเดียว - ปราสาทหลังคา 7 ชั้น ไม่มีหน้ามุข เป็นยอดปราสาทเดียว สำหรับข้าราชการผู้ใหญ่</li>
-          <li className="leading-[1]">
-            5. ปราสาทจัตุรมุขยอด 7 ชั้น หรือ 9 ชั้น - มีหน้ามุข 4 ด้าน สำหรับเจ้าผู้สูงศักดิ์ เช่น พระเจ้าแผ่นดิน เชื้อพระวงศ์
-          </li>
-        </ul>
+        <p className="2xl:text-[1.35rem] lg:text-base text-xs leading-none">
+          ในปัจจุบัันนิยมใช้เป็นปราสาทยอดเดียว จะมีหลังคา 5 ชั้น หรือ 7 ชั้น ไม่มีหน้ามุข มีราคาค่อนข้างแพง <br />
+          หรือจะเป็นปราสาทจากเต็นท์ผ้าใบก็จะมีความสวยงามน้อยลง ราคาถูกขึ้น และสามารถนำไปใช้ประโยชน์ต่อได้อีก
+        </p>
       </div>
       <p className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh] md:top-[31vh] top-[31.5vh] xl:left-[min(94.5vmin,55vw)] left-[40%]">
         ในปัจจุบัันนิยมเป็นปราสาทยอดเดียว <br />
@@ -89,15 +83,14 @@ const Panel4 = ({ setTimelinePoint }) => {
         เพราะเชื่อว่า หากหันหลังกลับจะทำให้วิญญาณผู้ตายกลับเข้าบ้าน
       </p>
       <div className="absolute w-[100%] max-w-[350vh] max-h-[100vh] h-[55vw] translate-y-[-50%] top-1/2 z-10">
-        <div className="absolute left-[clamp(68vw,83vw,142vh)] pr-[1vw] xl:top-[47.6%] top-[45.65%]">
+        <div className="absolute left-[clamp(75vw,130vw,233vh)] pr-[1vw] xl:top-[47.6%] top-[45.65%]">
           <h1 className="relative xl:text-5xl lg:text-4xl text-3xl header-font leading-none border-b-[1px] w-fit">
             ฝ้ายจูงศพ
             <div className="absolute bottom-0 left-0 max-w-[calc(31.5vh-clamp(0.1vw,0.5vmin,8.25vw))] w-[17vw] h-[1px] bg-white origin-bottom-left rotate-[120deg]"></div>
           </h1>
           <p className="pl-2 pt-1 2xl:text-[1.25rem] lg:text-[1rem] text-xs w-fit whitespace-nowrap leading-[0.95]">
-            ในปัจจุบัันนิยมเป็นปราสาทยอดเดียว <br />
-            หรือเป็นเต็นท์ผ้าใบ ก็จะมีความสวยงามน้อยลง <br />
-            แต่สามารถนำไปใช้ประโยชน์ต่อได้อีก
+            หรือ ฝ้ายจูงหัว เป็นฝ้ายเส้นใหญ่ๆผูกติดบนโลงศพ ผู้เป็นพระจะถือฝ้ายจูงพาศพไปป่าช้า <br />
+            ตามด้วยเครือญาติ โดยหากเป็นศพผู้ชาย จะใช้ฝ้าย 9 ไจ๋ ศพผู้หญิงจะใช้ 7 ไจ๋
           </p>
         </div>
 
