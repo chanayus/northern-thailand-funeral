@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 
+import Loader from "./Loader"
 import styled from "styled-components"
 
 const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => {
@@ -46,14 +47,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
             transition={{ duration: 0.4 }}
             className="fixed w-screen bg-black h-screen flex top-0 justify-center items-center z-50"
           >
-            <motion.img
-              src="/icon/castle.svg"
-              alt="loader"
-              className="w-36 h-36"
-              initial={{ opacity: 0.25 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
-            />
+            <Loader />
           </motion.div>
         )}
       </AnimatePresence>

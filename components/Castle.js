@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 
 import { motion } from "framer-motion"
+import styled from "styled-components"
 import { useRouter } from "next/router"
 
 const Castle = ({ setScrollEnd, scrollEnd, showCastle }) => {
@@ -18,10 +19,14 @@ const Castle = ({ setScrollEnd, scrollEnd, showCastle }) => {
     animate: {
       y: [0, -15, 0],
       opacity: [1, 0.5, 1],
+      filter: ["invert(0)", "invert(75%)"],
       transition: {
-        duration: 1,
+        duration: 1.5,
         repeat: Infinity,
         repeatType: "reverse",
+        filter: {
+          duration: 1,
+        },
       },
     },
   }
@@ -58,15 +63,18 @@ const Castle = ({ setScrollEnd, scrollEnd, showCastle }) => {
 
   return (
     <div className={`lg:w-[100px] lg:h-[100px] w-[65px] h-[65px] relative drop-shadow-xl`}>
-      <motion.div
+      <Div
         animate={scrollEnd && !showCastle ? "animate" : "visible"}
         transition={"transition"}
         variants={animVariant}
         className={`w-full bg-[url('/icon/castle.svg')] bg-no-repeat absolute bottom-0 bg-bottom lg:bg-[length:100px_100px] bg-[length:70px_70px] `}
         ref={iconRef}
-      ></motion.div>
+      ></Div>
     </div>
   )
 }
 
+const Div = styled(motion.div)`
+  -webkit-transition: -webkit-filter 1s linear;
+`
 export default Castle
