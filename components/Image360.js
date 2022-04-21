@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { useState } from "react"
 
 const Image360 = ({ amount = 360, path = "" }) => {

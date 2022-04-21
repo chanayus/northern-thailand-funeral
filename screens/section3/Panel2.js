@@ -18,8 +18,6 @@ const Panel2 = ({ setTimelinePoint, panelStep }) => {
       scrollTrigger: {
         trigger: itemRef.current,
         start: "250% center",
-        end: "+=370%",
-        scrub: true,
         onEnter: () => setTimelinePoint(4),
         onLeaveBack: () => setTimelinePoint(3),
       },
@@ -27,8 +25,7 @@ const Panel2 = ({ setTimelinePoint, panelStep }) => {
     })
 
     anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.75 })
-
-    anim.fromTo(".text-panel2", { opacity: 0 }, { opacity: 1, duration: 0.75 })
+    anim.fromTo(".text-panel2", { opacity: 0 }, { opacity: 1, duration: 3, delay: 0.5 })
     return () => anim.kill()
   }, [])
 

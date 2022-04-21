@@ -19,8 +19,7 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
       scrollTrigger: {
         trigger: itemRef.current,
         start: "5% center",
-        end: "+=55%",
-        scrub: true,
+        end: "center center",
         onEnter: () => setTimelinePoint(3),
         onLeaveBack: () => setTimelinePoint(2),
       },
@@ -28,7 +27,7 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
     })
 
     anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.75 })
-    anim.fromTo(".text-content", { opacity: 0 }, { opacity: 1, duration: 1 })
+    anim.fromTo(".text-content", { opacity: 0 }, { opacity: 1, duration: 3 })
 
     return () => anim.kill()
   }, [])
@@ -78,16 +77,16 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
         )}
       </AnimatePresence>
 
-      <div className="absolute top-1/2 translate-y-[-50%] border border-red-500 w-full max-h-[100vh] h-[55vw]">
+      <div className="absolute top-1/2 translate-y-[-50%]w-full max-h-[100vh] h-[60vw] min-h-[70vh]">
         {step >= 1 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
-            className="absolute 2xl:top-[3%] top-[0%] left-[42.2%] leading-none"
+            className="absolute 2xl:top-[3%] top-[0%] xl:left-[42.2%] lg:left-[30%] left-[42.2%] leading-none"
           >
             <h2 className="header-font text-[5.5vmin]">เฮือนน้อย</h2>
-            <p className="lg:text-xl text-base">บ้านไม้จำลอง เพื่อเป็นที่อยู่ให้กับผู้ตาย</p>
+            <p className="text-[clamp(10px,2.6vmin,1.4rem)]">บ้านไม้จำลอง เพื่อเป็นที่อยู่ให้กับผู้ตาย</p>
           </motion.div>
         )}
         {step >= 2 && (

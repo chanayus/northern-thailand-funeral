@@ -29,7 +29,6 @@ const Panel4 = ({ setTimelinePoint }) => {
         scrollTrigger: {
           trigger: itemRef.current,
           start: `${start} center`,
-          end: "+=50%",
         },
         opacity: 0,
         duration: 0.5,
@@ -51,26 +50,23 @@ const Panel4 = ({ setTimelinePoint }) => {
       <div className="absolute top-[3vh] left-[clamp(40vw,50vw,90vh)]">
         <h1 className="text-[7.25vmin] header-font leading-none">ปราสาทศพ</h1>
         <p className="2xl:text-[1.35rem] lg:text-base text-xs leading-none">
-          ในปัจจุบัันนิยมใช้เป็นปราสาทยอดเดียว จะมีหลังคา 5 ชั้น หรือ 7 ชั้น ไม่มีหน้ามุข มีราคาค่อนข้างแพง <br />
-          หรือจะเป็นปราสาทจากเต็นท์ผ้าใบก็จะมีความสวยงามน้อยลง ราคาถูกขึ้น และสามารถนำไปใช้ประโยชน์ต่อได้อีก
+          ในปัจจุบัันนิยมใช้เป็นปราสาทยอดเดียว จะมีหลังคา 5 ชั้น <br /> หรือ 7 ชั้น ไม่มีหน้ามุข มีราคาค่อนข้างแพง 
+          หรือจะเป็นปราสาทจากเต็นท์ผ้าใบก็จะมีความสวยงามน้อยลง <br /> ราคาถูกขึ้น และสามารถนำไปใช้ประโยชน์ต่อได้อีก
         </p>
       </div>
-      <p className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh] md:top-[31vh] top-[31.5vh] xl:left-[min(94.5vmin,55vw)] left-[40%]">
+      <p className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh] md:top-[31vh] top-[31.5vh] xl:left-[min(94.5vmin,55vw)] md:left-[35%] left-[39%]">
         ในปัจจุบัันนิยมเป็นปราสาทยอดเดียว <br />
         หรือเป็นเต็นท์ผ้าใบ ก็จะมีความสวยงามน้อยลง <br />
         แต่สามารถนำไปใช้ประโยชน์ต่อได้อีก
       </p>
-      <p
-        id="text-3"
-        className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh] top-[35vh] xl:left-[80vw] md:left-[110vw] left-[120vw]"
-      >
+      <p id="text-3" className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh] top-[20vh] xl:left-[80vw] md:left-[95vw] left-[108vw]">
         โดยศพจะต้องหันเท้าไปด้านหน้า เพราะจะถือว่าเป็นการเดินไปข้างหน้า <br />
         ไม่ให้หันกลับบ้าน ขบวนจะตั้งอยู่ที่หน้าบ้านของผู้ตาย และจะเดินแห่ไปถึงป่าช้า <br />
         ญาติๆจะเดินจูงขบวนแห่ศพ โดยเรียงลำดับเครือญาติตามอาวุโสจากหน้าไปหลัง <br />
         ผู้ร่วมงานก็จะเดินเกาะขบวนแห่ พากันไปส่งผู้ตายถึงป่าช้า
       </p>
 
-      <p id="text-4" className="2xl:text-[1.35rem] lg:text-base text-xs absolute top-[16%] left-[60%]">
+      <p id="text-4" className="2xl:text-[1.35rem] lg:text-base text-xs absolute md:top-[16%] top-[3%]  md:left-[62%] left-[68%]">
         พระสงฆ์จะเป็นผู้ถือฝ้ายจูงศพอยู่หน้าขบวนแห่ <br />
         โดยจะมีพระสงฆ์จำนวน 9 รูป และหากมีการบวชหน้าไฟ <br />
         พระก็จะมาร่วมการจูงศพในขบวนแห่ด้วย
