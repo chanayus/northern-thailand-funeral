@@ -27,7 +27,7 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
     })
 
     anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.75 })
-    anim.fromTo(".text-content", { opacity: 0 }, { opacity: 1, duration: 3 })
+    anim.fromTo(".text-content", { opacity: 0 }, { opacity: 1, duration: 2.5 })
 
     return () => anim.kill()
   }, [])
@@ -77,7 +77,7 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
         )}
       </AnimatePresence>
 
-      <div className="absolute top-1/2 translate-y-[-50%]w-full max-h-[100vh] h-[60vw] min-h-[70vh]">
+      <div className="absolute top-1/2 translate-y-[-50%] w-full max-h-[100vh] h-[60vw] min-h-[70vh]">
         {step >= 1 && (
           <motion.div
             initial={{ opacity: 0 }}

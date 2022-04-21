@@ -15,6 +15,11 @@ const Panel8 = ({ setTimelinePoint }) => {
 
   return (
     <div className="w-full h-full min-h-screen relative">
+      <img
+        src="/images/section4/4.8/4.8.webp"
+        alt="4.8-bg"
+        className={`w-full h-full object-cover object-bottom z-10 duration-[1500ms] absolute ${isPlay ? "opacity-0" : ""}`}
+      />
       <video
         src="/video/4.8.mp4"
         type="video/mp4"
@@ -43,7 +48,6 @@ const Panel8 = ({ setTimelinePoint }) => {
           ตั้งน้ำที่หน้าบ้านของผู้ตายเป็นเวลา 3 คืน นับจากวันเผา
         </p>
       </div>
-      <img src="/images/section4/4.8/4.8.webp" alt="4.8-bg" className={`w-full h-full object-cover object-bottom z-10 duration-[1500ms] absolute ${isPlay ? "opacity-0" : ""}`} />
     </div>
   )
 }

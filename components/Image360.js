@@ -7,6 +7,7 @@ const Image360 = ({ amount = 360, path = "" }) => {
 
   const swipeHandle = (e) => {
     const { clientX } = e.targetTouches[0]
+    e.preventDefault()
     if (clientX > swipeValue) {
       setImageValue(imageValue + 1 > amount ? 1 : imageValue + 1)
     } else {
@@ -17,6 +18,7 @@ const Image360 = ({ amount = 360, path = "" }) => {
 
   const grabHandle = (e) => {
     const { clientX } = e
+    e.preventDefault()
     if (isClick) {
       if (clientX < swipeValue) {
         setImageValue(imageValue + 1 > amount ? 1 : imageValue + 1)

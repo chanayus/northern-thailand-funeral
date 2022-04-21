@@ -25,7 +25,7 @@ const Panel2 = ({ setTimelinePoint, panelStep }) => {
     })
 
     anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.75 })
-    anim.fromTo(".text-panel2", { opacity: 0 }, { opacity: 1, duration: 3, delay: 0.5 })
+    anim.fromTo(".text-panel2", { opacity: 0 }, { opacity: 1, duration: 2.5, delay: 0.5 })
     return () => anim.kill()
   }, [])
 

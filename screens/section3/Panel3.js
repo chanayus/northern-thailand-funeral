@@ -18,19 +18,17 @@ const Panel3 = ({ setTimelinePoint }) => {
   const dot3 = useRef(null)
 
   useEffect(() => {
-    const anim = gsap.from(itemRef.current, {
+    const anim = gsap.timeline({
       scrollTrigger: {
-        trigger: "body",
-        start: "250% center",
-        end: "+=100%",
-        scrub: true,
+        trigger: itemRef.current,
+        start: "510% center",
+        end: "+=10%",
+        ease: "none",
         onEnter: () => setTimelinePoint(5),
         onLeaveBack: () => setTimelinePoint(4),
       },
-      // opacity: 0,
-      duration: 0.25,
-      ease: "none",
     })
+    anim.fromTo(".text-content", { opacity: 0 }, { opacity: 1, duration: 4 })
     return () => {
       anim.kill()
       setDropping(false)
@@ -56,19 +54,14 @@ const Panel3 = ({ setTimelinePoint }) => {
   }
 
   const droppedHandle = () => {
-    console.log(dropping)
     if (dropping && dropped !== true) {
       setDropped(true)
     }
   }
 
-  useEffect(() => {
-    console.log(dropped)
-  }, [dropped])
-
   const dotClass = "w-5 h-5 rounded-full absolute z-40 cursor-pointer drop-shadow-[0_0_5px_rgba(255,255,255,1)] duration-1000"
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative overflow-hidden" ref={itemRef.current}>
       <Dot ref={dot1} className={`top-[42%] left-[20%] ${dotClass}`} onClick={() => countHandle(dot1.current)}></Dot>
       <Dot ref={dot2} className={`top-[25%] left-[33%] ${dotClass}`} onClick={() => countHandle(dot2.current)}></Dot>
       <Dot ref={dot3} className={`top-[32%] left-[72%] ${dotClass}`} onClick={() => countHandle(dot3.current)}></Dot>
@@ -108,14 +101,26 @@ const Panel3 = ({ setTimelinePoint }) => {
         alt=""
         className={`absolute w-full h-full z-10 duration-[1500ms] ${count >= 3 ? "" : "translate-y-[50%]"} `}
       />
-
-      <button
-        className="flex items-center z-30 absolute right-[10%] bottom-[5%] w-[15vw] min-w-[120px] max-w-[200px]"
-        id="next-button"
-        onClick={() => router.replace("/section4", "/", { shallow: true, scroll: false })}
-      >
-        <img src="/images/section3/next.svg" alt="next" className="w-full h-full" />
-      </button>
+      <div className="absolute z-10 top-[42%] 2xl:right-[11%] lg:right-[7%] right-[11%] max-w-[40vw] text-content">
+        <h2 className="text-[8.5vmin] font-bold mb-0 ml-[5vw] header-font leading-[1.15]">พิธีสังคหะ</h2>
+        <p className="text-[clamp(9px,2.3vmin,1.3rem)] leading-tight whitespace-nowrap">
+          หลังจากที่นำศพออกจากบ้าน ให้นำน้ำส้มป่อยใว่ไว้ในหม้อดิน <br />
+          ใช้ใบหนาดจุ่มน้ำส้มป่อยแล้วพรมให้ทั่วบ้าน เป็นการไล่วิญญาณ <br />
+          ให้ออกจากบ้าน จากนั้นเมื่อพรมน้ำส้มป่อยจนถึงหน้าบ้าน <br />
+          ให้โยนหม้อดินลงพื้นให้แตก เพื่อป้องกันไม่ให้วิญญาณกลับมาเข้าบ้านอีก
+        </p>
+      </div>
+      {dropped && (
+        <Button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="flex items-center z-30 absolute right-[10%] bottom-[5%] w-[clamp(135px,16vw,160px)] h-[clamp(35px,10vh,55px)] bg-white border border-[#000] rounded-xl"
+          onClick={() => router.replace("/section4", "/", { shallow: true, scroll: false })}
+        >
+          <img src="/images/section3/next.svg" alt="next" className="w-full h-[90%] invert" />
+        </Button>
+      )}
     </div>
   )
 }
@@ -123,6 +128,22 @@ const Panel3 = ({ setTimelinePoint }) => {
 const Dot = styled.button`
   background: rgb(255, 255, 255);
   background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+`
+
+const Button = styled(motion.button)`
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: #fff;
+    border-radius: 0.75rem;
+    z-index: -99999 !important;
+    border: 1px solid #000;
+  }
 `
 
 export default Panel3

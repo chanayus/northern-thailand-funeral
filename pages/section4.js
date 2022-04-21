@@ -123,7 +123,7 @@ const Section4 = () => {
           ref={plateRef}
           src="/images/section4/4.9/plate.webp"
           alt=""
-          className="absolute 2xl:w-full w-[90%] h-full object-contain object-left top-0 left-0 z-10"
+          className="absolute 2xl:w-[89%] w-[80%] h-full object-contain object-left top-0 left-0 z-10"
         />
 
         <div className="w-full h-full max-w-[50vw]">
