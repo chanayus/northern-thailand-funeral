@@ -78,13 +78,13 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
         )}
       </AnimatePresence>
 
-      <div className="absolute top-1/2 translate-y-[-50%] w-full max-h-[100vh] h-[45vw]">
+      <div className="absolute top-1/2 translate-y-[-50%] border border-red-500 w-full max-h-[100vh] h-[55vw]">
         {step >= 1 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
-            className="absolute 2xl:top-[3%] top-[-2%] left-[42.2%] leading-none"
+            className="absolute 2xl:top-[3%] top-[0%] left-[42.2%] leading-none"
           >
             <h2 className="header-font text-[5.5vmin]">เฮือนน้อย</h2>
             <p className="lg:text-xl text-base">บ้านไม้จำลอง เพื่อเป็นที่อยู่ให้กับผู้ตาย</p>
@@ -130,8 +130,8 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
       ></Line>
 
       <div className="absolute z-10 top-[8%] right-[4.5%] max-w-[40vw] leading-tight text-content">
-        <h2 className="text-[10vmin] font-bold mb-0 header-font">ตานของให้คนตาย</h2>
-        <p className="text-[clamp(10px,2.65vmin,1.4rem)] leading-tight whitespace-nowrap">
+        <h2 className="text-[9vmin] font-bold mb-0 header-font">ตานของให้คนตาย</h2>
+        <p className="text-[clamp(10px,2.6vmin,1.4rem)] leading-tight whitespace-nowrap">
           เป็นการส่งข้าวของเครื่องใช้ รถ เงินทอง เสื้อผ้า หมอนผ้าห่มที่นอน เฮือนน้อย <br /> ไปให้ผู้ตาย โดยจะผูกสายสิญจน์ไว้ทั้งหมด และ
           ไปผูกไว้กับโลงศพ <br />
           หลังจากนั้นก็จะทำพิธีตานของให้ผู้ตายไว้ใช้ในโลกหน้า
