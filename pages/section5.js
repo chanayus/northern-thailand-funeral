@@ -94,7 +94,7 @@ const Section5 = () => {
     focusOnSelect: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    className: "relative ",
+    className: "relative",
     responsive: [
       {
         breakpoint: 1280,
@@ -124,35 +124,35 @@ const Section5 = () => {
         </button>
       </div>
       <div className="w-full flex-1 flex flex-col justify-center mb-6">
-        <h1 className="header-font lg:text-7xl text-4xl text-white text-center md:mb-6 mb-3">ของที่ระลึกงานศพ</h1>
+        <h1 className="header-font lg:text-7xl text-4xl text-white text-center md:mb-6 mb-1">ของที่ระลึกงานศพ</h1>
         <Slider {...settings}>
           {zodiac.map((value, index) => (
-            <Slide className={`lg:h-[28rem] h-[40vh] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
-              <div className="flex flex-col items-center h-full ">
-                <div className="2xl:w-[80%] lg:w-[90%] w-full flex overflow-hidden justify-center items-center md:h-[100%] h-[80%]">
-                  {/* <img src={value.img} className="w-full h-full object-cover" alt="" /> */}
-                  <div className="w-full h-full bg-zinc-900 flex justify-center items-center min-h-[50vh] max-h-[400px]">
-                    <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%]" />
+            <Slide className={`lg:h-[28rem] h-[50vh] md:min-h-[480px] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
+              <div className="flex flex-col justify-center items-center h-full ">
+                <div className="">
+                  <div className="img-slide duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex bg-zinc-900 overflow-hidden justify-center items-center lg:h-[43vh] h-[35vh]">
+                    {/* <img src={value.img} className="w-full h-full object-cover" alt="" /> */}
+                    <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%] object-cover" />
                   </div>
+                  <h3 className="lg:text-5xl text-3xl mt-1 header-font text-white text-center">{value.title}</h3>
                 </div>
-                <h3 className="lg:text-5xl text-3xl mt-1 header-font text-white text-center">{value.title}</h3>
               </div>
             </Slide>
           ))}
         </Slider>
         <div className="w-full flex justify-center md:mt-6 mb-3">
           <Button
-            className="bg-transparent border border-[#FFF] text-white cinzel-font text-2xl w-[180px] h-[50px] rounded-xl "
+            className="bg-transparent border border-[#FFF] text-white cinzel-font md:text-2xl text-xl  w-[clamp(135px,16vw,180px)] h-[clamp(35px,10vh,50px)] rounded-xl "
             onClick={() => {}}
           >
             SHARE
           </Button>
         </div>
       </div>
-      <div className="w-full flex justify-between items-center md:bg-black bg-transparent py-3 px-4">
+      <div className="w-full flex justify-between items-center md:bg-black bg-transparent py-3 md:px-4 px-2">
         <div className="flex items-center">
           <img src="/images/section5/logo.svg" alt="" width={75} h={75} className="md:w-[75px] md:h-[75px] w-[60px] h-[60px] mx-auto" />
-          <div className="ml-4">
+          <div className="md:ml-4 ml-2">
             <h2 className="md:text-2xl text-xl leading-none font-bold text-zinc-400">NORTHERN THAILAND FUNERAL</h2>
             <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">
               Communication Arts & Design <br />
@@ -176,14 +176,16 @@ const Slide = styled.div`
     transform: scale(1);
     opacity: 1;
     @media (max-width: 768px) {
-      transform: scale(1.1);
+      .img-slide {
+        transform: scaleX(1.175);
+      }
     }
   }
   &.slide {
     transform: scale(0.75);
     opacity: 0.6;
-    @media (max-width: 768px) {
-      transform: scale(0.6);
+    @media (max-width: 640px) {
+      transform: scaleY(0.6) scaleX(0.65);
     }
   }
 `
@@ -202,7 +204,7 @@ const Button = styled.button`
     background: transparent;
     border-radius: 0.75rem;
     z-index: -99999 !important;
-    border: 1px solid #FFF;
+    border: 1px solid #fff;
   }
 `
 
