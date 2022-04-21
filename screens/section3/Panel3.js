@@ -31,7 +31,11 @@ const Panel3 = ({ setTimelinePoint }) => {
       duration: 0.25,
       ease: "none",
     })
-    return () => anim.kill()
+    return () => {
+      anim.kill()
+      setDropping(false)
+      setDropped(false)
+    }
   }, [])
 
   const dropVariant = {
@@ -52,8 +56,15 @@ const Panel3 = ({ setTimelinePoint }) => {
   }
 
   const droppedHandle = () => {
-    dropping && setDropped(true)
+    console.log(dropping)
+    if (dropping && dropped !== true) {
+      setDropped(true)
+    }
   }
+
+  useEffect(() => {
+    console.log(dropped)
+  }, [dropped])
 
   const dotClass = "w-5 h-5 rounded-full absolute z-40 cursor-pointer drop-shadow-[0_0_5px_rgba(255,255,255,1)] duration-1000"
   return (
@@ -67,7 +78,6 @@ const Panel3 = ({ setTimelinePoint }) => {
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
             animate={!dropping ? { opacity: 1 } : "animate"}
-            transition={!dropping ? { duration: 1, delay: 1 } : ""}
             onClick={() => setDropping(true)}
             onAnimationComplete={() => droppedHandle()}
             variants={dropVariant}

@@ -95,7 +95,7 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
-            className="absolute top-[60%] left-[9%] header-font text-[5.5vmin]"
+            className="absolute top-[58%] left-[9%] header-font text-[5.5vmin]"
           >
             ยานพาหนะ
           </motion.h2>
@@ -105,7 +105,7 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
-            className="absolute top-[87%] left-[40%] header-font text-[5.5vmin]"
+            className="absolute top-[85%] left-[40%] header-font text-[5.5vmin]"
           >
             เสื้อผ้า
           </motion.h2>
@@ -115,7 +115,7 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
-            className="absolute top-[75%] left-[75%] header-font text-[5.5vmin]"
+            className="absolute top-[73%] left-[75%] header-font text-[5.5vmin]"
           >
             เงินทอง
           </motion.h2>
