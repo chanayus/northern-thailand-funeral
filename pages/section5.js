@@ -97,7 +97,7 @@ const Section5 = () => {
     className: "relative",
     responsive: [
       {
-        breakpoint: 1280,
+        breakpoint: 768,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 0,
@@ -124,13 +124,13 @@ const Section5 = () => {
         </button>
       </div>
       <div className="w-full flex-1 flex flex-col justify-center mb-6">
-        <h1 className="header-font lg:text-7xl text-4xl text-white text-center md:mb-6 mb-1">ของที่ระลึกงานศพ</h1>
+        <h1 className="header-font lg:text-7xl text-4xl text-white text-center xl:mb-6 mb-1">ของที่ระลึกงานศพ</h1>
         <Slider {...settings}>
           {zodiac.map((value, index) => (
-            <Slide className={`lg:h-[28rem] h-[50vh] md:min-h-[480px] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
+            <Slide className={`xl:h-[49vh] h-[40vh] md:min-h-[320px] min-h-[300px] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
               <div className="flex flex-col justify-center items-center h-full ">
-                <div className="">
-                  <div className="img-slide duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex bg-zinc-900 overflow-hidden justify-center items-center lg:h-[43vh] h-[35vh]">
+                <div className="h-full">
+                  <div className="img-slide duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex bg-zinc-900 overflow-hidden justify-center items-center h-[88%] ">
                     {/* <img src={value.img} className="w-full h-full object-cover" alt="" /> */}
                     <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%] object-cover" />
                   </div>
