@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
@@ -10,7 +11,16 @@ const Hud = dynamic(() => import("./Hud"), { loading: () => <></> })
 export default function Layout({ children }) {
   const router = useRouter()
   const pageIncludes = ["/section2", "/section3", "/section4"]
+  const [previousRoute, setPreviousRoute] = useState("")
 
+  useEffect(() => {
+    previousRoute === "" && setPreviousRoute(router.pathname)
+    if (router.pathname === "/" && previousRoute === "/section5") {
+      router.reload()
+    }
+    setPreviousRoute(router.pathname)
+    return () => {}
+  }, [router.pathname])
   return (
     <>
       <AnimatePresence exitBeforeEnter>{pageIncludes.includes(router.pathname) && <Hud />}</AnimatePresence>

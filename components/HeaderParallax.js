@@ -55,7 +55,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
         <Img
           src={`${path}0.gif`}
           ref={addToRefs}
-          className={`w-full h-full object-cover`}
+          className={`w-full h-full object-cover will-change-transform`}
           zIndex={imageIndex.length + 1}
           draggable={false}
           width={"100%"}
@@ -67,7 +67,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
         <Img
           src={`${path}${index}.${index === 0 ? "gif" : "webp"}`}
           ref={addToRefs}
-          className={`w-full h-full object-cover ${index === 0 && "hidden"}`}
+          className={`w-full h-full object-cover ${index === 0 && "hidden"} will-change-transform`}
           key={index}
           zIndex={imageIndex.length - value}
           draggable={false}

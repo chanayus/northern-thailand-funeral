@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 
+import PulseButton from "../../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
 import styled from "styled-components"
@@ -38,9 +39,9 @@ const Panel3 = ({ setTimelinePoint }) => {
 
   const dropVariant = {
     animate: {
-      y: [0, -200, 0],
+      y: [0, -190, 0],
       opacity: 1,
-      rotate: [0, -90, -45],
+      rotate: [0, -60, -45],
       transition: {
         duration: 3,
       },
@@ -71,13 +72,12 @@ const Panel3 = ({ setTimelinePoint }) => {
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
             animate={!dropping ? { opacity: 1 } : "animate"}
-            onClick={() => setDropping(true)}
             onAnimationComplete={() => droppedHandle()}
             variants={dropVariant}
             src="/images/section3/3.3/pot.webp"
             alt=""
             key={"pot"}
-            className="absolute w-[8vw] max-w-[120px] bottom-[3.5vh] left-[69.5%] z-30 bg-contain cursor-pointer"
+            className="absolute w-[8vw] max-w-[120px] bottom-[3.5vh] left-[69.5%] z-30 bg-contain"
           />
         ) : (
           dropped && (
@@ -94,6 +94,14 @@ const Panel3 = ({ setTimelinePoint }) => {
         )}
       </AnimatePresence>
 
+      <AnimatePresence exitBeforeEnter>
+        {!dropping && (
+          <div className="absolute w-[8vw] max-w-[120px] bottom-[9vh] left-[70.5%] z-30 bg-contain cursor-pointer">
+            <PulseButton title="Click" handle={() => setDropping(true)} />
+          </div>
+        )}
+      </AnimatePresence>
+
       <img src="/images/section3/3.3/border.webp" alt="" className="absolute w-full h-full z-20" />
       <img src="/images/section3/3.3/bg.webp" alt="" className="absolute w-full h-full" />
       <img
@@ -101,7 +109,7 @@ const Panel3 = ({ setTimelinePoint }) => {
         alt=""
         className={`absolute w-full h-full z-10 duration-[1500ms] ${count >= 3 ? "" : "translate-y-[50%]"} `}
       />
-      <div className="absolute z-10 top-[42%] 2xl:right-[11%] lg:right-[7%] right-[11%] max-w-[40vw] text-content">
+      <div className="absolute z-10 top-[42%] 2xl:right-[11%] lg:right-[7%] md:right-[8%] right-[11%] max-w-[40vw] text-content">
         <h2 className="text-[8.5vmin] font-bold mb-0 ml-[5vw] header-font leading-[1.15]">พิธีสังคหะ</h2>
         <p className="text-[clamp(9px,2.3vmin,1.3rem)] leading-tight whitespace-nowrap">
           หลังจากที่นำศพออกจากบ้าน ให้นำน้ำส้มป่อยใว่ไว้ในหม้อดิน <br />

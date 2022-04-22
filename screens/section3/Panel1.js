@@ -83,7 +83,7 @@ const Panel1 = ({ setTimelinePoint, panelStep, setPanelStep }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
-            className="absolute 2xl:top-[3%] top-[0%] xl:left-[42.2%] lg:left-[30%] left-[42.2%] leading-none"
+            className="absolute 2xl:top-[3%] top-[0%] md:top-[6%] xl:left-[42.2%] lg:left-[30%] left-[42.2%] leading-none"
           >
             <h2 className="header-font text-[5.5vmin]">เฮือนน้อย</h2>
             <p className="text-[clamp(10px,2.6vmin,1.4rem)]">บ้านไม้จำลอง เพื่อเป็นที่อยู่ให้กับผู้ตาย</p>

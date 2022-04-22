@@ -66,7 +66,7 @@ const Panel4 = ({ setTimelinePoint }) => {
         ผู้ร่วมงานก็จะเดินเกาะขบวนแห่ พากันไปส่งผู้ตายถึงป่าช้า
       </p>
 
-      <p id="text-4" className="2xl:text-[1.35rem] lg:text-base text-xs absolute md:top-[16%] top-[3%]  md:left-[62%] left-[68%]">
+      <p id="text-4" className="2xl:text-[1.35rem] lg:text-base text-xs absolute md:top-[16%] top-[3%]  md:left-[66%] left-[68%]">
         พระสงฆ์จะเป็นผู้ถือฝ้ายจูงศพอยู่หน้าขบวนแห่ <br />
         โดยจะมีพระสงฆ์จำนวน 9 รูป และหากมีการบวชหน้าไฟ <br />
         พระก็จะมาร่วมการจูงศพในขบวนแห่ด้วย
