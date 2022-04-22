@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 
 import Panel1 from "../screens/section4/horizontal/Panel1"
 import Panel10 from "../screens/section4/Panel10"
@@ -13,34 +13,35 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
+import useIsomorphicEffect from "../hooks/useIsomorphic"
 
 const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section4 = () => {
   // const [progress, setProgress] = useState(0)
+  const [scrollTween, setScrollTween] = useState()
 
   const { setTimelinePoint } = useContext(TimelineContext)
   const panel9Ref = useRef(null)
+  const testRef = useRef()
 
   // Ref for Panel 9
   const plateRef = useRef(null)
   const canvasRef = useRef(null)
   const textRef = useRef(null)
 
-  useEffect(() => {
+  useIsomorphicEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     setTimeout(() => {
       window.scrollTo(0, 0)
     }, 0.1)
     const sections = gsap.utils.toArray(".panel")
-
-    const horizon = gsap.to(sections, {
-      xPercent: () => -83.3,
+    const horizonScroll = gsap.to(sections, {
+      xPercent: () => -100,
       ease: "none",
       scrollTrigger: {
         trigger: ".scroll-container",
-        pin: ".scroll-container",
-        start: "top top",
+        pin: true,
         scrub: 1,
         anticipatePin: 1,
         end: () => `+=${sections[0].offsetWidth}`,
@@ -49,14 +50,13 @@ const Section4 = () => {
     })
 
     const tl = gsap.timeline({
+      ease: "none",
       scrollTrigger: {
-        ease: "none",
         trigger: panel9Ref.current,
         start: "center center",
         end: `+=270%`,
         scrub: 1.3,
         anticipatePin: 1,
-        // invalidateOnRefresh: true,
         pin: true,
         pinType: "fixed",
       },
@@ -66,19 +66,8 @@ const Section4 = () => {
     tl.fromTo(plateRef.current, { x: "-100%" }, { x: 0, duration: 5 })
     tl.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 5 })
 
-    // ScrollTrigger.refresh()
-    // ScrollTrigger.addEventListener("refreshInit", () => {
-    //   setProgress(horizon.scrollTrigger.progress)
-    //   forceUpdate()
-    // })
-    // ScrollTrigger.addEventListener("refresh", () => {
-    //   if (progress < 1) {
-    //     horizon.scrollTrigger.scroll(sections[0].offsetWidth * progress)
-    //   }
-    // })
-
+    setScrollTween(horizonScroll)
     return () => {
-      // setProgress(0)
       ScrollTrigger.getAll().forEach((t) => t.kill())
     }
   }, [])
@@ -92,14 +81,25 @@ const Section4 = () => {
       </div>
 
       <div className="scroll-container max-w-screen min-h-screen flex hide-scrollbar overscroll-none" id="#pin-section4">
-        <div className={`${panelStyle} min-w-[500%] bg-[url('/images/section4/horizon/bg.webp')] bg-left bg-[length:500vw_100%]`}>
-          <Panel1 setTimelinePoint={setTimelinePoint} />
-          <Panel2 setTimelinePoint={setTimelinePoint} />
-          <Panel3 setTimelinePoint={setTimelinePoint} />
-          <Panel4 setTimelinePoint={setTimelinePoint} />
-          <Panel5 setTimelinePoint={setTimelinePoint} />
+        <div className={`${panelStyle} min-w-[500vw] w-screen bg-[url('/images/section4/horizon/bg.webp')] bg-left bg-[length:500vw_100%]`}>
+          <div className="basis-[100vw] h-full ">
+            <Panel1 setTimelinePoint={setTimelinePoint} />
+          </div>
+          <div className="basis-[100vw] h-full">
+            <Panel2 setTimelinePoint={setTimelinePoint} />
+          </div>
+          <div className="basis-[100vw] h-full">
+            <Panel3 setTimelinePoint={setTimelinePoint} />
+          </div>
+          <div className="basis-[200vw] h-full" ref={testRef}>
+            <Panel4 setTimelinePoint={setTimelinePoint} scrollTween={scrollTween} />
+          </div>
+          <div className="basis-[100vw] h-full">
+            <Panel5 setTimelinePoint={setTimelinePoint} />
+          </div>
         </div>
       </div>
+
       <Panel6 setTimelinePoint={setTimelinePoint} />
       <Panel7 setTimelinePoint={setTimelinePoint} />
       <Panel8 setTimelinePoint={setTimelinePoint} />
@@ -123,7 +123,7 @@ const Section4 = () => {
           ref={plateRef}
           src="/images/section4/4.9/plate.webp"
           alt=""
-          className="absolute 2xl:w-[89%] w-[80%] h-full object-contain object-left top-0 left-0 z-10"
+          className="absolute 2xl:w-[95%] w-[80%] h-full object-contain object-left top-0 left-0 z-10"
         />
 
         <div className="w-full h-full max-w-[50vw]">

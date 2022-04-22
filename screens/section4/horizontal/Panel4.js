@@ -1,45 +1,30 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useLayoutEffect, useRef } from "react"
 
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
 
-const Panel4 = ({ setTimelinePoint }) => {
-  gsap.registerPlugin(ScrollTrigger)
+const Panel4 = ({ setTimelinePoint, scrollTween }) => {
   const itemRef = useRef(null)
 
   useEffect(() => {
-    const anim = gsap.from(itemRef.current, {
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger)
+    }
+    const anim = gsap.timeline({
+      ease: "none",
       scrollTrigger: {
         trigger: itemRef.current,
-        start: "900% center",
-        end: "+=50%",
-        scrub: true,
-        onEnter: () => setTimelinePoint(9),
-        onLeaveBack: () => setTimelinePoint(8),
+        start: "30% center",
+        end: `+=80%`,
+        containerAnimation: scrollTween,
       },
-      duration: 0.25,
-      ease: "none",
     })
-    return () => anim.kill()
-  }, [])
+    anim.fromTo("#text-3", { opacity: 0 }, { opacity: 1, duration: 1 })
+    anim.fromTo("#text-4", { opacity: 0 }, { opacity: 1, duration: 1 })
+    anim.fromTo("#text-5", { opacity: 0 }, { opacity: 1, duration: 1 })
 
-  useEffect(() => {
-    const setOption = (start) => {
-      const option = {
-        scrollTrigger: {
-          trigger: itemRef.current,
-          start: `${start} center`,
-        },
-        opacity: 0,
-        duration: 0.5,
-        ease: "none",
-      }
-      return option
-    }
-    gsap.from("#text-3", setOption("840%"))
-    gsap.from("#text-4", setOption("900%"))
-    gsap.from("#text-5", setOption("970%"))
-  }, [])
+    return () => anim.scrollTrigger.kill()
+  }, [itemRef.current])
 
   return (
     <div className="w-[200vw] h-screen relative section4-container" ref={itemRef}>
@@ -50,8 +35,8 @@ const Panel4 = ({ setTimelinePoint }) => {
       <div className="absolute top-[3vh] left-[clamp(40vw,50vw,90vh)]">
         <h1 className="text-[7.25vmin] header-font leading-none">ปราสาทศพ</h1>
         <p className="2xl:text-[1.35rem] lg:text-base text-xs leading-none">
-          ในปัจจุบัันนิยมใช้เป็นปราสาทยอดเดียว จะมีหลังคา 5 ชั้น <br /> หรือ 7 ชั้น ไม่มีหน้ามุข มีราคาค่อนข้างแพง 
-          หรือจะเป็นปราสาทจากเต็นท์ผ้าใบก็จะมีความสวยงามน้อยลง <br /> ราคาถูกขึ้น และสามารถนำไปใช้ประโยชน์ต่อได้อีก
+          ในปัจจุบัันนิยมใช้เป็นปราสาทยอดเดียว จะมีหลังคา 5 ชั้น <br /> หรือ 7 ชั้น ไม่มีหน้ามุข มีราคาค่อนข้างแพง หรือจะเป็น <br />{" "}
+          ปราสาทจากเต็นท์ผ้าใบก็จะมีความสวยงามน้อยลง <br /> ราคาถูกขึ้น และสามารถนำไปใช้ประโยชน์ต่อได้อีก
         </p>
       </div>
       <p className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh] md:top-[31vh] top-[31.5vh] xl:left-[min(94.5vmin,55vw)] md:left-[35%] left-[39%]">
