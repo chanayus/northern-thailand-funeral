@@ -47,26 +47,27 @@ const Panel3 = ({ setTimelinePoint }) => {
         </div>
       </div>
       <div className="w-full flex h-[10%] justify-center item-center">
-        {/* <h1 className="text-center text-[10vmin] header-font font-bold text-white">พิธีผัดตาสิน</h1> */}
-        <button
-          className="mx-4 "
-          onTouchStart={() => decreaseImgHandle("down")}
-          onTouchEnd={() => decreaseImgHandle("up")}
-          onMouseDown={() => decreaseImgHandle("down")}
-          onMouseUp={() => decreaseImgHandle("up")}
-        >
-          <Arrow classProps="rotate-180 invert" />
-        </button>
-        <button
-          className="mx-4"
-          onTouchStart={() => increaseImgHandle("down")}
-          onTouchEnd={() => increaseImgHandle("up")}
-          onMouseDown={() => increaseImgHandle("down")}
-          onMouseUp={() => increaseImgHandle("up")}
-        >
-          <Arrow classProps="invert" />
-        </button>
+        <h1 className="text-center text-[10vmin] header-font font-bold text-white select-none">พิธีผัดตาสิน</h1>
       </div>
+
+      <button
+        className="mx-4 absolute top-1/2 left-[15%] w-[45px] h-[45px] z-20 flex justify-center items-center"
+        onTouchStart={() => decreaseImgHandle("down")}
+        onTouchEnd={() => decreaseImgHandle("up")}
+        onMouseDown={() => decreaseImgHandle("down")}
+        onMouseUp={() => decreaseImgHandle("up")}
+      >
+        <Arrow classProps="rotate-180 invert" />
+      </button>
+      <button
+        className="mx-4 absolute top-1/2 right-[15%] w-[45px] h-[45px] z-20 flex justify-center items-center"
+        onTouchStart={() => increaseImgHandle("down")}
+        onTouchEnd={() => increaseImgHandle("up")}
+        onMouseDown={() => increaseImgHandle("down")}
+        onMouseUp={() => increaseImgHandle("up")}
+      >
+        <Arrow classProps="invert" />
+      </button>
     </div>
   )
 }
