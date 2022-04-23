@@ -7,9 +7,8 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
   const itemRef = useRef(null)
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger)
-    }
+    gsap.registerPlugin(ScrollTrigger)
+
     const anim = gsap.timeline({
       ease: "none",
       scrollTrigger: {
@@ -17,7 +16,7 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
         start: "35% center",
         end: `+=80%`,
         containerAnimation: scrollTween,
-        markers: true
+        markers: true,
       },
     })
     anim.fromTo("#text-3", { opacity: 0 }, { opacity: 1, duration: 1 })
