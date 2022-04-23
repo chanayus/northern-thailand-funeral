@@ -18,12 +18,10 @@ import useIsomorphicEffect from "../hooks/useIsomorphic"
 const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section4 = () => {
-  // const [progress, setProgress] = useState(0)
   const [scrollTween, setScrollTween] = useState()
 
   const { setTimelinePoint } = useContext(TimelineContext)
   const panel9Ref = useRef(null)
-  const testRef = useRef()
 
   // Ref for Panel 9
   const plateRef = useRef(null)
@@ -31,10 +29,8 @@ const Section4 = () => {
   const textRef = useRef(null)
 
   useIsomorphicEffect(() => {
+    window.scrollTo(0, 0)
     gsap.registerPlugin(ScrollTrigger)
-    setTimeout(() => {
-      window.scrollTo(0, 0)
-    }, 0.1)
     const sections = gsap.utils.toArray(".panel")
     const horizonScroll = gsap.to(sections, {
       xPercent: () => -100,
@@ -91,7 +87,7 @@ const Section4 = () => {
           <div className="basis-[100vw] h-full">
             <Panel3 setTimelinePoint={setTimelinePoint} />
           </div>
-          <div className="basis-[200vw] h-full" ref={testRef}>
+          <div className="basis-[200vw] h-full">
             <Panel4 setTimelinePoint={setTimelinePoint} scrollTween={scrollTween} />
           </div>
           <div className="basis-[100vw] h-full">

@@ -32,7 +32,7 @@ const Image360 = ({ amount = 360, path = "", currentImg }) => {
 
   return (
     <div
-      className="z-10 w-full h-full relative will-change-contents "
+      className="z-10 w-full h-full relative will-change-contents select-none"
       // onTouchMove={(e) => swipeHandle(e)}
       // onMouseMove={(e) => grabHandle(e)}
       // onMouseDown={() => setIsClick(true)}
@@ -42,7 +42,7 @@ const Image360 = ({ amount = 360, path = "", currentImg }) => {
         <img
           key={index}
           src={`/images/section4/360/(${index + 1}).webp`}
-          className={`w-full h-full ${currentImg === index + 1 ? "" : "hidden"} z-10 object-contain absolute top-0 left-0`}
+          className={`w-full h-full ${currentImg === index + 1 ? "" : "hidden"} z-10 object-contain absolute top-0 left-0 select-none`}
           draggable={false}
           alt=""
         />

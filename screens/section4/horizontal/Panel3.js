@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
+import Arrow from "../../../components/Arrow"
 import Image360 from "../../../components/Image360"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
@@ -14,13 +15,11 @@ const Panel3 = ({ setTimelinePoint }) => {
     const anim = gsap.from(itemRef.current, {
       scrollTrigger: {
         trigger: itemRef.current,
-        start: "520% center",
-        end: "+=100%",
-        scrub: true,
+        start: "355% center",
+        end: "+=50%",
         onEnter: () => setTimelinePoint(8),
         onLeaveBack: () => setTimelinePoint(7),
       },
-      duration: 0.25,
       ease: "none",
     })
     return () => anim.kill()
@@ -56,7 +55,7 @@ const Panel3 = ({ setTimelinePoint }) => {
           onMouseDown={() => decreaseImgHandle("down")}
           onMouseUp={() => decreaseImgHandle("up")}
         >
-          <img src="/icon/arrow.svg" alt="" className="rotate-180 invert" />
+          <Arrow classProps="rotate-180 invert" />
         </button>
         <button
           className="mx-4"
@@ -65,7 +64,7 @@ const Panel3 = ({ setTimelinePoint }) => {
           onMouseDown={() => increaseImgHandle("down")}
           onMouseUp={() => increaseImgHandle("up")}
         >
-          <img src="/icon/arrow.svg" alt="" className=" invert" />
+          <Arrow classProps="invert" />
         </button>
       </div>
     </div>

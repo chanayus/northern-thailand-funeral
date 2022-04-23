@@ -6,11 +6,8 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
 
 const Panel1 = ({ setTimelinePoint }) => {
-  gsap.registerPlugin(ScrollTrigger)
-
   const [dropInArea, setDropInArea] = useState(false)
   const itemRef = useRef(null)
-  const imgRef = useRef()
   const textRef = useRef()
 
   const [state, setState] = useState({
@@ -19,21 +16,22 @@ const Panel1 = ({ setTimelinePoint }) => {
   })
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
     const anim = gsap.timeline({
       scrollTrigger: {
         trigger: itemRef.current,
-        start: "10% center",
-        end: "+=50%",
+        start: "30% center",
+        end: "+=5%",
         onEnter: () => setTimelinePoint(6),
         onLeaveBack: () => setTimelinePoint(5),
       },
-      duration: 0.25,
       ease: "none",
     })
     anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 })
     anim.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 1 })
+    anim.scrollTrigger.refresh()
     return () => anim.kill()
-  }, [])
+  }, [itemRef.current])
 
   const dropHandle = (info) => {
     const inAreaX = info.offset.x >= 30 && info.offset.x <= 350

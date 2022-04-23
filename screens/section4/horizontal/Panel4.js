@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
@@ -17,6 +17,8 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
         end: `+=80%`,
         containerAnimation: scrollTween,
         scrub: true,
+        onEnter: () => setTimelinePoint(9),
+        onLeaveBack: () => setTimelinePoint(8),
       },
     })
     anim.fromTo("#text-3", { opacity: 0 }, { opacity: 1, duration: 1 })
