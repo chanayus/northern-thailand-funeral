@@ -1,6 +1,6 @@
 const Arrow = ({ classProps = "" }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="29.953" height="32.642" viewBox="0 0 29.953 32.642" className={classProps}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="53" viewBox="0 0 29.953 32.642" className={classProps}>
       <g id="Polygon_5" data-name="Polygon 5" transform="translate(27.953) rotate(90)" fill="none">
         <path d="M14.321,0,28.642,27.953H0Z" stroke="none" />
         <path

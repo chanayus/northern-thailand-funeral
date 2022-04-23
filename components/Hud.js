@@ -1,9 +1,10 @@
+import { AnimatePresence, motion } from "framer-motion"
 import { BgMusicContext, IsEndContext } from "../pages/_app"
 import { useContext, useEffect, useState } from "react"
 
 import Castle from "./Castle"
 import PageTimeline from "./PageTimeline"
-import { motion } from "framer-motion"
+import PulseButton from "./PulseButton"
 import { useRouter } from "next/router"
 
 const Hud = () => {
@@ -42,6 +43,14 @@ const Hud = () => {
             showCastle && scrollEnd ? "opacity-0" : "cursor-pointer"
           } fixed translate-x-[-50%] translate-y-[-50%] z-30 lg:left-[95.5%] lg:top-[91%] md:left-[94.5%] md:top-[88%] left-[93%] top-[87%] duration-[1750ms] `}
         >
+          <AnimatePresence exitBeforeEnter>
+            {scrollEnd && (
+              <div className="absolute left-[-35%] top-[-35%]">
+                <PulseButton title={"Click"} dark />
+              </div>
+            )}
+          </AnimatePresence>
+
           <Castle setScrollEnd={setScrollEnd} scrollEnd={scrollEnd} showCastle={showCastle} />
         </div>
       </div>

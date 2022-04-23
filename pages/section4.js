@@ -59,7 +59,7 @@ const Section4 = () => {
     })
 
     tl.fromTo(canvasRef.current, { x: "100%" }, { x: 0, duration: 5 })
-    tl.fromTo(plateRef.current, { x: "-100%" }, { x: 0, duration: 5 })
+    tl.fromTo(plateRef.current, { x: "-120%" }, { x: 0, duration: 5 })
     tl.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 5 })
 
     setScrollTween(horizonScroll)

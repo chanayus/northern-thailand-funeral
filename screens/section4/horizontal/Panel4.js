@@ -1,3 +1,4 @@
+import styled, { keyframes } from "styled-components"
 import { useEffect, useRef } from "react"
 
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
@@ -5,6 +6,10 @@ import gsap from "gsap/dist/gsap"
 
 const Panel4 = ({ setTimelinePoint, scrollTween }) => {
   const itemRef = useRef(null)
+  const text1Ref = useRef()
+  const text2Ref = useRef()
+  const text3Ref = useRef()
+  const text4Ref = useRef()
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -28,6 +33,9 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
     return () => anim.kill()
   }, [itemRef.current])
 
+  // const showText = (element) => {
+  //   element.style.opacity = 1
+  // }
   return (
     <div className="w-[200vw] h-screen relative section4-container" ref={itemRef}>
       <h1 className="text-center text-[12vmin] header-font text-black absolute top-[2vh] left-[2vh] leading-[0.75]">
@@ -37,11 +45,11 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
       <div className="absolute top-[3vh] left-[clamp(40vw,50vw,90vh)]">
         <h1 className="text-[7.25vmin] header-font leading-none">ปราสาทศพ</h1>
         <p className="2xl:text-[1.35rem] lg:text-base text-xs leading-none">
-          ในปัจจุบัันนิยมใช้เป็นปราสาทยอดเดียว จะมีหลังคา 5 ชั้น <br /> หรือ 7 ชั้น ไม่มีหน้ามุข มีราคาค่อนข้างแพง หรือจะเป็น <br />{" "}
+          ในปัจจุบัันนิยมใช้เป็นปราสาทยอดเดียว จะมีหลังคา 5 ชั้น <br /> หรือ 7 ชั้น ไม่มีหน้ามุข มีราคาค่อนข้างแพง หรือจะเป็น <br />
           ปราสาทจากเต็นท์ผ้าใบก็จะมีความสวยงามน้อยลง <br /> ราคาถูกขึ้น และสามารถนำไปใช้ประโยชน์ต่อได้อีก
         </p>
       </div>
-      <p className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh] md:top-[31vh] top-[31.5vh] xl:left-[min(94.5vmin,55vw)] md:left-[35%] left-[39%]">
+      <p className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh]  lg:top-[27vh] md:top-[31vh] top-[31.5vh] xl:left-[min(94.5vmin,55vw)] lg:left-[26.5%] md:left-[35%] left-[39%]">
         ในปัจจุบัันนิยมเป็นปราสาทยอดเดียว <br />
         หรือเป็นเต็นท์ผ้าใบ ก็จะมีความสวยงามน้อยลง <br />
         แต่สามารถนำไปใช้ประโยชน์ต่อได้อีก
@@ -77,35 +85,82 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
           </p>
         </div>
 
-        <div className={`absolute left-[clamp(25vw,30vw,53vh)] pr-[clamp(4vw,2%,13vh)] top-[6%] z-10 border-b-[1px]`}>
-          <p className="text-[2.5vmin]">ส่วนยอด</p>
-          <div className="absolute bottom-[-1px] left-full w-[min(3.5vmin,4vmin)] h-[1px] bg-white origin-bottom-left rotate-[-40deg]"></div>
+        <div className={`absolute left-[clamp(25vw,30vw,53vh)] top-[6%] z-10`}>
+          <Button className="w-[1vw] h-[1vw] bg-white rounded-full absolute right-[-25%]"></Button>
+          <div className="text-wrapper duration-1000">
+            <p className="text-[2.5vmin] pr-[clamp(4vw,2%,13vh)] border-b-[1px]">ส่วนยอด</p>
+            <div className="absolute bottom-[-1px] left-full w-[min(3.5vmin,4vmin)] h-[1px] bg-white origin-bottom-left rotate-[-40deg]"></div>
+          </div>
         </div>
-        <div className="absolute left-[min(11%,38vh)] pr-[min(2.75%,13vh)] top-[23%] z-10 border-b-[1px]">
-          <p className="text-[2.5vmin]">ส่วนหลังคา</p>
-          <div className="absolute bottom-[-1px] left-full w-[min(3.5vmin,4vmin)] h-[1px] bg-white origin-bottom-left rotate-[-40deg]"></div>
+        <div className="absolute left-[min(11%,38vh)] top-[23%] z-10">
+          <Button className="w-[1vw] h-[1vw] bg-white rounded-full absolute right-[-25%]"></Button>
+          <div className="text-wrapper duration-1000">
+            <p className="text-[2.5vmin] pr-[clamp(4vw,2%,13vh)] border-b-[1px]">ส่วนหลังคา</p>
+            <div className="absolute bottom-[-1px] left-full w-[min(3.5vmin,4vmin)] h-[1px] bg-white origin-bottom-left rotate-[-40deg]"></div>
+          </div>
         </div>
-        <div className="absolute left-[min(11%,37vh)] pr-[1vw] top-[38%] z-10 border-b-[1px]">
-          <p className="text-[2.5vmin]">ส่วนตัวปราสาท</p>
-          <div className="absolute bottom-[-1px] left-full w-[6vmin] h-[1px] bg-white origin-bottom-left rotate-[-40deg]"></div>
+        <div className="absolute left-[min(11%,37vh)] top-[38%] z-10">
+          <Button className="w-[1vw] h-[1vw] bg-white rounded-full absolute right-[-31%]"></Button>
+          <div className="text-wrapper duration-1000">
+            <p className="text-[2.5vmin] pr-[clamp(3vw,1%,12vh)] border-b-[1px]">ส่วนตัวปราสาท</p>
+            <div className="absolute bottom-[-1px] left-full w-[6vmin] h-[1px] bg-white origin-bottom-left rotate-[-40deg]"></div>
+          </div>
         </div>
-        <div className="absolute left-[min(13%,45vh)] pr-[1vw] top-[53%] z-10 border-b-[1px]">
-          <p className="text-[2.5vmin]">ส่วนฐาน</p>
-          <div className="absolute bottom-[-1px] left-full w-[6vmin] h-[1px] bg-white origin-bottom-left rotate-[40deg]"></div>
+        <div className="absolute left-[min(13%,45vh)] top-[53%] z-10">
+          <Button className="w-[1vw] h-[1vw] bg-white rounded-full absolute right-[-40%] bottom-[-105%]"></Button>
+          <div className="text-wrapper duration-1000">
+            <p className="text-[2.5vmin] pr-[clamp(3vw,1%,12vh)] border-b-[1px]">ส่วนฐาน</p>
+            <div className="absolute bottom-[-1px] left-full w-[6vmin] h-[1px] bg-white origin-bottom-left rotate-[40deg]"></div>
+          </div>
         </div>
 
-        <div className="absolute right-[2%] pl-[1vw] top-[46%] z-10 border-b-[1px]">
-          <p className="text-[2.5vmin] text-left">ตุง 3 หาง</p>
-          <div className="absolute bottom-[-1px] left-0 w-[6vmin] h-[1px] bg-white origin-bottom-left rotate-[130deg]"></div>
+        <div className="absolute right-[2%] top-[46%] z-10">
+          <Button className="w-[1vw] h-[1vw] bg-white rounded-full absolute left-[-40%] bottom-[-150%]"></Button>
+          <div className="text-wrapper duration-1000">
+            <p className="text-[2.5vmin] text-left pl-[clamp(3vw,1%,12vh)] border-b-[1px]">ตุง 3 หาง</p>
+            <div className="absolute bottom-[-1px] left-0 w-[6vmin] h-[1px] bg-white origin-bottom-left rotate-[130deg]"></div>
+          </div>
         </div>
-        <div className="absolute right-[3%] pl-[3.5vw] top-[64%] z-10 border-b-[1px]">
-          <p className="text-[2.5vmin] text-left">ย่ามข้าว 100 ห่อ</p>
-          <div className="absolute bottom-[-1px] left-0 w-[8vmin] h-[1px] bg-white origin-bottom-left rotate-[130deg]"></div>
+        <div className="absolute right-[3%] top-[64%] z-10 ">
+          <Button className="w-[1vw] h-[1vw] bg-white rounded-full absolute left-[-35%] bottom-[-200%]"></Button>
+          <div className="text-wrapper duration-1000">
+            <p className="text-[2.5vmin] pl-[3.5vw] text-left border-b-[1px]">ย่ามข้าว 100 ห่อ</p>
+            <div className="absolute bottom-[-1px] left-0 w-[8vmin] h-[1px] bg-white origin-bottom-left rotate-[130deg]"></div>
+          </div>
         </div>
       </div>
       <img src="/images/section4/horizon/4.4/procession.webp" alt="" className="w-full h-full absolute top-0 left-0 object-contain object-left" />
     </div>
   )
 }
+
+const anim = keyframes`
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.75);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+`
+
+const Button = styled.button`
+  animation: ${anim} 2s infinite;
+  & ~ .text-wrapper {
+    opacity: 0;
+  }
+  &:hover {
+    & ~ .text-wrapper {
+      opacity: 1;
+    }
+  }
+`
 
 export default Panel4

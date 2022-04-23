@@ -35,7 +35,7 @@ const Panel2 = ({ setTimelinePoint }) => {
       <div>
         <AnimatePresence exitBeforeEnter>
           {!cut && (
-            <div className="absolute lg:top-[27%] top-[22%] left-[57%]  z-20">
+            <div className="absolute lg:top-[27%] top-[22%] left-[57%] z-20">
               <PulseButton title="Cut" handle={() => setCut(true)} dark={false} />
             </div>
           )}

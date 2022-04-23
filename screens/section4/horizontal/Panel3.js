@@ -57,7 +57,7 @@ const Panel3 = ({ setTimelinePoint }) => {
         onMouseDown={() => decreaseImgHandle("down")}
         onMouseUp={() => decreaseImgHandle("up")}
       >
-        <Arrow classProps="rotate-180 invert" />
+        <Arrow classProps="rotate-180 " />
       </button>
       <button
         className="mx-4 absolute top-1/2 right-[15%] w-[45px] h-[45px] z-20 flex justify-center items-center"
@@ -66,7 +66,7 @@ const Panel3 = ({ setTimelinePoint }) => {
         onMouseDown={() => increaseImgHandle("down")}
         onMouseUp={() => increaseImgHandle("up")}
       >
-        <Arrow classProps="invert" />
+        <Arrow classProps="" />
       </button>
     </div>
   )

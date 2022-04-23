@@ -109,7 +109,7 @@ const Panel3 = ({ setTimelinePoint }) => {
         alt=""
         className={`absolute w-full h-full z-10 duration-[1500ms] ${count >= 3 ? "" : "translate-y-[50%]"} `}
       />
-      <div className="absolute z-10 top-[42%] 2xl:right-[11%] lg:right-[7%] md:right-[5%] right-[11%] max-w-[40vw] text-content">
+      <div className="absolute z-30 top-[42%] 2xl:right-[11%] lg:right-[7%] md:right-[5%] right-[11%] max-w-[40vw] text-content">
         <h2 className="text-[8.5vmin] font-bold mb-0 ml-[5vw] header-font leading-[1.15]">พิธีสังคหะ</h2>
         <p className="text-[clamp(9px,2.3vmin,1.3rem)] leading-tight whitespace-nowrap">
           หลังจากที่นำศพออกจากบ้าน ให้นำน้ำส้มป่อยใว่ไว้ในหม้อดิน <br />
