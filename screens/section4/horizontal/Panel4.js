@@ -17,6 +17,7 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
         end: `+=80%`,
         containerAnimation: scrollTween,
         markers: true,
+        scrub: true,
       },
     })
     anim.fromTo("#text-3", { opacity: 0 }, { opacity: 1, duration: 1 })
