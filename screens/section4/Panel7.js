@@ -1,7 +1,30 @@
+import { useEffect, useRef } from "react"
+
+import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import gsap from "gsap/dist/gsap"
+
 const Panel7 = ({ setTimelinePoint }) => {
+  const textRef = useRef()
+  const wrapRef = useRef()
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    const anim = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrapRef.current,
+        start: "10% center",
+        end: "+=70%",
+        onEnter: () => setTimelinePoint(7),
+        onLeaveBack: () => setTimelinePoint(6),
+      },
+      duration: 0.25,
+      ease: "none",
+    })
+    anim.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 2 })
+    return () => anim.kill()
+  }, [])
   return (
-    <div className="w-full min-h-screen h-full relative">
-      <div className="absolute z-10 top-[28%] left-[33%]">
+    <div className="w-full min-h-screen h-full relative" ref={wrapRef}>
+      <div className="absolute z-10 top-[28%] left-[33%]" ref={textRef}>
         <h2 className="text-[8.5vmin] absolute top-[-50%] left-[-20%] font-bold mb-0 mr-[5vw] header-font leading-[1.15]">พิธีทักสัปเหร่อ</h2>
         <p className="text-[clamp(9px,2.3vmin,1.4rem)] leading-tight whitespace-nowrap">
           อาจารย์ : อ้าว ไปไหนมาหล่ะ <br />

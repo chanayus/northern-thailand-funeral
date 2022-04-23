@@ -32,7 +32,7 @@ const Image360 = ({ amount = 360, path = "", currentImg }) => {
 
   return (
     <div
-      className="z-10 w-full h-full relative cursor-grab will-change-contents "
+      className="z-10 w-full h-full relative will-change-contents "
       // onTouchMove={(e) => swipeHandle(e)}
       // onMouseMove={(e) => grabHandle(e)}
       // onMouseDown={() => setIsClick(true)}

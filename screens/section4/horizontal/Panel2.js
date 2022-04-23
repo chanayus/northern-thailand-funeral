@@ -8,27 +8,31 @@ import gsap from "gsap/dist/gsap"
 const Panel2 = ({ setTimelinePoint }) => {
   gsap.registerPlugin(ScrollTrigger)
   const itemRef = useRef(null)
+  const textRef = useRef()
   const [cut, setCut] = useState(false)
 
   useEffect(() => {
-    const anim = gsap.from(itemRef.current, {
+    const anim = gsap.timeline({
       scrollTrigger: {
         trigger: itemRef.current,
-        start: "220% center",
-        end: "+=100%",
-        scrub: true,
+        start: "170% center",
+
+        end: "+=70%",
+
         onEnter: () => setTimelinePoint(7),
         onLeaveBack: () => setTimelinePoint(6),
       },
       duration: 0.25,
       ease: "none",
     })
+    anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 })
+    anim.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 1 })
     return () => anim.kill()
   }, [])
 
   return (
-    <div className="w-screen h-screen relative">
-      <div ref={itemRef}>
+    <div className="w-screen h-screen relative" ref={itemRef}>
+      <div>
         <AnimatePresence exitBeforeEnter>
           {!cut && (
             <div className="absolute lg:top-[27%] top-[22%] left-[57%]  z-20">
@@ -36,14 +40,16 @@ const Panel2 = ({ setTimelinePoint }) => {
             </div>
           )}
         </AnimatePresence>
-        <h2 className="text-[8.25vmin] mb-0 header-font text-white absolute left-[32%] top-[25%] header-bold">ตัดขาดผัว-เมีย</h2>
-        <p className="absolute z-10 text-[clamp(9px,2.7vmin,1.5rem)] leading-tight left-[40.5%] top-[40%]">
-          นำสะตวง (จะมี ปั้นรูปคน ดอกไม้ ธูป ข้าวสาร) วางไว้หน้าโลงศพ <br />
-          จากนั้นนำด้ายสีดำผูกสะตวงโยงมาผูกที่คอ สามี/ภรรยา ของผู้ตาย
-          <br />
-          อาจารย์จะสวดทำพิธีและตัดด้ายให้ขาด ถือเป็นการตัดขาดจากกัน <br />
-          หลังจากนี้ห้ามสามี/ภรรยา ของผู้เสียชีวิตไปเผาศพที่ป่าช้า
-        </p>
+        <div ref={textRef}>
+          <h2 className="text-[8.25vmin] mb-0 header-font text-white absolute lg:left-[32%] left-[34%] top-[25%] header-bold">ตัดขาดผัว-เมีย</h2>
+          <p className="absolute z-10 text-[clamp(9px,2.7vmin,1.5rem)] leading-tight left-[40.5%] top-[40%]">
+            นำสะตวง (จะมี ปั้นรูปคน ดอกไม้ ธูป ข้าวสาร) วางไว้หน้าโลงศพ <br />
+            จากนั้นนำด้ายสีดำผูกสะตวงโยงมาผูกที่คอ สามี/ภรรยา ของผู้ตาย
+            <br />
+            อาจารย์จะสวดทำพิธีและตัดด้ายให้ขาด ถือเป็นการตัดขาดจากกัน <br />
+            หลังจากนี้ห้ามสามี/ภรรยา ของผู้เสียชีวิตไปเผาศพที่ป่าช้า
+          </p>
+        </div>
         <div className="absolute top-1/2 translate-y-[-50%] w-full max-h-[100vh] h-[55vw]">
           <div className="w-[52.75%] h-[3px] absolute -z-10 top-[34.4%] left-[25%] flex">
             <div className={`w-[65%] h-full bg-black rounded duration-1000 origin-left ${cut && "rotate-[10deg] opacity-0"}`}></div>

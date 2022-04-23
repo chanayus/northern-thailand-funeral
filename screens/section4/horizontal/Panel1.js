@@ -10,6 +10,8 @@ const Panel1 = ({ setTimelinePoint }) => {
 
   const [dropInArea, setDropInArea] = useState(false)
   const itemRef = useRef(null)
+  const imgRef = useRef()
+  const textRef = useRef()
 
   const [state, setState] = useState({
     smoke: false,
@@ -17,18 +19,19 @@ const Panel1 = ({ setTimelinePoint }) => {
   })
 
   useEffect(() => {
-    const anim = gsap.from(itemRef.current, {
+    const anim = gsap.timeline({
       scrollTrigger: {
         trigger: itemRef.current,
-        start: "5% center",
+        start: "10% center",
         end: "+=50%",
-        scrub: true,
         onEnter: () => setTimelinePoint(6),
         onLeaveBack: () => setTimelinePoint(5),
       },
       duration: 0.25,
       ease: "none",
     })
+    anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 })
+    anim.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 1 })
     return () => anim.kill()
   }, [])
 
@@ -45,7 +48,7 @@ const Panel1 = ({ setTimelinePoint }) => {
 
   return (
     <div className="w-screen h-screen relative" ref={itemRef}>
-      <div className="absolute z-10 top-[10%] left-[58%] translate-x-[-50%] max-w-[40vw] leading-tight">
+      <div className="absolute z-10 top-[10%] left-[58%] translate-x-[-50%] max-w-[40vw] leading-tight" ref={textRef}>
         <h2 className="text-[10vmin] mb-0 header-font font-bold text-black">ข้าว 100 ห่อ</h2>
         <p className="text-[2.6vmin] leading-tight text-black">
           ให้ผู้ร่วมงานนำข้าวเหนียวคนละห่อ ใส่ไว้ในย่ามของผู้ตาย <br />
