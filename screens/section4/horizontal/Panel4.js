@@ -16,7 +16,6 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
         start: "35% center",
         end: `+=80%`,
         containerAnimation: scrollTween,
-        markers: true,
         scrub: true,
       },
     })
