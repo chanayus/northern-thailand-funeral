@@ -23,7 +23,7 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
     anim.fromTo("#text-4", { opacity: 0 }, { opacity: 1, duration: 1 })
     anim.fromTo("#text-5", { opacity: 0 }, { opacity: 1, duration: 1 })
 
-    return () => anim.scrollTrigger.kill()
+    return () => anim.kill()
   }, [itemRef.current])
 
   return (
