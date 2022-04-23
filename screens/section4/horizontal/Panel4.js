@@ -14,7 +14,7 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
       ease: "none",
       scrollTrigger: {
         trigger: itemRef.current,
-        start: "30% center",
+        start: "35% center",
         end: `+=80%`,
         containerAnimation: scrollTween,
       },

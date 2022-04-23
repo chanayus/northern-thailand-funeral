@@ -37,7 +37,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
   }, [imgLoaded])
 
   return (
-    <div className="w-full h-full" onMouseMove={(e) => parallax(e)}>
+    <div className="w-full h-full duration-1000" onMouseMove={(e) => parallax(e)}>
       <AnimatePresence exitBeforeEnter>
         {imgLoaded < totalImage && section !== "" && (
           <motion.div
@@ -67,7 +67,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
         <Img
           src={`${path}${index}.${index === 0 ? "gif" : "webp"}`}
           ref={addToRefs}
-          className={`w-full h-full object-cover ${index === 0 && "hidden"} will-change-transform`}
+          className={`w-full h-full object-cover ${index === 0 && "hidden"} will-change-transform duration-[0.175s]`}
           key={index}
           zIndex={imageIndex.length - value}
           draggable={false}
