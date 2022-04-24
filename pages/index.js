@@ -36,12 +36,9 @@ const Home = ({ data }) => {
   return (
     <>
       <Head>
-        <meta name="twitter:title" content={data.name} />
-        <meta name="twitter:description" content={data.detail} />
-        <meta name="twitter:image:url" content={data.image} />
-        <meta property="og:title" content={data.name} />
-        <meta property="og:description" content={data.detail} />
-        <meta property="og:image" content={data.image} />
+        <meta property="og:title" content={data.name} key="title" />
+        <meta property="og:description" content={data.detail} key="description" />
+        <meta property="og:image" content={data.image} key="image" />
       </Head>
       <div className="relative h-[200vh]">
         <AnimatePresence exitBeforeEnter>
