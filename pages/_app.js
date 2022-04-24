@@ -34,6 +34,10 @@ function MyApp({ Component, pageProps }) {
             <meta property="og:image:type" content="image/jpg" />
             <meta property="og:image:width" content="300" />
             <meta property="og:image:height" content="300" />
+            <meta name="twitter:title" content="เมี้ยนมลาย" />
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:image" content="https://northern-thailand-funeral.vercel.app/bg-meta.jpg" />
+            <meta name="twitter:description" content="Website เล่าเรื่องเกี่ยวกับงานศพที่สามารถให้ผู้เข้าชมมีส่วนร่วมในพิธีกรรมในงานศพ" />
           </Head>
           <Layout>
             <Component {...pageProps} />
