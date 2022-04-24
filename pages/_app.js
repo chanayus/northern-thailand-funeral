@@ -23,8 +23,9 @@ function MyApp({ Component, pageProps }) {
         <TimelineContext.Provider value={{ timelinePoint, setTimelinePoint }}>
           <Head>
             <title>เมี้ยนมลาย</title>
+            <link rel="icon" href="/fav.ico" />
             <meta property="og:description" content="Website เล่าเรื่องเกี่ยวกับงานศพที่สามารถให้ผู้เข้าชมมีส่วนร่วมในพิธีกรรมในงานศพ" />
-            <meta property="og:image" content="https://northern-thailand-funeral.vercel.app/images/bg-meta.jpg" />
+            <meta property="og:image" content="https://northern-thailand-funeral.vercel.app/bg-meta.jpg" />
           </Head>
           <Layout>
             <Component {...pageProps} />
