@@ -176,7 +176,7 @@ const Section5 = () => {
                     <FacebookIcon size={52} round />
                   </FacebookShareButton>
 
-                  <TwitterShareButton title={""} url={"https://northern-thailand-funeral.vercel.app/"} className="mx-5">
+                  <TwitterShareButton title={""} url={"https://northern-thailand-funeral.vercel.app"} className="mx-5">
                     <TwitterIcon size={52} round />
                   </TwitterShareButton>
 
