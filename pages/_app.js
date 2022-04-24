@@ -24,8 +24,8 @@ function MyApp({ Component, pageProps }) {
           <Head>
             <title>เมี้ยนมลาย</title>
             <link rel="icon" href="/fav.ico" />
-            <meta property="og:description" content="Website เล่าเรื่องเกี่ยวกับงานศพที่สามารถให้ผู้เข้าชมมีส่วนร่วมในพิธีกรรมในงานศพ" />
-            <meta property="og:image" content="https://northern-thailand-funeral.vercel.app/bg-meta.jpg" />
+            <meta property="og:description" key="description" content="Website เล่าเรื่องเกี่ยวกับงานศพที่สามารถให้ผู้เข้าชมมีส่วนร่วมในพิธีกรรมในงานศพ" />
+            <meta property="og:image" key="image" content="https://northern-thailand-funeral.vercel.app/bg-meta.jpg" />
           </Head>
           <Layout>
             <Component {...pageProps} />
