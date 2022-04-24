@@ -35,14 +35,14 @@ const Home = ({ data }) => {
 
   return (
     <>
-      {/* <Head>
+      <Head>
         <meta name="twitter:title" content={data.name} />
         <meta name="twitter:description" content={data.detail} />
         <meta name="twitter:image:url" content={data.image} />
         <meta property="og:title" content={data.name} />
         <meta property="og:description" content={data.detail} />
         <meta property="og:image" content={data.image} />
-      </Head> */}
+      </Head>
       <div className="relative h-[200vh]">
         <AnimatePresence exitBeforeEnter>
           {loading ? (
@@ -177,7 +177,7 @@ const Start = styled.button`
     border: 1px solid #707070;
   }
 `
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`https://northern-thailand-funeral.vercel.app/api/meta`)
   const data = await res.json()
   return {
