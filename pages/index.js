@@ -178,7 +178,7 @@ const Start = styled.button`
   }
 `
 export async function getStaticProps() {
-  const res = await fetch(`https://www.mecallapi.com/api/attractions/`)
+  const res = await fetch(`https://northern-thailand-funeral.vercel.app/api/meta`)
   const data = await res.json()
   return {
     props: { data },
