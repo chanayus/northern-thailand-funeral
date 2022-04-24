@@ -2,18 +2,17 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
 import { BgMusicContext } from "./_app"
-import Head from "next/head"
 import Loader from "../components/Loader"
 import styled from "styled-components"
 import { useContext } from "react"
 import { useRouter } from "next/router"
 
-const Home = ({ data }) => {
+const Home = () => {
   const router = useRouter()
   const [gif, setGif] = useState("")
   const [loading, setLoading] = useState()
   const { playing, play, stop } = useContext(BgMusicContext)
-  console.log(data)
+
   useEffect(() => {
     window.history.scrollRestoration = "manual"
     document.documentElement.style.overflow = "hidden"
@@ -35,11 +34,6 @@ const Home = ({ data }) => {
 
   return (
     <>
-      <Head>
-        <meta property="og:title" content={data.name} key="title" />
-        <meta property="og:description" content={data.detail} key="description" />
-        <meta property="og:image" content={data.image} key="image" />
-      </Head>
       <div className="relative h-[200vh]">
         <AnimatePresence exitBeforeEnter>
           {loading ? (
@@ -174,11 +168,11 @@ const Start = styled.button`
     border: 1px solid #707070;
   }
 `
-export async function getServerSideProps() {
-  const res = await fetch(`https://northern-thailand-funeral.vercel.app/api/meta`)
-  const data = await res.json()
-  return {
-    props: { data },
-  }
-}
+// export async function getServerSideProps() {
+//   const res = await fetch(`https://northern-thailand-funeral.vercel.app/api/meta`)
+//   const data = await res.json()
+//   return {
+//     props: { data },
+//   }
+// }
 export default Home
