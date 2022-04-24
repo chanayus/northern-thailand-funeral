@@ -38,7 +38,7 @@ const Home = ({ data }) => {
       <Head>
         <meta name="twitter:title" content={data.name} />
         <meta name="twitter:description" content={data.detail} />
-        <meta name="twitter:image" content={data.image} />
+        <meta name="twitter:image:src" content={data.image} />
         <meta property="og:title" content={data.name} />
         <meta property="og:description" content={data.detail} />
         <meta property="og:image" content={data.image} />
