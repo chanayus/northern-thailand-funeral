@@ -21,10 +21,10 @@ const PageTimeline = () => {
       <div className="flex justify-center ml-[0.5px]">
         <div>
           <div className="lg:h-full h-[95%] overflow-hidden">
-            <div className="w-[1px] top-[-1px] h-3 bg-white mx-auto"></div>
+            <div className="w-[0.025rem] top-[-1px] h-3 bg-white mx-auto"></div>
             <TimelinePoint active={timelinePoint >= 1} />
             <TimelinePoint active={timelinePoint >= 2} />
-            <div className="w-[1px] top-[-1px] h-full bg-white mx-auto"></div>
+            <div className="w-[0.025rem] top-[-1px] h-full bg-white mx-auto"></div>
           </div>
           <div className="relative">
             <TimelinePoint header={true} active={true} />
@@ -34,11 +34,11 @@ const PageTimeline = () => {
 
         <div>
           <div className="lg:h-full h-[95%] overflow-hidden">
-            <div className="w-[1px] top-[-1px] h-3 bg-white mx-auto"></div>
+            <div className="w-[0.025rem] top-[-1px] h-3 bg-white mx-auto"></div>
             <TimelinePoint active={timelinePoint >= 3} />
             <TimelinePoint active={timelinePoint >= 4} />
             <TimelinePoint active={timelinePoint >= 5} />
-            <div className="w-[1px] top-[-1px] h-full bg-white mx-auto"></div>
+            <div className="w-[0.025rem] top-[-1px] h-full bg-white mx-auto"></div>
           </div>
           <div className="relative">
             <TimelinePoint header={true} active={timelinePoint >= 3 || router.pathname === "/section3"} />
@@ -48,7 +48,7 @@ const PageTimeline = () => {
 
         <div>
           <div className="lg:h-full h-[95%] overflow-hidden">
-            <div className="w-[1px] top-[-1px] h-3 bg-white mx-auto"></div>
+            <div className="w-[0.025rem] top-[-1px] h-3 bg-white mx-auto"></div>
             <TimelinePoint active={timelinePoint >= 6} />
             <TimelinePoint active={timelinePoint >= 7} />
             <TimelinePoint active={timelinePoint >= 8} />
@@ -57,7 +57,7 @@ const PageTimeline = () => {
             <TimelinePoint active={timelinePoint >= 11} />
             <TimelinePoint active={timelinePoint >= 12} />
             <TimelinePoint active={timelinePoint >= 13} />
-            <div className="w-[1px] top-[-1px] h-full bg-white mx-auto"></div>
+            <div className="w-[0.025rem] top-[-1px] h-full bg-white mx-auto"></div>
           </div>
           <div className="relative">
             <TimelinePoint header={true} active={timelinePoint >= 6 || router.pathname === "/section4"} />

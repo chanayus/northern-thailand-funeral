@@ -100,7 +100,7 @@ const Section5 = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     className: "relative",
-    afterChange: index => setDownload(index+1),
+    afterChange: (index) => setDownload(index + 1),
     responsive: [
       {
         breakpoint: 768,
@@ -156,10 +156,9 @@ const Section5 = () => {
             <AnimatePresence exitBeforeEnter>
               {!showPopup ? (
                 <Button
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 30 }}
-                  transition={{ duration: 0.75 }}
+                  transition={{ duration: 0.5 }}
                   className="bg-transparent border border-[#FFF] text-white cinzel-font md:text-2xl text-xl  w-[clamp(135px,16vw,180px)] h-[clamp(35px,10vh,50px)] rounded-xl "
                   onClick={() => setShowPopup(true)}
                 >
@@ -170,7 +169,7 @@ const Section5 = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 30 }}
-                  transition={{ duration: 0.75 }}
+                  transition={{ duration: 0.5 }}
                   className="flex items-center"
                 >
                   <FacebookShareButton title={""} url={"https://northern-thailand-funeral.vercel.app/"}>
