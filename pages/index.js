@@ -36,6 +36,9 @@ const Home = ({ data }) => {
   return (
     <>
       <Head>
+        <meta property="twitter:title" content={data.name} />
+        <meta property="twitter:description" content={data.detail} />
+        <meta property="twitter:image" content={data.image} />
         <meta property="og:title" content={data.name} />
         <meta property="og:description" content={data.detail} />
         <meta property="og:image" content={data.image} />
@@ -175,11 +178,10 @@ const Start = styled.button`
   }
 `
 export async function getStaticProps() {
-  const res = await fetch(`https://northern-thailand-funeral.vercel.app/api/meta`)
+  const res = await fetch(`https://www.mecallapi.com/api/attractions/`)
   const data = await res.json()
-  console.log(res)
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { data },
   }
 }
 export default Home
