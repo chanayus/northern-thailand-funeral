@@ -13,52 +13,40 @@ const Section5 = () => {
   const { mute, isMute } = useContext(BgMusicContext)
   const zodiac = [
     {
-      title: "ราศีมังกร",
-      img: "https://pbs.twimg.com/media/FNwpogTXsAAHc-d?format=jpg&name=large",
+      title: "ปีชวด",
     },
     {
-      title: "ราศีกุมภ์",
-      img: "https://pbs.twimg.com/media/FNwG81iXMAc01fR?format=jpg&name=large",
+      title: "ปีฉลู",
     },
     {
-      title: "ราศีมีน",
-      img: "https://pbs.twimg.com/media/FNwDsCeXoAIZRXN?format=jpg&name=900x900",
+      title: "ปีขาล",
     },
     {
-      title: "ราศีเมษ",
-      img: "https://pbs.twimg.com/media/FNwBTUiXoAUohBF?format=jpg&name=large",
+      title: "ปีเถาะ",
     },
     {
-      title: "ราศีพฤษก",
-      img: "https://pbs.twimg.com/media/FNM4AspXwAEnTjY?format=jpg&name=large",
+      title: "ปีมะโรง",
     },
     {
-      title: "ราศีเมถุน",
-      img: "https://pbs.twimg.com/media/FL-2YrPXMAE-gC7?format=jpg&name=large",
+      title: "ปีมะเส็ง",
     },
     {
-      title: "ราศีกรกฎ",
-      img: "https://pbs.twimg.com/media/FLRhZcKXwBYd1P1?format=jpg&name=large",
+      title: "ปีมะเมีย",
     },
     {
-      title: "ราศีสิงห์",
-      img: "https://pbs.twimg.com/media/FLO1IyXXsAQyESa?format=jpg&name=4096x4096",
+      title: "ปีมะแม",
     },
     {
-      title: "ราศีกันย์",
-      img: "https://pbs.twimg.com/media/FJBQWxeXMAciaad?format=jpg&name=large",
+      title: "ปีวอก",
     },
     {
-      title: "ราศีตุลย์",
-      img: "https://pbs.twimg.com/media/FMZ3TDfWUAEJuzt?format=jpg&name=large",
+      title: "ปีระกา",
     },
     {
-      title: "ราศีพิจิก",
-      img: "https://pbs.twimg.com/media/FMZ3z-rXMAsZU7w?format=jpg&name=medium",
+      title: "ปีจอ",
     },
     {
-      title: "ราศีธนู",
-      img: "https://pbs.twimg.com/media/FNwpGSfXoAgeFHh?format=jpg&name=900x900",
+      title: "ปีกุน",
     },
   ]
 
@@ -134,7 +122,7 @@ const Section5 = () => {
           <div className="relative">
             <h1 className="header-font lg:text-7xl text-4xl text-white text-center xl:mb-6 mb-1">ของที่ระลึกงานศพ</h1>
             <a href={`/download/${download}.png`} download className="absolute right-[4%] top-[35%]">
-              <img src="/icon/download.svg" alt="" className="w-[50px] h-[50px]" />
+              <img src="/icon/download.svg" alt="" className="w-[45px] h-[45px]" />
             </a>
           </div>
           <Slider {...settings}>
@@ -142,8 +130,8 @@ const Section5 = () => {
               <Slide className={`xl:h-[49vh] h-[40vh] md:min-h-[320px] min-h-[300px] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
                 <div className="flex flex-col justify-center items-center h-full ">
                   <div className="h-full">
-                    <div className="img-slide duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex bg-zinc-900 overflow-hidden justify-center items-center h-[88%] ">
-                      {/* <img src={value.img} className="w-full h-full object-cover" alt="" /> */}
+                    <div className="img-slide relative duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex bg-zinc-900 overflow-hidden justify-center items-center h-[88%] ">
+                      <img src={`/images/section5/zodiac/${index+1}.webp`} className="w-full h-full object-cover absolute" alt="" />
                       <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%] object-cover" />
                     </div>
                     <h3 className="lg:text-5xl text-3xl mt-1 header-font text-white text-center">{value.title}</h3>

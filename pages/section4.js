@@ -101,7 +101,7 @@ const Section4 = () => {
       <Panel8 setTimelinePoint={setTimelinePoint} />
       {/* Panel 9 */}
       <div
-        className="bg-[url('/images/section4/4.9/bg.webp')] bg-no-repeat relative bg-center max-w-screen min-h-screen hide-scrollbar overscroll-none panel9"
+        className="bg-[url('/images/section4/4.9/bg.webp')] will-change-transform bg-no-repeat relative bg-center max-w-screen min-h-screen hide-scrollbar overscroll-none panel9"
         ref={panel9Ref}
       >
         <div ref={textRef} className="absolute lg:left-[55%] left-[58%] 2xl:top-[16%] lg:top-[21%] top-[28%] text-black z-20">
@@ -119,7 +119,7 @@ const Section4 = () => {
           ref={plateRef}
           src="/images/section4/4.9/plate.webp"
           alt=""
-          className="absolute 2xl:w-[95%] w-[80%] h-full object-contain object-left top-0 left-0 z-10"
+          className="absolute 2xl:w-[95%] w-[80%] h-full object-contain object-left top-0 left-0 z-10 will-change-transform"
         />
 
         <div className="w-full h-full max-w-[50vw]">
@@ -127,7 +127,7 @@ const Section4 = () => {
             ref={canvasRef}
             src="/images/section4/4.9/canvas.webp"
             alt=""
-            className="absolute w-full h-full object-contain object-right  top-0 left-0"
+            className="absolute w-full h-full object-contain object-right top-0 left-0 will-change-transform"
           />
         </div>
       </div>
