@@ -3,23 +3,25 @@ import { useEffect, useRef } from "react"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
 
-const Panel5 = ({ setTimelinePoint }) => {
+const Panel5 = ({ setTimelinePoint, scrollTween }) => {
   gsap.registerPlugin(ScrollTrigger)
   const itemRef = useRef(null)
 
   useEffect(() => {
     const anim = gsap.from(itemRef.current, {
+      ease: "none",
       scrollTrigger: {
-        trigger: "body",
-        start: "500% center",
+        trigger: itemRef.current,
+        start: "35% center",
         end: "+=50%",
         scrub: true,
+        containerAnimation: scrollTween,
         onEnter: () => setTimelinePoint(10),
         onLeaveBack: () => setTimelinePoint(9),
       },
     })
     return () => anim.kill()
-  }, [])
+  }, [itemRef.current])
 
   return (
     <div className="w-screen h-screen relative" ref={itemRef}>

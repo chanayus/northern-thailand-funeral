@@ -55,6 +55,8 @@ const Section4 = () => {
         anticipatePin: 1,
         pin: true,
         pinType: "fixed",
+        onEnter: () => setTimelinePoint(13),
+        onLeaveBack: () => setTimelinePoint(12),
       },
     })
 
@@ -91,7 +93,7 @@ const Section4 = () => {
             <Panel4 setTimelinePoint={setTimelinePoint} scrollTween={scrollTween} />
           </div>
           <div className="basis-[100vw] h-full">
-            <Panel5 setTimelinePoint={setTimelinePoint} />
+            <Panel5 setTimelinePoint={setTimelinePoint} scrollTween={scrollTween} />
           </div>
         </div>
       </div>

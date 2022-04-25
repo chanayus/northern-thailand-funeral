@@ -1,10 +1,13 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { AnimatePresence } from "framer-motion"
 import PulseButton from "../../components/PulseButton"
+import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import gsap from "gsap/dist/gsap"
 
 const Panel8 = ({ setTimelinePoint }) => {
   const videoRef = useRef()
+  const wrapRef = useRef()
   const [isPlay, setIsPlay] = useState(false)
 
   const playHandle = () => {
@@ -13,8 +16,25 @@ const Panel8 = ({ setTimelinePoint }) => {
     setIsPlay(true)
   }
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        ease: "none",
+        trigger: wrapRef.current,
+        start: "30% center",
+        end: `+=10%`,
+        onEnter: () => setTimelinePoint(12),
+        onLeaveBack: () => setTimelinePoint(11),
+      },
+    })
+    return () => {
+      tl.kill()
+    }
+  }, [wrapRef.current])
+
   return (
-    <div className="w-full h-full min-h-screen relative">
+    <div className="w-full h-full min-h-screen relative" ref={wrapRef}>
       <img
         src="/images/section4/4.8/4.8.webp"
         alt="4.8-bg"
