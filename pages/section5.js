@@ -129,12 +129,12 @@ const Section5 = () => {
             {zodiac.map((value, index) => (
               <Slide className={`xl:h-[49vh] h-[40vh] md:min-h-[320px] min-h-[300px] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
                 <div className="flex flex-col justify-center items-center h-full ">
-                  <div className="h-full">
+                  <div className="h-full w-full">
                     <div className="img-slide relative duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex0 overflow-hidden justify-center items-center h-[88%] ">
-                      <img src={`/images/section5/zodiac/${index+1}.webp`} className="w-full h-full object-contain absolute" alt="" />
-                      <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%] object-cover opacity-0" />
+                      <img src={`/images/section5/zodiac/${index+1}.webp`} className="w-full h-full  object-contain absolute" alt="" />
+                      {/* <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%] object-cover opacity-0" /> */}
                     </div>
-                    <h3 className="lg:text-5xl text-3xl mt-1 header-font text-white text-center">{value.title}</h3>
+                    <h3 className="lg:text-[40px] text-3xl mt-3 header-font text-white text-center">{value.title}</h3>
                   </div>
                 </div>
               </Slide>
