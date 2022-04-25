@@ -101,7 +101,7 @@ const Section4 = () => {
       <Panel8 setTimelinePoint={setTimelinePoint} />
       {/* Panel 9 */}
       <div
-        className="bg-[url('/images/section4/4.9/bg.webp')] will-change-transform bg-no-repeat relative bg-center max-w-screen min-h-screen hide-scrollbar overscroll-none panel9"
+        className="bg-[url('/images/section4/4.9/bg.webp')] bg-cover will-change-transform bg-no-repeat relative bg-center max-w-screen min-h-screen hide-scrollbar overscroll-none panel9"
         ref={panel9Ref}
       >
         <div ref={textRef} className="absolute lg:left-[55%] left-[58%] 2xl:top-[16%] lg:top-[21%] top-[28%] text-black z-20">
