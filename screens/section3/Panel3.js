@@ -56,7 +56,7 @@ const Panel3 = ({ setTimelinePoint }) => {
     element.style.opacity = 0
     element.style.pointerEvent = "none"
     water.style.opacity = 1
-    setTimeout(() => (water.style.opacity = 0), 500)
+    setTimeout(() => (water.style.opacity = 0), 400)
   }
 
   const droppedHandle = () => {
