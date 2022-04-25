@@ -11,7 +11,7 @@ const Panel10 = ({ setTimelinePoint }) => {
   const [showBg, setShowBg] = useState(false)
   const { setIsEnd, showCastle } = useContext(IsEndContext)
   return (
-    <div className="w-full min-h-screen relative bg-[url('/images/section4/4.10/bg.webp')]">
+    <div className="w-full min-h-screen relative bg-[url('/images/section4/4.10/bg.webp')] bg-no-repeat bg-cover">
       <AnimatePresence>
         {!showBg && showCastle && (
           <Button
