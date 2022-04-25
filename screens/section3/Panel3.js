@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion"
+import styled, { keyframes } from "styled-components"
 import { useEffect, useRef, useState } from "react"
 
 import PulseButton from "../../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
-import styled from "styled-components"
 import { useRouter } from "next/router"
 
 const Panel3 = ({ setTimelinePoint }) => {
@@ -17,6 +17,9 @@ const Panel3 = ({ setTimelinePoint }) => {
   const dot1 = useRef(null)
   const dot2 = useRef(null)
   const dot3 = useRef(null)
+  const water1 = useRef(null)
+  const water2 = useRef(null)
+  const water3 = useRef(null)
 
   useEffect(() => {
     const anim = gsap.timeline({
@@ -48,10 +51,12 @@ const Panel3 = ({ setTimelinePoint }) => {
     },
   }
 
-  const countHandle = (element) => {
+  const countHandle = (element, water) => {
     setCount(count + 1)
     element.style.opacity = 0
     element.style.pointerEvent = "none"
+    water.style.opacity = 1
+    setTimeout(() => (water.style.opacity = 0), 500)
   }
 
   const droppedHandle = () => {
@@ -60,12 +65,37 @@ const Panel3 = ({ setTimelinePoint }) => {
     }
   }
 
-  const dotClass = "w-5 h-5 rounded-full absolute z-40 cursor-pointer drop-shadow-[0_0_5px_rgba(255,255,255,1)] duration-1000"
+  const dotClass = "w-5 h-5 z-40 relative rounded-full cursor-pointer drop-shadow-[0_0_5px_rgba(255,255,255,1)] duration-1000"
   return (
     <div className="w-full h-full relative overflow-hidden" ref={itemRef.current}>
-      <Dot ref={dot1} className={`top-[42%] left-[20%] ${dotClass}`} onClick={() => countHandle(dot1.current)}></Dot>
-      <Dot ref={dot2} className={`top-[25%] left-[33%] ${dotClass}`} onClick={() => countHandle(dot2.current)}></Dot>
-      <Dot ref={dot3} className={`top-[32%] left-[72%] ${dotClass}`} onClick={() => countHandle(dot3.current)}></Dot>
+      <div className="absolute duration-1000 top-[42%] left-[20%]">
+        <Dot delay={0} ref={dot1} className={`${dotClass}`} onClick={() => countHandle(dot1.current, water1.current)}></Dot>
+        <img
+          ref={water1}
+          src="/images/section3/3.3/water.gif"
+          alt=""
+          className="z-30 top-[-5px] left-[-100%] absolute min-w-[100px] opacity-0 duration-500"
+        />
+      </div>
+      <div className="absolute duration-1000 top-[25%] left-[33%]">
+        <Dot delay={0.5} ref={dot2} className={`${dotClass}`} onClick={() => countHandle(dot2.current, water2.current)}></Dot>
+        <img
+          ref={water2}
+          src="/images/section3/3.3/water.gif"
+          alt=""
+          className="z-30 top-[-5px] left-[-100%] absolute min-w-[100px] opacity-0 duration-500"
+        />
+      </div>
+      <div className="absolute duration-1000 top-[32%] left-[72%]">
+        <Dot delay={0.25} ref={dot3} className={`${dotClass}`} onClick={() => countHandle(dot3.current, water3.current)}></Dot>
+        <img
+          ref={water3}
+          src="/images/section3/3.3/water.gif"
+          alt=""
+          className="z-30 top-[-5px] left-[-100%] absolute min-w-[100px] opacity-0 duration-500"
+        />
+      </div>
+
       <AnimatePresence>
         {count >= 3 && !dropped ? (
           <motion.img
@@ -133,9 +163,22 @@ const Panel3 = ({ setTimelinePoint }) => {
   )
 }
 
+const scale = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+`
+
 const Dot = styled.button`
   background: rgb(255, 255, 255);
   background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  animation: ${scale} 2s linear infinite ${(props) => props.delay}s;
 `
 
 const Button = styled(motion.button)`
