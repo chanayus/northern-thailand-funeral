@@ -130,9 +130,9 @@ const Section5 = () => {
               <Slide className={`xl:h-[49vh] h-[40vh] md:min-h-[320px] min-h-[300px] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
                 <div className="flex flex-col justify-center items-center h-full ">
                   <div className="h-full">
-                    <div className="img-slide relative duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex bg-zinc-900 overflow-hidden justify-center items-center h-[88%] ">
-                      <img src={`/images/section5/zodiac/${index+1}.webp`} className="w-full h-full object-cover absolute" alt="" />
-                      <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%] object-cover" />
+                    <div className="img-slide relative duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex0 overflow-hidden justify-center items-center h-[88%] ">
+                      <img src={`/images/section5/zodiac/${index+1}.webp`} className="w-full h-full object-contain absolute" alt="" />
+                      <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%] object-cover opacity-0" />
                     </div>
                     <h3 className="lg:text-5xl text-3xl mt-1 header-font text-white text-center">{value.title}</h3>
                   </div>

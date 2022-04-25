@@ -62,7 +62,7 @@ const Castle = ({ setScrollEnd, scrollEnd, showCastle }) => {
   }, [router])
 
   return (
-    <div className={`lg:w-[100px] lg:h-[100px] w-[65px] h-[65px] relative drop-shadow-xl`}>
+    <div className={`lg:w-[100px] lg:h-[100px] w-[65px] h-[65px] relative`}>
       <Div
         animate={scrollEnd && !showCastle ? "animate" : "visible"}
         transition={"transition"}

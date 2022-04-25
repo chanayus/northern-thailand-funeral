@@ -50,7 +50,7 @@ const Panel10 = ({ setTimelinePoint }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
-          className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] tr w-[80%] h-[80%] object-contain"
+          className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] w-[80%] h-[80%] object-contain"
         />
       )}
     </div>
