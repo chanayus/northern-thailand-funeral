@@ -74,7 +74,7 @@ const Panel3 = ({ setTimelinePoint }) => {
           ref={water1}
           src="/images/section3/3.3/water.gif"
           alt=""
-          className="z-30 top-[-5px] left-[-100%] absolute min-w-[100px] opacity-0 duration-500"
+          className="z-30 top-[-5px] left-[-100%] absolute min-w-[120px] opacity-0 duration-500"
         />
       </div>
       <div className="absolute duration-1000 top-[25%] left-[33%]">
@@ -83,7 +83,7 @@ const Panel3 = ({ setTimelinePoint }) => {
           ref={water2}
           src="/images/section3/3.3/water.gif"
           alt=""
-          className="z-30 top-[-5px] left-[-100%] absolute min-w-[100px] opacity-0 duration-500"
+          className="z-30 top-[-5px] left-[-100%] absolute min-w-[120px] opacity-0 duration-500"
         />
       </div>
       <div className="absolute duration-1000 top-[32%] left-[72%]">
@@ -92,7 +92,7 @@ const Panel3 = ({ setTimelinePoint }) => {
           ref={water3}
           src="/images/section3/3.3/water.gif"
           alt=""
-          className="z-30 top-[-5px] left-[-100%] absolute min-w-[100px] opacity-0 duration-500"
+          className="z-30 top-[-5px] left-[-100%] absolute min-w-[120px] opacity-0 duration-500"
         />
       </div>
 
@@ -165,20 +165,20 @@ const Panel3 = ({ setTimelinePoint }) => {
 
 const scale = keyframes`
   0% {
-    transform: scale(1);
+    transform: scale(0.9);
   }
   50% {
-    transform: scale(1.25);
+    transform: scale(1.4);
   }
   100% {
-    transform: scale(1);
+    transform: scale(0.9);
   }
 `
 
 const Dot = styled.button`
   background: rgb(255, 255, 255);
   background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  animation: ${scale} 2s linear infinite ${(props) => props.delay}s;
+  animation: ${scale} 3s linear infinite ${(props) => props.delay}s;
 `
 
 const Button = styled(motion.button)`
