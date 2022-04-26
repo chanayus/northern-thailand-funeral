@@ -4,8 +4,11 @@ import { useEffect, useRef, useState } from "react"
 import PulseButton from "../../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
+import { useAudio } from "../../hooks/useAudio"
 
 const Panel2 = ({ setTimelinePoint, panelStep }) => {
+  const [playing, play] = useAudio("/sound/section3/trigger.mp3", false)
+
   gsap.registerPlugin(ScrollTrigger)
   const itemRef = useRef(null)
   const [state, setState] = useState({
@@ -63,14 +66,26 @@ const Panel2 = ({ setTimelinePoint, panelStep }) => {
       <AnimatePresence exitBeforeEnter>
         {!state.smoke && (
           <div className="absolute bottom-[6%] left-[39%] translate-x-[-50%] z-20">
-            <PulseButton title="Click" handle={() => setState({ ...state, smoke: true })} />
+            <PulseButton
+              title="Click"
+              handle={() => {
+                play()
+                setState({ ...state, smoke: true })
+              }}
+            />
           </div>
         )}
       </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
         {!state.light && (
           <div className="absolute bottom-[6%] left-[60%] translate-x-[-50%]  z-20">
-            <PulseButton title="Click" handle={() => setState({ ...state, light: true })} />
+            <PulseButton
+              title="Click"
+              handle={() => {
+                play()
+                setState({ ...state, light: true })
+              }}
+            />
           </div>
         )}
       </AnimatePresence>

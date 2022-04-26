@@ -105,6 +105,19 @@ const Panel1 = ({ setTimelinePoint }) => {
           className="object-contain object-bottom h-full w-full absolute bottom-0"
         />
       )}
+      <AnimatePresence exitBeforeEnter>
+        {!dropInArea && (
+          <motion.img
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            src="/images/section4/horizon/4.1/arrow-drag.svg"
+            alt=""
+            className="absolute top-[2%] left-[61%] w-[10%] h-full object-contain"
+          />
+        )}
+      </AnimatePresence>
       <img src="/images/section4/horizon/4.1/candle.webp" alt="" className="absolute top-0 w-full h-full object-contain" />
       <img src="/images/section4/horizon/4.1/table.webp" alt="" className="w-full h-full object-contain z-10" />
     </div>

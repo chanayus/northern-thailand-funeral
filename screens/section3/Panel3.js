@@ -2,12 +2,16 @@ import { AnimatePresence, motion } from "framer-motion"
 import styled, { keyframes } from "styled-components"
 import { useEffect, useRef, useState } from "react"
 
+import { Howl } from "howler"
 import PulseButton from "../../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
+import { useAudio } from "../../hooks/useAudio"
 import { useRouter } from "next/router"
 
 const Panel3 = ({ setTimelinePoint }) => {
+  const [playing, play] = useAudio("/sound/section3/water.mp3", false)
+  const [brokeSound] = useState(new Howl({ src: "/sound/section3/broke.mp3", volume: 0.2, loop: false, mute: false }))
   gsap.registerPlugin(ScrollTrigger)
   const [count, setCount] = useState(0)
   const [dropping, setDropping] = useState(false)
@@ -52,6 +56,7 @@ const Panel3 = ({ setTimelinePoint }) => {
   }
 
   const countHandle = (element, water) => {
+    play()
     setCount(count + 1)
     element.style.opacity = 0
     element.style.pointerEvent = "none"
@@ -62,6 +67,7 @@ const Panel3 = ({ setTimelinePoint }) => {
   const droppedHandle = () => {
     if (dropping && dropped !== true) {
       setDropped(true)
+      brokeSound.play()
     }
   }
 

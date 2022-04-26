@@ -4,8 +4,10 @@ import { AnimatePresence } from "framer-motion"
 import PulseButton from "../../../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
+import { useAudio } from "../../../hooks/useAudio"
 
 const Panel2 = ({ setTimelinePoint }) => {
+  const [playing, play] = useAudio("/sound/section4/cut.mp3", false)
   gsap.registerPlugin(ScrollTrigger)
   const itemRef = useRef(null)
   const textRef = useRef()
@@ -30,13 +32,18 @@ const Panel2 = ({ setTimelinePoint }) => {
     return () => anim.kill()
   }, [])
 
+  const handleCut = () => {
+    play()
+    setCut(true)
+  }
+
   return (
     <div className="w-screen h-screen relative" ref={itemRef}>
       <div>
         <AnimatePresence exitBeforeEnter>
           {!cut && (
             <div className="absolute lg:top-[27%] top-[22%] left-[57%] z-20">
-              <PulseButton title="Cut" handle={() => setCut(true)} dark={false} />
+              <PulseButton title="Cut" handle={() => handleCut()} dark={false} />
             </div>
           )}
         </AnimatePresence>

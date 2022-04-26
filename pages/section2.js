@@ -5,12 +5,14 @@ import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
 import { motion } from "framer-motion"
+import { useAudio } from "../hooks/useAudio"
 import { useContext } from "react"
 import { useRouter } from "next/router"
 
 const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section2 = () => {
+  const [playing, play] = useAudio("/sound/section2/candle.mp3", false)
   gsap.registerPlugin(ScrollTrigger)
   const { setTimelinePoint } = useContext(TimelineContext)
 
@@ -53,6 +55,7 @@ const Section2 = () => {
   }, [])
 
   const candleHandle = () => {
+    play()
     const activeTl = gsap.timeline({
       scrollTrigger: {
         ease: "none",
@@ -104,7 +107,10 @@ const Section2 = () => {
         <button
           className="flex items-center z-40 absolute right-5 top-[15%] opacity-0 w-[10vw] min-w-[100px] max-w-[160px]"
           id="next-button"
-          onClick={() => router.replace("/section3", "/", { shallow: true, scroll: false })}
+          onClick={() => {
+            stop()
+            router.replace("/section3", "/", { shallow: true, scroll: false })
+          }}
         >
           <img src="/images/section2/next.svg" alt="next" className="w-full h-full" />
         </button>

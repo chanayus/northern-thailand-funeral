@@ -160,15 +160,15 @@ const Section5 = () => {
                   transition={{ duration: 0.5 }}
                   className="flex items-center"
                 >
-                  <FacebookShareButton title={""} url={"https://northern-thailand-funeral.vercel.app/"}>
+                  <FacebookShareButton title={""} url={"https://mianmalai.vercel.app"}>
                     <FacebookIcon size={52} round />
                   </FacebookShareButton>
 
-                  <TwitterShareButton title={""} url={"https://northern-thailand-funeral.vercel.app"} className="mx-5">
+                  <TwitterShareButton title={""} url={"https://mianmalai.vercel.app"} className="mx-5">
                     <TwitterIcon size={52} round />
                   </TwitterShareButton>
 
-                  <LineShareButton title={""} url={"https://northern-thailand-funeral.vercel.app/"}>
+                  <LineShareButton title={""} url={"https://mianmalai.vercel.app"}>
                     <LineIcon size={52} round />
                   </LineShareButton>
                 </motion.div>
