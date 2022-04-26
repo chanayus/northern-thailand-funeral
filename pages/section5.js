@@ -103,7 +103,7 @@ const Section5 = () => {
   return (
     <>
       <div className="w-full h-full min-h-screen relative bg-[url('/images/section5/bg.webp')] bg-[5%_top] bg-no-repeat bg-cover flex flex-col">
-        <div className="flex justify-between lg:p-6 md:p-4 pt-4 px-2 pb-0">
+        <div className="flex justify-between lg:p-5 md:p-4 pt-4 px-2 pb-0">
           <Link href="/">
             <a>
               <img src="/images/section5/logo.svg" alt="" width={100} height={100} className="mx-auto mb-1 w-[50%] max-w-[100px]" />
@@ -118,11 +118,11 @@ const Section5 = () => {
             <img src={`/icon/${isMute ? "mute" : "sound"}.svg`} alt="" className="w-[4vw] h-[4vw] max-w-12 max-h-12 min-w-[35px] min-h-[35px]" />
           </button>
         </div>
-        <div className="w-full flex-1 flex flex-col justify-center mb-6">
+        <div className="w-full flex-1 flex flex-col justify-center mb-4">
           <div className="relative">
             <div>
               <h1 className="header-font lg:text-6xl text-4xl text-white text-center mb-1">ของที่ระลึกงานศพ</h1>
-              <h4 className="header-font lg:text-4xl text-2xl text-white text-center xl:mb-6 mb-1">ตุงตั๋วเปิ้ง</h4>
+              <h4 className="header-font lg:text-4xl text-2xl text-white text-center mb-3">ตุงตั๋วเปิ้ง</h4>
             </div>
             <a href={`/download/${download}.png`} download className="absolute right-[4%] top-[35%]">
               <img src="/icon/download.svg" alt="" className="w-[45px] h-[45px]" />
@@ -177,7 +177,7 @@ const Section5 = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className="absolute right-[3%] bottom-[-80%] text-right xl:text-[1.25rem] text-base leading-none font-bold text-zinc-400">
+            <div className="absolute right-[3%] bottom-[-60%] text-right xl:text-[1.25rem] text-base leading-none font-bold text-zinc-400">
               ตุงตั๋วเปิ้ง หรือ ตุง 12 ราศี เชื่อว่าจะนำความสิริมงคลมาให้ <br /> สามารถนำไปใช้เป็นภาพหน้าจอโทรศัพท์ หรือ พิมพ์ออกมาได้
             </div>
           </div>
