@@ -12,7 +12,7 @@ import { useRouter } from "next/router"
 const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section2 = () => {
-  const [playing, play] = useAudio("/sound/section2/candle.mp3", false)
+  const [playing, play, stop] = useAudio("/sound/section2/candle.mp3", false)
   gsap.registerPlugin(ScrollTrigger)
   const { setTimelinePoint } = useContext(TimelineContext)
 
