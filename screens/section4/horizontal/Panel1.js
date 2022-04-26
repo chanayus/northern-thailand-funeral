@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react"
 import PulseButton from "../../../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
+import { useAudio } from "../../../hooks/useAudio"
 
 const Panel1 = ({ setTimelinePoint }) => {
+  const [playing, play] = useAudio("/sound/section3/trigger.mp3", false)
   const [dropInArea, setDropInArea] = useState(false)
   const itemRef = useRef(null)
   const textRef = useRef()
@@ -73,14 +75,28 @@ const Panel1 = ({ setTimelinePoint }) => {
       <AnimatePresence exitBeforeEnter>
         {!state.smoke && (
           <div className="absolute bottom-[40%] left-[39%] translate-x-[-50%] z-20">
-            <PulseButton title="Click" handle={() => setState({ ...state, smoke: true })} dark={true} />
+            <PulseButton
+              title="Click"
+              handle={() => {
+                play()
+                setState({ ...state, smoke: true })
+              }}
+              dark={true}
+            />
           </div>
         )}
       </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
         {!state.light && (
           <div className="absolute bottom-[40%] left-[55%] translate-x-[-50%]  z-20">
-            <PulseButton title="Click" handle={() => setState({ ...state, light: true })} dark={true} />
+            <PulseButton
+              title="Click"
+              handle={() => {
+                play()
+                setState({ ...state, light: true })
+              }}
+              dark={true}
+            />
           </div>
         )}
       </AnimatePresence>

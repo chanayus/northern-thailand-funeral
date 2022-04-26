@@ -1,20 +1,31 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { AnimatePresence } from "framer-motion"
+import { Howl } from "howler"
 import PulseButton from "../../components/PulseButton"
-import { useAudio } from "../../hooks/useAudio"
+import { useRouter } from "next/router"
 
-useAudio
 const Panel6 = ({ setTimelinePoint }) => {
-  const [playing, play, stop] = useAudio("/sound/section4/burn1.mp3", false)
+  const router = useRouter()
+  const [sound, setSound] = useState(new Howl({ src: "/sound/section4/burn1.mp3", volume: 0.2, loop: false, mute: false }))
   const videoRef = useRef()
   const [isPlay, setIsPlay] = useState(false)
 
   const playHandle = () => {
-    play()
+    sound.play()
     videoRef.current.play()
     setIsPlay(true)
   }
+
+  useEffect(() => {
+    const stopSound = () =>{
+      sound.stop()
+    }
+    router.events.on('routeChangeStart', stopSound)
+    return () => {
+      router.events.off('routeChangeStart', stopSound)
+    }
+  },[])
 
   const endLoop = () => {
     if (videoRef.current.currentTime > 19) {

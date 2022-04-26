@@ -1,23 +1,36 @@
 import { useEffect, useRef, useState } from "react"
 
 import { AnimatePresence } from "framer-motion"
+import { Howl } from "howler"
 import PulseButton from "../../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
-import { useAudio } from "../../hooks/useAudio"
+import { useRouter } from "next/router"
 
 const Panel8 = ({ setTimelinePoint }) => {
-  const [playing, play, stop, mute, isMute] = useAudio("/sound/section4/burn2.mp3", false)
+  const router = useRouter()
+  const [sound, setSound] = useState(new Howl({ src: "/sound/section4/burn2.mp3", volume: 0.2, loop: false, mute: false }))
   const videoRef = useRef()
   const wrapRef = useRef()
   const [isPlay, setIsPlay] = useState(false)
 
   const playHandle = () => {
-    play()
+    sound.play()
     videoRef.current.play()
     videoRef.current.playHandle = true
     setIsPlay(true)
   }
+
+  useEffect(() => {
+    const stopSound = () => {
+      sound.fade(0.2, 0, 500)
+      setTimeout(() => sound.stop(), 500)
+    }
+    router.events.on("routeChangeStart", stopSound)
+    return () => {
+      router.events.off("routeChangeStart", stopSound)
+    }
+  }, [])
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
