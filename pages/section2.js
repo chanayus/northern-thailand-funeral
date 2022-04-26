@@ -1,10 +1,12 @@
+import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
+import { Howl } from "howler"
+import PulseButton from "../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
 import gsap from "gsap/dist/gsap"
-import { motion } from "framer-motion"
 import { useAudio } from "../hooks/useAudio"
 import { useContext } from "react"
 import { useRouter } from "next/router"
@@ -13,11 +15,13 @@ const HeaderParallax = dynamic(() => import("../components/HeaderParallax"))
 
 const Section2 = () => {
   const [playing, play, stop, isMute, mute] = useAudio("/sound/section2/candle.mp3", false)
+  const [dropSound] = useState(new Howl({ src: "/sound/section2/water-drop.mp3", volume: 0.2, loop: false, mute: false }))
   gsap.registerPlugin(ScrollTrigger)
   const { setTimelinePoint } = useContext(TimelineContext)
 
   const [candleActivate, setCandleActivate] = useState(false)
   const router = useRouter()
+  const [dropWater, setDropWater] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -81,6 +85,11 @@ const Section2 = () => {
     setTimelinePoint(2)
   }
 
+  const waterDropHandle = () => {
+    dropSound.play()
+    setDropWater(true)
+  }
+
   return (
     <div className="min-h-screen h-full relative">
       <img src="/images/section2/bg.webp" alt="bg" className="h-full w-full fixed object-cover object-top top-0" />
@@ -89,7 +98,17 @@ const Section2 = () => {
       </div>
       <div className="w-full h-screen relative content-container">
         <div className="flex xl:items-center">
-          <img src="/images/section2/hand.gif" alt="" id="hand" className="w-[40vw] h-[40vw] z-10" />
+          <div className="relative">
+            <AnimatePresence exitBeforeEnter>
+              {!dropWater && (
+                <div className="absolute z-20 right-[20%] top-[20%]">
+                  <PulseButton handle={() => waterDropHandle()} title="Click" />
+                </div>
+              )}
+            </AnimatePresence>
+
+            <img src={`/images/section2/hand.${dropWater ? "gif" : "webp"}`} alt="" id="hand" className="w-[40vw] h-[40vw] z-10" />
+          </div>
           <div className="text-white xl:mb-64 2xl:ml-24 md:mb-0 xl:w-[90ch] w-[70ch] xl:mt-0 mt-6 mb-12 ml-0 z-10 px-3" id="text">
             <h2 className="lg:text-9xl text-[10vw] font-bold mb-1 header-font leading-none">ขอขมาศพ</h2>
             <p className="lg:text-2xl text-base lg:ml-5 ml-0 leading-tight whitespace-nowrap">

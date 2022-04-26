@@ -80,7 +80,7 @@ const Panel3 = ({ setTimelinePoint }) => {
           ref={water1}
           src="/images/section3/3.3/water.gif"
           alt=""
-          className="z-30 top-[-5px] left-[-100%] absolute min-w-[120px] opacity-0 duration-500"
+          className="z-30 top-[-5px] left-[-100%] absolute min-w-[135px] opacity-0 duration-500"
         />
       </div>
       <div className="absolute duration-1000 top-[25%] left-[33%]">
@@ -89,7 +89,7 @@ const Panel3 = ({ setTimelinePoint }) => {
           ref={water2}
           src="/images/section3/3.3/water.gif"
           alt=""
-          className="z-30 top-[-5px] left-[-100%] absolute min-w-[120px] opacity-0 duration-500"
+          className="z-30 top-[-5px] left-[-100%] absolute min-w-[135px] opacity-0 duration-500"
         />
       </div>
       <div className="absolute duration-1000 top-[32%] left-[72%]">
@@ -98,7 +98,7 @@ const Panel3 = ({ setTimelinePoint }) => {
           ref={water3}
           src="/images/section3/3.3/water.gif"
           alt=""
-          className="z-30 top-[-5px] left-[-100%] absolute min-w-[120px] opacity-0 duration-500"
+          className="z-30 top-[-5px] left-[-100%] absolute min-w-[135px] opacity-0 duration-500"
         />
       </div>
 

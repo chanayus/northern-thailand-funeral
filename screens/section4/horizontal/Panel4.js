@@ -6,10 +6,6 @@ import gsap from "gsap/dist/gsap"
 
 const Panel4 = ({ setTimelinePoint, scrollTween }) => {
   const itemRef = useRef(null)
-  const text1Ref = useRef()
-  const text2Ref = useRef()
-  const text3Ref = useRef()
-  const text4Ref = useRef()
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -18,26 +14,24 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
       ease: "none",
       scrollTrigger: {
         trigger: itemRef.current,
-        start: "35% center",
-        end: `+=80%`,
+        start: "10% center",
+        end: `+=120%`,
         containerAnimation: scrollTween,
         scrub: true,
         onEnter: () => setTimelinePoint(9),
         onLeaveBack: () => setTimelinePoint(8),
       },
     })
-    anim.fromTo("#text-3", { opacity: 0 }, { opacity: 1, duration: 1 })
-    anim.fromTo("#text-4", { opacity: 0 }, { opacity: 1, duration: 1 })
-    anim.fromTo("#text-5", { opacity: 0 }, { opacity: 1, duration: 1 })
+    anim.fromTo("#text-1", { opacity: 0 }, { opacity: 1, duration: 2 })
+    anim.fromTo("#text-2", { opacity: 0 }, { opacity: 1, duration: 2 })
+    anim.fromTo("#text-3", { opacity: 0 }, { opacity: 1, duration: 2 })
+    anim.fromTo("#text-4", { opacity: 0 }, { opacity: 1, duration: 2 })
+    anim.fromTo("#text-5", { opacity: 0 }, { opacity: 1, duration: 2 })
 
     return () => anim.kill()
   }, [itemRef.current])
 
-  // const showText = (element) => {
-  //   element.style.opacity = 1
-  // }
-
-  const dotClass = "w-[1vw] h-[1vw] bg-white rounded-full absolute drop-shadow-[0_0_5px_rgba(255,255,255,1)]"
+  const dotClass = "w-[0.8vw] h-[0.8vw] min-w-[12px] min-h-[12px] bg-white rounded-full absolute drop-shadow-[0_0_5px_rgba(255,255,255,1)]"
 
   return (
     <div className="w-[200vw] h-screen relative section4-container" ref={itemRef}>
@@ -45,14 +39,14 @@ const Panel4 = ({ setTimelinePoint, scrollTween }) => {
         ขบวน <br />
         แห่ศพ
       </h1>
-      <div className="absolute top-[3vh] left-[clamp(40vw,50vw,90vh)]">
+      <div className="absolute top-[3vh] left-[clamp(40vw,50vw,90vh)]" id="text-1">
         <h1 className="text-[7.25vmin] header-font leading-none">ปราสาทศพ</h1>
         <p className="2xl:text-[1.35rem] lg:text-base text-xs leading-none">
           ในปัจจุบัันนิยมใช้เป็นปราสาทยอดเดียว จะมีหลังคา 5 ชั้น <br /> หรือ 7 ชั้น ไม่มีหน้ามุข มีราคาค่อนข้างแพง หรือจะเป็น <br />
           ปราสาทจากเต็นท์ผ้าใบก็จะมีความสวยงามน้อยลง <br /> ราคาถูกขึ้น และสามารถนำไปใช้ประโยชน์ต่อได้อีก
         </p>
       </div>
-      <p className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh]  lg:top-[27vh] md:top-[31vh] top-[31.5vh] xl:left-[min(94.5vmin,55vw)] lg:left-[26.5%] md:left-[35%] left-[39%]">
+      <p id="text-2" className="2xl:text-[1.35rem] lg:text-base text-xs absolute xl:top-[27vh]  lg:top-[27vh] md:top-[31vh] top-[31.5vh] xl:left-[min(94.5vmin,55vw)] lg:left-[26.5%] md:left-[35%] left-[39%]">
         ในปัจจุบัันนิยมเป็นปราสาทยอดเดียว <br />
         หรือเป็นเต็นท์ผ้าใบ ก็จะมีความสวยงามน้อยลง <br />
         แต่สามารถนำไปใช้ประโยชน์ต่อได้อีก

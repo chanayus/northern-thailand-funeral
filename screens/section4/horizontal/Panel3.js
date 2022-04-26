@@ -46,8 +46,9 @@ const Panel3 = ({ setTimelinePoint }) => {
           <Image360 currentImg={currentImg} />
         </div>
       </div>
-      <div className="w-full flex h-[10%] justify-center item-center">
-        <h1 className="text-center text-[10vmin] header-font font-bold text-white select-none">พิธีผัดตาสิน</h1>
+      <div className="w-full flex flex-col h-[10%] justify-center item-center">
+        <h1 className="text-center text-[10vmin] leading-none header-font font-bold text-white select-none">พิธีผัดตาสิน</h1>
+        <p className="text-center text-xl">เป็นการไหว้เคารพศพ โดยจะเดินวนซ้ายรอบขบวนแห่ศพ จำนวน 3 รอบ <br /> โดยเมื่อผ่านแต่ละมุมของรถก็จะต้องไหว้ 1 ครั้ง รวมทั้งหมด 12 ครั้ง</p>
       </div>
 
       <button
@@ -56,6 +57,7 @@ const Panel3 = ({ setTimelinePoint }) => {
         onTouchEnd={() => decreaseImgHandle("up")}
         onMouseDown={() => decreaseImgHandle("down")}
         onMouseUp={() => decreaseImgHandle("up")}
+        onMouseLeave={() => clearInterval(imgInterval)}
       >
         <Arrow classProps="rotate-180 " />
       </button>
@@ -65,6 +67,7 @@ const Panel3 = ({ setTimelinePoint }) => {
         onTouchEnd={() => increaseImgHandle("up")}
         onMouseDown={() => increaseImgHandle("down")}
         onMouseUp={() => increaseImgHandle("up")}
+        onMouseLeave={() => clearInterval(imgInterval)}
       >
         <Arrow classProps="" />
       </button>

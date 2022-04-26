@@ -120,7 +120,10 @@ const Section5 = () => {
         </div>
         <div className="w-full flex-1 flex flex-col justify-center mb-6">
           <div className="relative">
-            <h1 className="header-font lg:text-7xl text-4xl text-white text-center xl:mb-6 mb-1">ของที่ระลึกงานศพ</h1>
+            <div>
+              <h1 className="header-font lg:text-6xl text-4xl text-white text-center mb-1">ของที่ระลึกงานศพ</h1>
+              <h4 className="header-font lg:text-4xl text-2xl text-white text-center xl:mb-6 mb-1">ตุงตั๋วเปิ้ง</h4>
+            </div>
             <a href={`/download/${download}.png`} download className="absolute right-[4%] top-[35%]">
               <img src="/icon/download.svg" alt="" className="w-[45px] h-[45px]" />
             </a>
@@ -131,7 +134,7 @@ const Section5 = () => {
                 <div className="flex flex-col justify-center items-center h-full ">
                   <div className="h-full w-full">
                     <div className="img-slide relative duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex0 overflow-hidden justify-center items-center h-[88%] ">
-                      <img src={`/images/section5/zodiac/${index+1}.webp`} className="w-full h-full  object-contain absolute" alt="" />
+                      <img src={`/images/section5/zodiac/${index + 1}.webp`} className="w-full h-full  object-contain absolute" alt="" />
                       {/* <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%] object-cover opacity-0" /> */}
                     </div>
                     <h3 className="lg:text-[40px] text-3xl mt-3 header-font text-white text-center">{value.title}</h3>
@@ -140,7 +143,7 @@ const Section5 = () => {
               </Slide>
             ))}
           </Slider>
-          <div className="w-full flex justify-center md:mt-6 mb-3">
+          <div className="w-full flex justify-center md:mt-6 mb-3 relative">
             <AnimatePresence exitBeforeEnter>
               {!showPopup ? (
                 <Button
@@ -174,9 +177,12 @@ const Section5 = () => {
                 </motion.div>
               )}
             </AnimatePresence>
+            <div className="absolute right-[3%] bottom-[-80%] text-right xl:text-[1.25rem] text-base leading-none font-bold text-zinc-400">
+              ตุงตั๋วเปิ้ง หรือ ตุง 12 ราศี เชื่อว่าจะนำความสิริมงคลมาให้ <br /> สามารถนำไปใช้เป็นภาพหน้าจอโทรศัพท์ หรือ พิมพ์ออกมาได้
+            </div>
           </div>
         </div>
-        <div className="w-full flex justify-between items-center md:bg-black bg-transparent py-3 md:px-4 px-2">
+        <div className="w-full flex justify-between items-center bg-transparent py-3 md:px-4 px-2">
           <div className="flex items-center">
             <img src="/images/section5/logo.svg" alt="" width={75} h={75} className="md:w-[75px] md:h-[75px] w-[60px] h-[60px] mx-auto" />
             <div className="md:ml-4 ml-2">

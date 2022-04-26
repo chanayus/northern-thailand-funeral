@@ -21,11 +21,12 @@ const Panel8 = ({ setTimelinePoint }) => {
     setIsPlay(true)
   }
 
+  const stopSound = () => {
+    sound.fade(0.2, 0, 750)
+    setTimeout(() => sound.stop(), 750)
+  }
+
   useEffect(() => {
-    const stopSound = () => {
-      sound.fade(0.2, 0, 500)
-      setTimeout(() => sound.stop(), 500)
-    }
     router.events.on("routeChangeStart", stopSound)
     return () => {
       router.events.off("routeChangeStart", stopSound)
@@ -39,9 +40,10 @@ const Panel8 = ({ setTimelinePoint }) => {
         ease: "none",
         trigger: wrapRef.current,
         start: "30% center",
-        end: `+=10%`,
+        end: `+=70%`,
         onEnter: () => setTimelinePoint(12),
         onLeaveBack: () => setTimelinePoint(11),
+        onLeave: () => stopSound(),
       },
     })
     return () => {
