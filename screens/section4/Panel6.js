@@ -2,12 +2,16 @@ import { useRef, useState } from "react"
 
 import { AnimatePresence } from "framer-motion"
 import PulseButton from "../../components/PulseButton"
+import { useAudio } from "../../hooks/useAudio"
 
+useAudio
 const Panel6 = ({ setTimelinePoint }) => {
+  const [playing, play, stop] = useAudio("/sound/section4/burn1.mp3", false)
   const videoRef = useRef()
   const [isPlay, setIsPlay] = useState(false)
 
   const playHandle = () => {
+    play()
     videoRef.current.play()
     setIsPlay(true)
   }

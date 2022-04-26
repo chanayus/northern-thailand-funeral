@@ -4,13 +4,16 @@ import { AnimatePresence } from "framer-motion"
 import PulseButton from "../../components/PulseButton"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap/dist/gsap"
+import { useAudio } from "../../hooks/useAudio"
 
 const Panel8 = ({ setTimelinePoint }) => {
+  const [playing, play, stop, mute, isMute] = useAudio("/sound/section4/burn2.mp3", false)
   const videoRef = useRef()
   const wrapRef = useRef()
   const [isPlay, setIsPlay] = useState(false)
 
   const playHandle = () => {
+    play()
     videoRef.current.play()
     videoRef.current.playHandle = true
     setIsPlay(true)
