@@ -40,7 +40,7 @@ const Section4 = () => {
         pin: true,
         scrub: 1,
         anticipatePin: 1,
-        end: () => `+=${sections[0].offsetWidth}`,
+        end: () => `+=${sections[0].offsetWidth+200}`,
         invalidateOnRefresh: true,
       },
     })
