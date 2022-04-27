@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 
 const PulseButton = ({ title, handle = () => {}, dark = false, icon="" }) => {
   return (
-    <motion.div onClick={() => handle()} exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75 }} className={`relative ${title === "Cut" ? "cursor-[url(/cursor/scissors.png),_pointer]" : "cursor-pointer"}`}>
+    <motion.div onClick={() => handle()} exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75 }} className={`relative ${title === "Cut" ? "cursor-[url(/cursor/scissors.png),_pointer] active:cursor-[url(/cursor/cut.png),_pointer]" : "cursor-pointer"}`}>
       <motion.div
         animate={{ scale: [1, 1.2, 1] }}
         transition={{ scale: { repeat: Infinity, repeatType: "reverse", duration: 3 } }}

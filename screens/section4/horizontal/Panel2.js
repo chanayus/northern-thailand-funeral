@@ -30,7 +30,7 @@ const Panel2 = ({ setTimelinePoint }) => {
     anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 })
     anim.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 })
     anim.fromTo("#line-cut", { width: 0 }, { width: "52.75%", duration: 2 })
-    anim.fromTo("#cut-button",  { opacity: 0 }, { opacity: 1, duration: 1 })
+    anim.fromTo("#cut-button",  { opacity: 0, pointerEvents: "none" }, { opacity: 1,  pointerEvents: "auto", duration: 1 })
     return () => anim.kill()
   }, [])
 
