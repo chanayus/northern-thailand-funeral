@@ -130,12 +130,14 @@ const Section5 = () => {
           </div>
           <Slider {...settings}>
             {zodiac.map((value, index) => (
-              <Slide className={`xl:h-[49vh] h-[40vh] md:min-h-[320px] min-h-[300px] ${index === imageIndex ? "activeSlide" : "slide"}`} key={index}>
+              <Slide
+                className={`xl:h-[45.75vh] h-[40vh] md:min-h-[320px] min-h-[300px] ${index === imageIndex ? "activeSlide" : "slide"}`}
+                key={index}
+              >
                 <div className="flex flex-col justify-center items-center h-full ">
                   <div className="h-full w-full">
                     <div className="img-slide relative duration-200 mx-auto 2xl:w-[80%] lg:w-[90%] w-full flex0 overflow-hidden justify-center items-center h-[88%] ">
                       <img src={`/images/section5/zodiac/${index + 1}.webp`} className="w-full h-full  object-contain absolute" alt="" />
-                      {/* <img src="/images/section5/logo.svg" alt="placeholder-img" className="w-[40%] object-cover opacity-0" /> */}
                     </div>
                     <h3 className="lg:text-[40px] text-3xl mt-3 header-font text-white text-center">{value.title}</h3>
                   </div>
@@ -143,14 +145,14 @@ const Section5 = () => {
               </Slide>
             ))}
           </Slider>
-          <div className="w-full flex justify-center md:mt-6 mb-3 relative">
+          <div className="w-full flex justify-center md:mt-5 mb-3 relative">
             <AnimatePresence exitBeforeEnter>
               {!showPopup ? (
                 <Button
                   initial={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 30 }}
                   transition={{ duration: 0.5 }}
-                  className="bg-transparent border border-[#FFF] text-white cinzel-font md:text-2xl text-xl  w-[clamp(135px,16vw,180px)] h-[clamp(35px,10vh,50px)] rounded-xl "
+                  className="bg-transparent border border-[#FFF] text-white cinzel-font md:text-2xl text-xl  w-[clamp(135px,16vw,175px)] h-[clamp(35px,10vh,47px)] rounded-xl "
                   onClick={() => setShowPopup(true)}
                 >
                   SHARE
@@ -177,35 +179,37 @@ const Section5 = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className="absolute right-[3%] lg:bottom-[-60%] bottom-[-140%] text-right xl:text-[1.25rem] text-base leading-none font-bold text-zinc-400">
-              ตุงตั๋วเปิ้ง หรือ ตุง 12 ราศี เชื่อว่าจะนำความสิริมงคลมาให้ <br /> สามารถนำไปใช้เป็นภาพหน้าจอโทรศัพท์ หรือ พิมพ์ออกมาได้
-            </div>
           </div>
         </div>
-        <div className="w-full flex justify-between items-center bg-transparent py-3 md:px-4 px-2">
-          <div className="flex items-center">
-            <img src="/images/section5/logo.svg" alt="" width={75} h={75} className="md:w-[75px] md:h-[75px] w-[60px] h-[60px] mx-auto" />
-            <div className="md:ml-4 ml-2">
-              <h2 className="md:text-2xl text-xl leading-none font-bold text-zinc-400">NORTHERN THAILAND FUNERAL</h2>
-              <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">
-                Communication Arts & Design <br />
-                King Mongkut’s Institute of technology Ladkrabang
-              </p>
-            </div>
+        <div>
+          <div className="pr-[2.8vw] text-right xl:text-[1.25rem] text-base leading-none font-bold text-zinc-400">
+            ตุงตั๋วเปิ้ง หรือ ตุง 12 ราศี เชื่อว่าจะนำความสิริมงคลมาให้ <br /> สามารถนำไปใช้เป็นภาพหน้าจอโทรศัพท์ หรือ พิมพ์ออกมาได้
           </div>
-          <div className="flex md:flex-row flex-col">
-            <div className="flex md:justify-start justify-end items-end md:mr-2 md:pb-2">
-              <a href="https://www.instagram.com/piggymonsterr" target="_blank" rel="noreferrer">
-                <img src="/icon/ig.svg" alt="" width={37} height={37} />
-              </a>
-              <a href="https://www.facebook.com/piggymonsterr" target="_blank" rel="noreferrer">
-                <img src="/icon/fb.svg" alt="" width={37} height={37} />
-              </a>
+          <div className="w-full flex justify-between items-center bg-transparent py-3 md:px-4 px-2">
+            <div className="flex items-center">
+              <img src="/images/section5/logo.svg" alt="" width={75} h={75} className="md:w-[75px] md:h-[75px] w-[60px] h-[60px] mx-auto" />
+              <div className="md:ml-4 ml-2">
+                <h2 className="md:text-2xl text-xl leading-none font-bold text-zinc-400">NORTHERN THAILAND FUNERAL</h2>
+                <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">
+                  Communication Arts & Design <br />
+                  King Mongkut’s Institute of technology Ladkrabang
+                </p>
+              </div>
             </div>
-            <div className="text-right">
-              <h3 className="leading-none md:text-2xl text-xl font-bold text-zinc-400">KITTICHA YOSKEAW</h3>
-              <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">kitticha_prik@hotmail.com</p>
-              <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">089-022-4298</p>
+            <div className="flex md:flex-row flex-col">
+              <div className="flex md:justify-start justify-end items-end md:mr-2 md:pb-2">
+                <a href="https://www.instagram.com/piggymonsterr" target="_blank" rel="noreferrer">
+                  <img src="/icon/ig.svg" alt="" width={37} height={37} />
+                </a>
+                <a href="https://www.facebook.com/piggymonsterr" target="_blank" rel="noreferrer">
+                  <img src="/icon/fb.svg" alt="" width={37} height={37} />
+                </a>
+              </div>
+              <div className="text-right">
+                <h3 className="leading-none md:text-2xl text-xl font-bold text-zinc-400">KITTICHA YOSKEAW</h3>
+                <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">kitticha_prik@hotmail.com</p>
+                <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">089-022-4298</p>
+              </div>
             </div>
           </div>
         </div>
