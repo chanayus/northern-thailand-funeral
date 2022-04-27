@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
               key="description"
               content="Website เล่าเรื่องเกี่ยวกับงานศพที่สามารถให้ผู้เข้าชมมีส่วนร่วมในพิธีกรรมในงานศพ"
             />
-            <link rel="prefetch" href="/public/cursor/cut.png" />
+            <link rel="prefetch" href="/cursor/cut.png" />
             <meta property="og:title" content="เมี้ยนมลาย" />
             <meta property="og:image" key="image" content="https://northern-thailand-funeral.vercel.app/bg-meta.jpg" />
             <meta property="og:image:type" content="image/jpg" />
