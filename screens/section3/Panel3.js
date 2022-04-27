@@ -132,7 +132,7 @@ const Panel3 = ({ setTimelinePoint }) => {
 
       <AnimatePresence exitBeforeEnter>
         {!dropping && count >= 3 && (
-          <div className="absolute w-[8vw] max-w-[120px] bottom-[9vh] left-[70.5%] z-30 bg-contain cursor-pointer">
+          <div className="absolute bottom-[10vh] left-[70.5%] z-30 ">
             <PulseButton title="Click" handle={() => setDropping(true)} />
           </div>
         )}
