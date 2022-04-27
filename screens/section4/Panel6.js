@@ -39,14 +39,14 @@ const Panel6 = ({ setTimelinePoint }) => {
         trigger: wrapRef.current,
         start: "center center",
         end: "+=70%",
-        onLeave: () => stopSound(),
+        onLeave: () => isPlay && stopSound(),
       },
       duration: 0.25,
       ease: "none",
     })
 
     return () => anim.kill()
-  }, [])
+  }, [isPlay])
 
   const endLoop = () => {
     if (videoRef.current.currentTime > 19) {

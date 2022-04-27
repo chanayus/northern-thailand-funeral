@@ -43,13 +43,13 @@ const Panel8 = ({ setTimelinePoint }) => {
         end: `+=70%`,
         onEnter: () => setTimelinePoint(12),
         onLeaveBack: () => setTimelinePoint(11),
-        onLeave: () => stopSound(),
+        onLeave: () => isPlay && stopSound(),
       },
     })
     return () => {
       tl.kill()
     }
-  }, [wrapRef.current])
+  }, [isPlay])
 
   return (
     <div className="w-full h-full min-h-screen relative" ref={wrapRef}>
