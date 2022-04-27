@@ -193,10 +193,20 @@ const Section5 = () => {
               </p>
             </div>
           </div>
-          <div className="text-right">
-            <h3 className="leading-none md:text-2xl text-xl font-bold text-zinc-400">KITTICHA YOSKEAW</h3>
-            <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">kitticha_prik@hotmail.com</p>
-            <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">089-022-4298</p>
+          <div className="flex md:flex-row flex-col">
+            <div className="flex md:justify-start justify-end items-end md:mr-2 md:pb-2">
+              <a href="https://www.instagram.com/piggymonsterr" target="_blank">
+                <img src="/icon/ig.svg" alt="" width={37} height={37} />
+              </a>
+              <a href="https://www.facebook.com/piggymonsterr" target="_blank">
+                <img src="/icon/fb.svg" alt="" width={37} height={37} />
+              </a>
+            </div>
+            <div className="text-right">
+              <h3 className="leading-none md:text-2xl text-xl font-bold text-zinc-400">KITTICHA YOSKEAW</h3>
+              <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">kitticha_prik@hotmail.com</p>
+              <p className="leading-none md:text-[1.25rem] text-base text-zinc-400">089-022-4298</p>
+            </div>
           </div>
         </div>
       </div>
