@@ -40,7 +40,7 @@ const Panel7 = ({ setTimelinePoint }) => {
         arr.push(
           new Howl({
             src: `/sound/conver/${i + 1}.mp3`,
-            volume: 0.2,
+            volume: 0.15,
             loop: false,
             mute: false,
             onend: () => {
@@ -49,7 +49,6 @@ const Panel7 = ({ setTimelinePoint }) => {
           })
         )
       })
-    console.log(arr)
     setSound(arr)
   }, [])
 
@@ -69,6 +68,7 @@ const Panel7 = ({ setTimelinePoint }) => {
             <div className="z-10 ml-[3vw]">
               <PulseButton
                 title={"Click"}
+                icon="ear"
                 handle={() => {
                   setIsPlay(true)
                   !isPlay && sound[0].play()
@@ -82,7 +82,7 @@ const Panel7 = ({ setTimelinePoint }) => {
       </div>
       <div className="absolute z-10 top-[28%] left-[33%]" ref={textRef}>
         <AnimatePresence exitBeforeEnter>
-          {isPlay && converStep === 0 && (
+          {isPlay && converStep >= 0 && (
             <motion.p
               exit={{ opacity: 0, y: 40 }}
               initial={{ opacity: 0, y: 40 }}
@@ -95,7 +95,7 @@ const Panel7 = ({ setTimelinePoint }) => {
             </motion.p>
           )}
 
-          {converStep === 1 && (
+          {converStep >= 1 && (
             <motion.p
               exit={{ opacity: 0, y: 40 }}
               initial={{ opacity: 0, y: 40 }}
@@ -108,7 +108,7 @@ const Panel7 = ({ setTimelinePoint }) => {
             </motion.p>
           )}
 
-          {converStep === 2 && (
+          {converStep >= 2 && (
             <motion.p
               exit={{ opacity: 0, y: 40 }}
               initial={{ opacity: 0, y: 40 }}
@@ -121,7 +121,7 @@ const Panel7 = ({ setTimelinePoint }) => {
             </motion.p>
           )}
 
-          {converStep === 3 && (
+          {converStep >= 3 && (
             <motion.p
               exit={{ opacity: 0, y: 40 }}
               initial={{ opacity: 0, y: 40 }}
@@ -134,7 +134,7 @@ const Panel7 = ({ setTimelinePoint }) => {
             </motion.p>
           )}
 
-          {converStep === 4 && (
+          {converStep >= 4 && (
             <motion.p
               exit={{ opacity: 0, y: 40 }}
               initial={{ opacity: 0, y: 40 }}
@@ -147,7 +147,7 @@ const Panel7 = ({ setTimelinePoint }) => {
             </motion.p>
           )}
 
-          {converStep === 5 && (
+          {converStep >= 5 && (
             <motion.p
               exit={{ opacity: 0, y: 40 }}
               initial={{ opacity: 0, y: 40 }}
@@ -161,7 +161,7 @@ const Panel7 = ({ setTimelinePoint }) => {
           )}
         </AnimatePresence>
         {converStep >= 7 && (
-          <motion.p initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className={`${textStyle}`}>
+          <motion.p initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className={`${textStyle} mt-3`}>
             อาจารย์จะเตรียมหมาก พลู เหล้า 1 ขวด ให้สัปเหร่อ <br /> ถือเป็นการซื้อของคืนมา หลังจากนั้นก็ให้สัปเหร่อเข้าบ้านได้
           </motion.p>
         )}

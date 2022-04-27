@@ -106,7 +106,7 @@ const Section4 = () => {
         className="bg-[url('/images/section4/4.9/bg.webp')] bg-cover will-change-transform bg-no-repeat relative bg-center max-w-screen min-h-screen hide-scrollbar overscroll-none panel9"
         ref={panel9Ref}
       >
-        <div ref={textRef} className="absolute lg:left-[58%] left-[58%] 2xl:top-[16%] lg:top-[21%] top-[28%] text-black z-20">
+        <div ref={textRef} className="absolute 2xl:left-[58%] left-[53%] 2xl:top-[16%] lg:top-[21%] top-[28%] text-black z-20">
           <h1 className="text-black header-font text-[10vmin] lg:mb-3">ตานขันข้าว</h1>
           <p className="text-black text-[clamp(10px,2.4vmin,1.75rem)] ">
             เป็นการจัดอาหารที่ผู้ตายชอบ นำมาถวายกับพระสงฆ์ <br />

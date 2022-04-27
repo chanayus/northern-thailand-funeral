@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 import { Howl } from "howler"
 
-export const useAudio = (url, isLoop = true) => {
+export const useAudio = (url, isLoop = true, volume = 0.15) => {
   const [audio, setAudio] = useState()
   const [playing, setPlaying] = useState(false)
   const [isMute, setIsMute] = useState(false)
@@ -23,12 +23,12 @@ export const useAudio = (url, isLoop = true) => {
   }
 
   const mute = () => {
-    !isMute ? audio.fade(0.07, 0, 500) : audio.fade(0, 0.07, 500)
+    !isMute ? audio.fade(volume, 0, 750) : audio.fade(0, volume, 750)
     setIsMute(!isMute)
   }
 
   useEffect(() => {
-    setAudio(new Howl({ src: url, volume: 0.07, loop: isLoop, mute: isMute }))
+    setAudio(new Howl({ src: url, volume: volume, loop: isLoop, mute: isMute }))
   }, [])
 
   return [playing, play, pause, stop, mute, isMute]

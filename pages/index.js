@@ -78,10 +78,19 @@ const Home = () => {
               transition={{ duration: 1 }}
               className="w-screen h-screen relative bg-[url('/images/index/bg.webp')] bg-no-repeat bg-cover"
             >
-              <img src="/images/index/castle.webp" alt="" className="lg:min-w-[960px] lg:w-[85%] w-[70%] mx-auto" />
+              <motion.img
+                initial={{ y: 0 }}
+                animate={{ y: 10 }}
+                transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+                src="/images/index/castle.webp"
+                alt=""
+                className="lg:min-w-[960px] lg:w-[85%] w-[70%] mx-auto"
+              />
               <div className="absolute lg:top-[75%] top-[70%] left-1/2 translate-x-[-50%] flex flex-col items-center">
-                <h1 className="text-black text-3xl mb-[1vh]">Best Experienced with sound</h1>
-                <PulseButton handle={() => handleIntro()} title="Enter" dark>Enter</PulseButton>
+                <h1 className="text-black text-xl cinzel-font mb-[1vh]">Best Experienced with sound</h1>
+                <PulseButton handle={() => handleIntro()} title="Enter" dark>
+                  Enter
+                </PulseButton>
               </div>
             </motion.div>
           ) : (

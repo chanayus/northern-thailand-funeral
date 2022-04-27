@@ -48,11 +48,11 @@ const Panel3 = ({ setTimelinePoint }) => {
       </div>
       <div className="w-full flex flex-col h-[10%] justify-center item-center">
         <h1 className="text-center text-[10vmin] leading-none header-font font-bold text-white select-none">พิธีผัดตาสิน</h1>
-        <p className="text-center text-xl">เป็นการไหว้เคารพศพ โดยจะเดินวนซ้ายรอบขบวนแห่ศพ จำนวน 3 รอบ <br /> โดยเมื่อผ่านแต่ละมุมของรถก็จะต้องไหว้ 1 ครั้ง รวมทั้งหมด 12 ครั้ง</p>
+        <p className="text-center leading-none lg:text-[1.25rem] text-[0.9rem]">เป็นการไหว้เคารพศพ โดยจะเดินวนซ้ายรอบขบวนแห่ศพ จำนวน 3 รอบ <br /> โดยเมื่อผ่านแต่ละมุมของรถก็จะต้องไหว้ 1 ครั้ง รวมทั้งหมด 12 ครั้ง</p>
       </div>
 
       <button
-        className="mx-4 absolute top-1/2 left-[15%] w-[45px] h-[45px] z-20 flex justify-center items-center"
+        className="mx-4 absolute top-1/2 left-[15%] w-[45px] h-fit z-20 flex justify-center items-center"
         onTouchStart={() => decreaseImgHandle("down")}
         onTouchEnd={() => decreaseImgHandle("up")}
         onMouseDown={() => decreaseImgHandle("down")}
@@ -62,7 +62,7 @@ const Panel3 = ({ setTimelinePoint }) => {
         <Arrow classProps="rotate-180 " />
       </button>
       <button
-        className="mx-4 absolute top-1/2 right-[15%] w-[45px] h-[45px] z-20 flex justify-center items-center"
+        className="mx-4 absolute top-1/2 right-[15%] w-[42px] h-fit z-20 flex justify-center items-center"
         onTouchStart={() => increaseImgHandle("down")}
         onTouchEnd={() => increaseImgHandle("up")}
         onMouseDown={() => increaseImgHandle("down")}
