@@ -195,10 +195,10 @@ const Section5 = () => {
           </div>
           <div className="flex md:flex-row flex-col">
             <div className="flex md:justify-start justify-end items-end md:mr-2 md:pb-2">
-              <a href="https://www.instagram.com/piggymonsterr" target="_blank">
+              <a href="https://www.instagram.com/piggymonsterr" target="_blank" rel="noreferrer">
                 <img src="/icon/ig.svg" alt="" width={37} height={37} />
               </a>
-              <a href="https://www.facebook.com/piggymonsterr" target="_blank">
+              <a href="https://www.facebook.com/piggymonsterr" target="_blank" rel="noreferrer">
                 <img src="/icon/fb.svg" alt="" width={37} height={37} />
               </a>
             </div>
