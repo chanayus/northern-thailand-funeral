@@ -28,7 +28,9 @@ const Panel2 = ({ setTimelinePoint }) => {
       ease: "none",
     })
     anim.fromTo(itemRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 })
-    anim.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 1 })
+    anim.fromTo(textRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 })
+    anim.fromTo("#line-cut", { width: 0 }, { width: "52.75%", duration: 2 })
+    anim.fromTo("#cut-button",  { opacity: 0 }, { opacity: 1, duration: 1 })
     return () => anim.kill()
   }, [])
 
@@ -42,7 +44,7 @@ const Panel2 = ({ setTimelinePoint }) => {
       <div>
         <AnimatePresence exitBeforeEnter>
           {!cut && (
-            <div className="absolute lg:top-[27%] top-[22%] left-[57%] z-20">
+            <div className="absolute lg:top-[27%] top-[22%] left-[57%] z-20" id="cut-button">
               <PulseButton title="Cut" handle={() => handleCut()} dark={false} />
             </div>
           )}
@@ -58,7 +60,7 @@ const Panel2 = ({ setTimelinePoint }) => {
           </p>
         </div>
         <div className="absolute top-1/2 translate-y-[-50%] w-full max-h-[100vh] h-[55vw]">
-          <div className="w-[52.75%] h-[3px] absolute -z-10 top-[34.4%] left-[25%] flex">
+          <div id="line-cut" className="w-[52.75%] h-[3px] absolute -z-10 top-[34.4%] left-[25%] flex">
             <div className={`w-[65%] h-full bg-black rounded duration-1000 origin-left ${cut && "rotate-[10deg] opacity-0"}`}></div>
             <div className={`w-[35%] h-full bg-black rounded duration-1000 origin-right ${cut && "rotate-[-20deg] opacity-0"}`}></div>
           </div>
