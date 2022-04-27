@@ -26,15 +26,10 @@ const Home = () => {
     }
   }, [])
 
-  useEffect(() => {
-    if (showIntro === false) {
-      document.documentElement.style.overflow = "unset"
-    }
-  }, [showIntro])
-
   const onLoadVideo = () => {
     setTimeout(() => {
       setLoading(false)
+      document.documentElement.style.overflow = "unset"
     }, 4500)
 
     setGif("/images/logo.gif")
@@ -46,7 +41,7 @@ const Home = () => {
   }
   return (
     <>
-      <div className="relative h-[200vh]">
+      <div className={`relative ${showIntro ? "min-h-[100vh]" : "h-[200vh]"} `}>
         <AnimatePresence exitBeforeEnter>
           {loading ? (
             <motion.div
@@ -87,7 +82,7 @@ const Home = () => {
                 className="lg:min-w-[960px] lg:w-[85%] w-[70%] mx-auto"
               />
               <div className="absolute lg:top-[75%] top-[70%] left-1/2 translate-x-[-50%] flex flex-col items-center">
-                <h1 className="text-black text-xl cinzel-font mb-[1vh]">Best Experienced with sound</h1>
+                <h1 className="text-black text-xl cinzel-font mb-[15px] whitespace-nowrap">Best Experienced with sound</h1>
                 <PulseButton handle={() => handleIntro()} title="Enter" dark>
                   Enter
                 </PulseButton>

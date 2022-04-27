@@ -177,7 +177,7 @@ const Section5 = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className="absolute right-[3%] bottom-[-60%] text-right xl:text-[1.25rem] text-base leading-none font-bold text-zinc-400">
+            <div className="absolute right-[3%] lg:bottom-[-60%] bottom-[-140%] text-right xl:text-[1.25rem] text-base leading-none font-bold text-zinc-400">
               ตุงตั๋วเปิ้ง หรือ ตุง 12 ราศี เชื่อว่าจะนำความสิริมงคลมาให้ <br /> สามารถนำไปใช้เป็นภาพหน้าจอโทรศัพท์ หรือ พิมพ์ออกมาได้
             </div>
           </div>
