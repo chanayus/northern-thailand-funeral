@@ -183,7 +183,7 @@ const Section5 = () => {
         </div>
         <div>
           <div className="pr-[2.8vw] text-right xl:text-[1.25rem] text-base leading-none font-bold text-zinc-400">
-            ตุงตั๋วเปิ้ง หรือ ตุง 12 ราศี เชื่อว่าจะนำความสิริมงคลมาให้ <br /> สามารถนำไปใช้เป็นภาพหน้าจอโทรศัพท์ หรือ พิมพ์ออกมาได้
+            ตุงตั๋วเปิ้ง หรือ ตุง 12 นักษัตร เชื่อว่าจะนำความสิริมงคลมาให้ <br /> สามารถนำไปใช้เป็นภาพหน้าจอโทรศัพท์ หรือ พิมพ์ออกมาได้
           </div>
           <div className="w-full flex justify-between items-center bg-transparent py-3 md:px-4 px-2">
             <div className="flex items-center">
