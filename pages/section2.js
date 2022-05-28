@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 import { Howl } from "howler"
 import PulseButton from "../components/PulseButton"
+import ScrollIcon from "../components/ScrollIcon"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { TimelineContext } from "./_app"
 import dynamic from "next/dynamic"
@@ -26,6 +27,7 @@ const Section2 = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
     gsap.to("#coffin", { opacity: 0, scale: 1.75, x: "26%", y: "-44.0%", duration: 0, delay: 0 })
+    gsap.to("#scroll-text", { opacity: 0 })
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -74,6 +76,7 @@ const Section2 = () => {
         pinType: "fixed",
       },
     })
+    activeTl.fromTo("#scroll-text", { opacity: 1, duration: 1 }, { opacity: 0 })
     activeTl.to("#coffin", { opacity: 1 })
     activeTl.to("#candle-stick", { opacity: 0 })
     activeTl.to("#smoke", { opacity: 0 })
@@ -123,17 +126,21 @@ const Section2 = () => {
         </div>
       </div>
       <div className="coffin-container w-full h-screen relative overflow-hidden">
-        <button
-          className="flex items-center z-40 absolute right-5 top-[15%] opacity-0 w-[10vw] min-w-[100px] max-w-[160px]"
-          id="next-button"
-          onClick={() => {
-            mute()
-            setTimeout(() => stop(), 500)
-            router.replace("/section3", "/", { shallow: true, scroll: false })
-          }}
-        >
-          <img src="/images/section2/next.svg" alt="next" className="w-full h-full" />
-        </button>
+        <div id="next-button" className="absolute right-5 top-[15%] opacity-0 z-40">
+          <motion.button
+            initial={{ opacity: 0.3, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
+            className="flex items-center w-[10vw] min-w-[100px] max-w-[160px]"
+            onClick={() => {
+              mute()
+              setTimeout(() => stop(), 500)
+              router.replace("/section3", "/", { shallow: true, scroll: false })
+            }}
+          >
+            <img src="/images/section2/next.svg" alt="next" className="w-full h-full" />
+          </motion.button>
+        </div>
 
         <div className="translate-x-[-50%] translate-y-[-50%] top-[45%] left-1/2 absolute z-10 flex flex-col items-center" id="candle">
           <div className="absolute w-[10vw] h-[25vh] xl:top-[-70%] top-[-55%] origin-bottom" id="smoke">
@@ -151,12 +158,23 @@ const Section2 = () => {
           <img src="/images/section2/candle.png" alt="candle" id="candle-stick" className="w-[80%] max-h-[40vh]" />
           {!candleActivate && (
             <button
-              className="border border-white text-white rounded-xl py-2 text-2xl font-bold absolute w-32 bottom-[-40%]"
+              className="border z-10 border-white text-white rounded-xl py-2 text-2xl font-bold absolute w-32 bottom-[-40%]"
               onClick={() => candleHandle()}
             >
               จุดธุป
             </button>
           )}
+
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: 15 }}
+            transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
+            id="scroll-text"
+            className="w-full invert absolute bottom-[-40%] text-center flex justify-center flex-col items-center"
+          >
+            <h2 className="lg:text-2xl text-base text-black font-bold mb-1 cinzel-font">SCROLL</h2>
+            <ScrollIcon />
+          </motion.div>
         </div>
 
         <div className="relative" id="coffin">

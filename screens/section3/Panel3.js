@@ -71,34 +71,41 @@ const Panel3 = ({ setTimelinePoint }) => {
     }
   }
 
-  const dotClass = "w-5 h-5 z-40 relative rounded-full cursor-pointer drop-shadow-[0_0_5px_rgba(255,255,255,1)] duration-1000"
+  const dotClass = "z-40 relative rounded-full cursor-pointer drop-shadow-[0_0_5px_rgba(255,255,255,1)] duration-1000"
   return (
     <div className="w-full h-full relative overflow-hidden" ref={itemRef.current}>
       <div className="absolute duration-1000 top-[42%] left-[20%]">
-        <Dot delay={0} ref={dot1} className={`${dotClass}`} onClick={() => countHandle(dot1.current, water1.current)}></Dot>
+        <div className={`${dotClass}`} ref={dot1}>
+          <PulseButton title="Click" handle={() => countHandle(dot1.current, water1.current)}></PulseButton>
+        </div>
+
         <img
           ref={water1}
           src="/images/section3/3.3/water.gif"
           alt=""
-          className="z-30 top-[-5px] left-[-100%] absolute min-w-[135px] opacity-0 duration-500"
+          className="z-30 top-[-5px] right-[-100%] absolute min-w-[135px] opacity-0 duration-500"
         />
       </div>
       <div className="absolute duration-1000 top-[25%] left-[33%]">
-        <Dot delay={0.5} ref={dot2} className={`${dotClass}`} onClick={() => countHandle(dot2.current, water2.current)}></Dot>
+        <div className={`${dotClass}`} ref={dot2}>
+          <PulseButton title="Click" handle={() => countHandle(dot2.current, water2.current)}></PulseButton>
+        </div>
         <img
           ref={water2}
           src="/images/section3/3.3/water.gif"
           alt=""
-          className="z-30 top-[-5px] left-[-100%] absolute min-w-[135px] opacity-0 duration-500"
+          className="z-30 top-[-5px] right-[-100%] absolute min-w-[135px] opacity-0 duration-500"
         />
       </div>
       <div className="absolute duration-1000 top-[32%] left-[72%]">
-        <Dot delay={0.25} ref={dot3} className={`${dotClass}`} onClick={() => countHandle(dot3.current, water3.current)}></Dot>
+        <div className={`${dotClass}`} ref={dot3}>
+          <PulseButton title="Click" handle={() => countHandle(dot3.current, water3.current)}></PulseButton>
+        </div>
         <img
           ref={water3}
           src="/images/section3/3.3/water.gif"
           alt=""
-          className="z-30 top-[-5px] left-[-100%] absolute min-w-[135px] opacity-0 duration-500"
+          className="z-30 top-[-5px] right-[-100%] absolute min-w-[135px] opacity-0 duration-500"
         />
       </div>
 
