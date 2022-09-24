@@ -35,7 +35,7 @@ const Panel10 = ({ setTimelinePoint }) => {
           showBg ? "opacity-100" : "opacity-0 pointer-events-none"
         } relative z-50 `}
       >
-        <HeaderParallax path={"/images/section4/4.10/ปราสาทบนสวรรค์_"} section="" totalImage={10} parallaxExclude={[]} />
+        <HeaderParallax path={"/images/section4/4.10/ปราสาทบนสวรรค์_"} section="" totalImage={10} parallaxExclude={[]} loader={false} />
         <Button
           className="bg-[#FFFDF5] border border-[#000] text-black header-font lg:text-3xl text-xl header-bold max-w-[180px] min-w-[140px] w-[16vw] max-h-[50px] h-[10vh] rounded-xl font-bold absolute right-[5%] bottom-[7%] z-50"
           onClick={() => router.replace("/section5", "/", { shallow: true, scroll: false })}

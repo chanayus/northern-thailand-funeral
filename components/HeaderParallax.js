@@ -5,7 +5,7 @@ import Loader from "./Loader"
 import styled from "styled-components"
 import { useRouter } from "next/router"
 
-const HeaderParallax = ({ totalImage = 0, parallaxExclude, path, section = "" }) => {
+const HeaderParallax = ({ totalImage = 0, parallaxExclude, path, section = "", loader = true }) => {
   const [imgLoaded, setImgLoaded] = useState(0)
   const itemsRef = useRef([])
   const router = useRouter()
@@ -41,7 +41,7 @@ const HeaderParallax = ({ totalImage = 0, parallaxExclude, path, section = "" })
   return (
     <div className="w-full h-full duration-1000" onMouseMove={(e) => parallax(e)}>
       <AnimatePresence exitBeforeEnter>
-        {imgLoaded < totalImage && router.asPath === "/" && (
+        {imgLoaded < totalImage && router.asPath === "/" && loader && (
           <motion.div
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
