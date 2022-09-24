@@ -3,10 +3,12 @@ import { useEffect, useRef, useState } from "react"
 
 import Loader from "./Loader"
 import styled from "styled-components"
+import { useRouter } from "next/router"
 
-const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => {
+const HeaderParallax = ({ totalImage = 0, parallaxExclude, path, section = "" }) => {
   const [imgLoaded, setImgLoaded] = useState(0)
   const itemsRef = useRef([])
+  const router = useRouter()
 
   itemsRef.current = []
 
@@ -32,14 +34,14 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
 
   useEffect(() => {
     if (section !== "") {
-      document.documentElement.style.overflow = imgLoaded === totalImage ? "unset" : "hidden"
+      document.documentElement.style.overflow = imgLoaded === totalImage || router.asPath !== "/" ? "unset" : "hidden"
     }
   }, [imgLoaded])
 
   return (
     <div className="w-full h-full duration-1000" onMouseMove={(e) => parallax(e)}>
       <AnimatePresence exitBeforeEnter>
-        {imgLoaded < totalImage && section !== "" && (
+        {imgLoaded < totalImage && router.asPath === "/" && (
           <motion.div
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
@@ -51,7 +53,7 @@ const HeaderParallax = ({ totalImage, parallaxExclude, path, section = "" }) => 
           </motion.div>
         )}
       </AnimatePresence>
-      {imgLoaded === totalImage && section !== 4 && (
+      {(imgLoaded === totalImage || router.asPath !== "/") && section !== 4 && (
         <Img
           src={`${path}0.gif`}
           ref={addToRefs}
