@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import React from "react"
 import { useAudio } from "../hooks/useAudio"
 import { useState } from "react"
+import { useLenis } from "../hooks/useLenis"
 
 const TimelineContext = React.createContext()
 const BgMusicContext = React.createContext()
@@ -17,6 +18,8 @@ function MyApp({ Component, pageProps }) {
   const [isEnd, setIsEnd] = useState(false)
   const [showCastle, setShowCastle] = useState(false)
   const [playing, play, pause, stop, mute, isMute] = useAudio("/sound/1.mp3")
+
+  useLenis()
   return (
     <IsEndContext.Provider value={{ isEnd, setIsEnd, showCastle, setShowCastle }}>
       <BgMusicContext.Provider value={{ playing, play, pause, stop, mute, isMute }}>
