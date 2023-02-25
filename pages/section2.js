@@ -69,7 +69,7 @@ const Section2 = () => {
         trigger: ".coffin-container",
         start: "65% 60%",
         end: `+=350%`,
-        scrub: 1,
+        scrub: true,
         pin: true,
         invalidateOnRefresh: true,
         anticipatePin: 1,
