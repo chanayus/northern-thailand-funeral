@@ -32,7 +32,7 @@ const Hud = () => {
   }, [router])
 
   return (
-    <motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 2 }  }}>
       <div className={`duration-1000 relative z-50 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
         <PageTimeline />
       </div>
